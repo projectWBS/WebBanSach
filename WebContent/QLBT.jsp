@@ -121,7 +121,7 @@
             <div class=" container ">
               <div class=" carousel-caption d-none d-md-block ">
                 <h1>Book</h1>
-                <p>Vé Máy Bay trong tầm tay</p>
+                <p>Đọc sách vui mỗi ngày</p>
               </div>
             </div>
           </div>
@@ -130,7 +130,7 @@
             <div class=" container ">
               <div class=" carousel-caption d-none d-md-block ">
                 <h1>Book</h1>
-                <p>Bay ngay hôm nay nhận ngay quà khủng</p>
+                <p>Sáng tạo và tư duy</p>
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
                 <div class="container">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>Book</h1>
-                        <p>Dịch vụ trong tầm tay</p>
+                        <p>Cuộc sống muôn màu</p>
                     </div>
                 </div>
             </div>
