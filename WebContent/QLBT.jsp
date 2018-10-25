@@ -139,7 +139,7 @@
                 <div class="container">
                     <div class="carousel-caption d-none d-md-block">
                         <h1>Book</h1>
-                        <p>Cuộc sống muôn màu thú vị</p>
+                        <p>Cuộc sống muôn màu</p>
                     </div>
                 </div>
             </div>
