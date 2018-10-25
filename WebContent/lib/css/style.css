@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 i {
 	margin-top: 5px;
 	cursor: pointer;
@@ -155,7 +154,7 @@ header{
 }
 
 .breadcrumb li>a>span:hover {
-	color: #80BB35
+	color: #1A237E
 }
 
 .breadcrumb li span {
@@ -170,15 +169,15 @@ header{
 }
 
 .breadcrumb li strong {
-	color: #80BB35
+	color: #1A237E
 }
 
 .breadcrumb li strong span {
-	color: #80BB35
+	color: #1A237E
 }
 
 .breadcrumb li a:hover, .breadcrumb li.active, .breadcrumb li strong {
-	color: #80BB35;
+	color: #1A237E;
 	font-weight: 400;
 	font-size: 1em
 }
@@ -371,6 +370,12 @@ header{
     height: 270px;
     margin: 20px 50px;
     cursor: pointer;
+}
+
+#them:hover img{
+    position: relative;
+    width: 65%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .info-book> .title{
@@ -645,3 +650,251 @@ header{
 		display: none !important
 	}
 }
+
+
+.txtThemTin
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.btnThemTin
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.tinhethong
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 250px;
+    opacity: 0.6;
+
+}
+.tininfo
+{
+    font-family: 'Montserrat', sans-serif;
+    color: #1A237E;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 250px
+}
+.tininfo.btn
+{
+      padding: 10px 20px;
+      background-color: #333;
+      color: #f1f1f1;
+      border-radius: 0;
+      transition: .2s;
+}
+.tininfo .btn:hover, .btn:focus {
+      border: 1px solid #333;
+      background-color: #1A237E;
+
+      color: white;
+  }
+/*slideshow*/
+#my-carousel 
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 100px; 
+}
+.NhapSachIMG
+ {
+    border: solid;
+    border-width: 2px;
+    border-color: #1A237E;
+    width: 200px;
+    height: 240px;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+.NhapSachIMG [type=file] 
+{
+    cursor: inherit;
+    display: block;
+    font-size: 12px;
+    width: 75px;
+    opacity: 0.6;
+    position:static;
+    margin-left: 60px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+.NhapSach
+{
+    border-radius: 10px;
+    background-color: rgba(255,255,255,1);
+    font-family: "Verdana", Arial;
+
+
+}
+.NhapSachINFO
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+
+}
+.fixLB
+{
+    position: relative;
+    width: 600px;
+
+
+}
+.fixLB input[type=text]
+{
+    float: right;
+    width: 440px;
+    border-width: 2px;
+    background-color: white;
+    opacity: 0.8;
+    text-align: center;
+    line-height: 25px;
+
+}
+.fixLB input[type=text]:hover
+{
+    float: right;
+    width: 450px;
+    border: solid;
+    border-color: #1A237E;
+    border-width: 3px;
+    background-color: white;
+    opacity: 1;
+    text-align: center;
+    line-height: 27px;
+
+}
+.figureNhapSach
+{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.figureNhapSach textarea
+{
+    margin-left: 100px;
+    opacity: 0.8;
+    box-sizing: 100px;
+    border-width: 2px;
+    line-height: 25px;
+    margin-bottom: 50px;
+}
+.figureNhapSach textarea:hover
+{
+    margin-left: 100px;
+    border: solid;
+    border-color: #1A237E;
+    border-width: 3px;
+    opacity: 1;
+    box-sizing: 100px;
+    line-height: 27px;
+}
+.aSM a
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: blue;
+    text-align: center;
+}
+
+.aSM a:hover
+{
+    color: red;
+    border-color: #B0BEC5;
+}
+.tuade
+{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+#aSMHuy a
+{
+    margin-left: 100px;
+
+}
+#aSMAccpt a
+{
+    margin-left: 160px;
+}
+.txtThemTin input[type=text]
+{
+
+    width: 890px;
+    border-width: 2px;
+    background-color: white;
+    opacity: 0.8;
+    text-align: center;
+    line-height: 25px;
+
+}
+.txtThemTin input[type=text]:hover
+{
+
+    width: 900px;
+    border: solid;
+    border-color: #1A237E;
+    border-width: 3px;
+    background-color: white;
+    opacity: 1;
+    text-align: center;
+    line-height: 27px;
+
+}
+#btnhuytt 
+{
+    margin-left: 90px;
+}
+#btnthemtt
+{
+    margin-left: 350px;
+}
+
+
+/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+.row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+.sidenav 
+{
+    background-color: #f1f1f1;
+    height: 100%;
+}
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+
+
+
+      
