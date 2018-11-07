@@ -20,6 +20,8 @@
 	</footer>
 	
 	<script>
+	
+		//Use in ViewBook.jsp
 		function addBookToCart(id, soluong){
 			var count = getCookie("countBook");
 			if (count.length == 0) count = 1;
@@ -31,11 +33,32 @@
 			$("#countInput").load(document.URL + " #count");
 		}
 		
+		//Use in ViewCart.jsp
+		function removeBookFromCart(index){
+			var cookies = getListCookie(); //Danh sách cookie trong web
+			var countBook = cookies.pop().split("="); //Số lượng lần mua sách
+			
+			if (cookies.length > 0){
+				var book = getCookieAt(cookies, index); //Lấy ra thông tin lần mua sách thứ index
+				deleteCookie(book.split("=")[0]); //Xóa lần mua này
+				
+				var soLuong = countBook[1] - 1;//Giảm số lượng lần mua trong biến đếm
+				setCookie(countBook[0], soLuong);
+				
+				$(".cart-count").load(document.URL + " #number");
+				$("#bill").load(document.URL + " #label, #price");
+				if (soLuong > 0) $(".table-modify").load(document.URL + " .row-table");
+				else $(".table-modify").load(document.URL + " .error");
+			}
+		}
+		
+		//Use in ViewBook.jsp
 		function getNumberBuy(){
 			var inputNumber = document.getElementById("count");
 			return inputNumber.value;
 		}
 		
+		//Use in ViewBook.jsp
 		function zoomImage(mini_image, zoom_image, name){
 			var url = "url" + "(lib/image/" + name + ")";
 			var image= document.getElementById(zoom_image);
@@ -48,6 +71,7 @@
 			mini_image.className = "mini-image active"; //Kích hoạt trạng thía active mới
 		}
 		
+		//Use in ViewBook.jsp
 		function mouseHoverImage(img){
 			if (img.className == "mini-image"){
 				img.style.opacity = 1.0;
@@ -55,6 +79,7 @@
 			}
 		}
 		
+		//Use in ViewBook.jsp
 		function mouseOutImage(img){
 			if (img.className == "mini-image"){
 				img.style.opacity = 0.75;

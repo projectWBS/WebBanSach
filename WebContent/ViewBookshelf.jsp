@@ -68,14 +68,33 @@
 		</section>
 		
 		<article>
-			<div class="container bookshelf">
+			<div class="row" style="margin:10px 0px;">
+				<div class="col-sm-12">
+					<ul class="breadcrumb" itemtype="http://schema.org/BreadcrumbList">
+						<li itemprop="itemListElement"
+							itemtype="http://schema.org/ListItem"><a itemprop="item"
+							href="http://localhost:8080/Web_Ban_Sach/"> <span
+								itemprop="name"> <i class="fa fa-home"></i> Trang chủ
+							</span>
+						</a> <span><i class="fa fa-angle-right"></i></span>
+							<meta itemprop="position" content="1"></li>
+						<li itemprop="itemListElement"
+							itemtype="http://schema.org/ListItem"><a itemprop="item"
+							href="#"> <strong itemprop="name">Sách mới</strong>
+						</a>
+							<meta itemprop="position" content="3"></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="container bookshelf" style="margin-top:0px;">
 				<div class="row descrip">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 						<div class="title">Sách mới</div>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 						<div class="view-detail">
-							<a href="Bookshelf">Xem chi tiết >></a>
+							<a href="">Xem chi tiết >></a>
 						</div>
 					</div>
 				</div>
@@ -259,207 +278,6 @@
 							</div>
 							<a href="ViewBook?id=s00006"> <img alt="s00006"
 								src="lib/image/s00006.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 6</div>
-								<div class="price">Giá: 25.000đ</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="container bookshelf">
-				<div class="row descrip">
-					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-						<div class="title">Sách bán chạy</div>
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-						<div class="view-detail">
-							<a href="Bookshelf">Xem chi tiết >></a>
-						</div>
-					</div>
-				</div>
-				<div class="row content">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00007">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00007"><a href="ViewBook?id=s00007"><i class="fa fa-info-circle"></i></a></i></a>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00007', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00007"> <img alt="s00007"
-								src="lib/image/s00007.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 1</div>
-								<div class="price">Giá: 20.000đ</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00008">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00008"><i class="fa fa-info-circle"></i></a></i>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00008', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00008"> <img alt="s00008"
-								src="lib/image/s00008.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 2</div>
-								<div class="price">Giá: 50.000đ</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00009">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00009"><i class="fa fa-info-circle"></i></a></i>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00009', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00009"> <img alt="s00009"
-								src="lib/image/s00009.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 3</div>
-								<div class="price">Giá: 35.000đ</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00010">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00010"><i class="fa fa-info-circle"></i></a></i>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00010', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00010"> <img alt="s00010"
-								src="lib/image/s00010.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 4</div>
-								<div class="price">Giá: 60.000đ</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00011"><i class="fa fa-info-circle"></i></a></i>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00011', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00011"> <img alt="s00011"
-								src="lib/image/s00011.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 5</div>
-								<div class="price">Giá: 45.000đ</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00012">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00012"><i class="fa fa-info-circle"></i></a></i>
-												<div class="content content-right"><span>Thông tin chi tiết</span></div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right">
-												<i class="fa fa-cart-plus" onclick="addBookToCart('s00012', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00012"> <img alt="s00012"
-								src="lib/image/s00012.jpeg">
 							</a>
 							<div class="info-book">
 								<div class="title">Sách số 6</div>
