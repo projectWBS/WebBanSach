@@ -1,21 +1,45 @@
 @charset "UTF-8";
+
 i {
 	margin-top: 5px;
 	cursor: pointer;
 }
 
 header{
-    position: fixed;
+    position: fixed !important;
     top: 0px;
     z-index: 1000;
 }
 
 #content{
     display: block;
-    position: relative;
-    top: 150px;
+    position: static;
+    margin-top: 100px;
 }
 
+#logo{
+    display: block;
+    position: relative;
+    padding: 5px 0px;
+}
+
+#zoom-btn{
+	display: none;
+    position: absolute;
+    top: 5px;
+    left: 30px;
+    background-color: lightgray;
+    width: 35px;
+    height: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px 0px white;
+}
+
+#zoom-btn i{
+	color: darkslategrey;
+    padding: 2px;
+}
+	
 .i-content{
 	display: block;
 	text-align: center;
@@ -41,8 +65,6 @@ header{
     clear: both;
     display: table;
 }
-
-
 
 .icon-left-relative {
 	height: auto;
@@ -72,12 +94,25 @@ header{
 	float: none !important
 }
 
-.icon-bar{
+.icon-bar.horizontal{
 	display: inline-block;
 }
 
-.icon-bar>ul li{
+.icon-bar.vertical{
+	display: block;
+}
+
+.icon-bar.horizontal>ul li{
    	display: inline-block;
+}
+
+.icon-bar.vertical>ul li{
+   	display: block;
+   	position: relative;
+}
+
+.icon-bar.vertical>ul li:not(:first-of-type){
+	top: 50px;
 }
 
 .topbar {
@@ -89,6 +124,7 @@ header{
 	font-size: 15px;
 	padding: 1px;
 	margin: 0;
+	overflow: hidden;
 }
 
 .topbar a {
@@ -100,13 +136,14 @@ header{
 	color: main-color-2
 }
 
-.topbar .icon-bar{
+.topbar .icon-bar.horizontal{
     position: relative;
     float: right;
     right: 10%;
+    top: 4px;
 }
 
-.topbar .icon-bar>ul li{
+.topbar .icon-bar.horizontal>ul li{
     padding-left: 50px;
 }
 
@@ -154,7 +191,7 @@ header{
 }
 
 .breadcrumb li>a>span:hover {
-	color: #1A237E
+	color: #80BB35
 }
 
 .breadcrumb li span {
@@ -169,15 +206,15 @@ header{
 }
 
 .breadcrumb li strong {
-	color: #1A237E
+	color: #80BB35
 }
 
 .breadcrumb li strong span {
-	color: #1A237E
+	color: #80BB35
 }
 
 .breadcrumb li a:hover, .breadcrumb li.active, .breadcrumb li strong {
-	color: #1A237E;
+	color: #80BB35;
 	font-weight: 400;
 	font-size: 1em
 }
@@ -189,9 +226,10 @@ header{
 	margin-top: 5px;
 	background-color: #F5F5F5;
 	border: 1px solid #E3E3E3;
-	border-radius: 4px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)
+	border-radius: 10px;
+	overflow: hidden;
+	-webkit-box-shadow: 0px 0px 4px 0px grey;
+	box-shadow: 0px 0px 4px 0px grey
 }
 
 .board h3{
@@ -201,6 +239,13 @@ header{
 .board> p{
 	margin-top: -1em;
 	color: red;
+}
+
+.board span{
+	display: inline-block;
+    position: relative;
+    left: 10px;
+    font-size: 15px;
 }
 
 .board blockquote {
@@ -226,8 +271,7 @@ header{
 
 .right-dropdown-content {
     display: none;
-    position: absolute;
-    right: 0;
+    position: fixed;
     background-color: #ededed;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -236,7 +280,7 @@ header{
 
 .left-dropdown-content {
     display: none;
-    position: absolute;
+    position: fixed;
     background-color: #ededed;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -327,19 +371,19 @@ header{
 	padding: 19px;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	margin: 20px 15px 20px 0px;
+	margin: 20px 0px 20px 0px;
 	background-color: #FFFFFF;
 	border: 1px solid #E3E3E3;
 	border-radius: 10px;
-	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
-	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05)
+	-webkit-box-shadow: 0px 0px 4px 0px grey;
+	box-shadow: 0px 0px 4px 0px grey
 }
 
-.bookshelf> .content{
+.bookshelf> .descrip{
 	border-bottom-style: ridge;
 }
 
-.bookshelf> .content .title{
+.bookshelf> .descrip .title{
     padding-left: 20px;
     padding-bottom: 10px;
     text-transform: uppercase;
@@ -347,73 +391,53 @@ header{
     font-size: large;
 }
 
-.bookshelf> .content .view-detail{
+.bookshelf> .descrip .view-detail{
     padding-left: 20px;
     padding-bottom: 10px;
     text-align: right;
     font-size: inherit;
 }
 
+.bookshelf .content{
+	text-align: center
+}
+
 .book{
 	position: relative;
-	padding-bottom: 50px;
-	width: 100%;
-	overflow: hidden;
+    margin: 50px 0px;
+    width: 100%;
+    min-height: 275px;
+    max-height: 300px;
+    overflow: hidden;
+    border: 2px groove;
+    text-align: center;
+    box-shadow: 0px 0px 10px 0px;
 }
 
-.book:hover .options{
-	width: 65%;
+.book:hover{
+	box-shadow: 0px 0px 15px 2px;
 }
 
-.book> img{
-	width: 65%;
-    height: 270px;
+.book img{
+    width: 60%;
     margin: 20px 50px;
     cursor: pointer;
-}
-
-#them:hover img{
-    position: relative;
-    width: 65%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .info-book> .title{
-	text-align: left;
+    text-align: center;
     text-shadow: 2px 2px lightgrey;
     font-family: "Times New Roman", Times, serif;
-    font-size: 22px;
+    font-size: large;
     font-weight: bold;
-    padding-left: 50px
 }
 
 .info-book> .price{
-	text-align: left;
+    text-align: center;
     color: #1E3D5A;
-    padding-left: 50px;
 }
-
-.book> .options{
-	display: inline-flex;
-    position: absolute;
-    background: rgba(128, 128, 128, 0.75);
-    color: white;
-    top: 20px;
-    left: 50px;
-    width: 0;;
-    height: 270px;
-    overflow: hidden;
-    transition: .5s ease;
-}
-
-.book>.options i{
-	display: block;
-    font-size: 30px !important;
-    padding-top: 95px;
-    padding-left: 40px;
-    padding-right: 20px;
-}
-
 
 .form-group{
 	margin-bottom: 15px;
@@ -441,7 +465,6 @@ header{
     padding: 0px;
     margin: 0px;
     border: 1px solid #E3E3E3;
-    min-height: 100%;
 }
 
 .categories .title{
@@ -477,52 +500,6 @@ header{
 	background: #80A4BE;
 }
 
-.carousel{
-	margin-top: 20px;
-}
-
-.carousel img{
-	width: 100%;
-	height: 100%;
-}
-
-.carousel .btn{
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    padding: 4% 0px;
-}
-
-.carousel .btn .prev{
-    float: left;
-    padding: 8% 0;
-    padding-left: 20px;
-}
-
-.carousel .btn .next{
-    float: right;
-    padding: 8% 0;
-    margin-right: 100px;
-}
-
-.carousel .btn i{
-	display: inline-flex;
-    position: absolute;
-	font-size: 40px !important;
-    border: 2px solid;
-    border-radius: 30px;
-    width: 50px;
-    height: 50px;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel .btn i:hover{
-	background: rgba(234, 234, 234, 0.5);
-}
-
 .nav-toggle{
     display: none;
     float: right;
@@ -541,11 +518,11 @@ header{
 
 .nav-toggle .toggle-content{
     display: none;
-    position: relative;
-    top: 62px;
-    right: 4%;
+    position: fixed;
+    left: 0;
+    top: 100px;
     width: 106%;
-    height: 100%;
+    height: 0;
     border-top: 2px groove;
 }
 
@@ -555,7 +532,7 @@ header{
     display: block;
     position: relative;
     background: #1E3D5A;
-    padding: 10px;
+    padding: 12px 20px;
 }
 
 .nav-toggle .toggle-content .toggle-item:hover{
@@ -574,60 +551,379 @@ header{
     height: 100% !important;
 }
 
-@media ( min-width :1280px) {
-	.menu-collapse> .left{
-		margin-left: -20%;
-	}
+.button-arc{
+	display: block;
+    position: absolute;
+    margin: 3px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    line-height: initial;
+    transition: all 0.35s ease;
+}
+
+.button-rect{
+    display: inline-block;
+    word-wrap: break-word;
+    line-height: 25px;
+    width: 150px;
+    max-width: 175px;
+    padding: 0px 8px;
+    text-align: center;
+}
+
+.button-modify .button-arc i{
+    position: absolute;
+    color: white;
+    left: 28%;
+    top: 27%;
+    margin: 0px;
+}	
+
+.button-modify .button-rect i{
+	color: white;
+    font-size: 25px !important;
+    cursor: default;
+}
+
+.button-modify .left{
+	left: 0;
+}
+
+.button-modify .right{
+	right: 0;
+}
+
+.button-modify .hot{
+    background: rgb(255, 16, 0);
+    box-shadow: 0px 0px 5px 2px rgb(255, 159, 153);
+}
+
+.button-modify .forest{
+	background: rgb(0, 163, 0);
+    box-shadow: 0px 0px 5px 2px rgb(52, 114, 52);
+}
+
+.button-modify .sunny{
+	background: rgb(255, 246, 0);
+    box-shadow: 0px 0px 5px 2px rgb(229, 222, 25);
+}
+
+.button-modify .cool{
+	background: rgb(54, 177, 191);
+    box-shadow: 0px 0px 5px 2px rgb(168, 240, 255);
+}
+
+.button-modify .content-right{
+	display: none;
+	position: absolute;
+    border-radius: 10px;
+    margin: 8px 0px;
+    padding: 4px;
+    right: 50px;
+    width: 0px;
+    background: wheat;
+    transition: all 0.3s ease;
+}
+
+.button-modify .content-inner{
+	display: inline-block;
+    position: relative;
+    bottom: 3px;
+}
+
+.button-modify:hover .content-right{
+	display: inline-block;
+	width: 150px;
+}
+
+.button-rect:hover{
+	cursor: pointer;
+	box-shadow: 0px 0px 5px 0px;
+}
+
+.figureBook{
+	font-family: initial;
+    padding: 10px 15px;
+}
+
+.figureBook .header{
+	margin: 10px 15px;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.figureBook .content{
+	font-size: medium;
+    font-kerning: normal;
+    text-indent: 15px;
+}
+
+.option-search{
+	padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px groove;
+}
+
+.NhapSach
+{
+    border-radius: 10px;
+    background-color: rgba(255,255,255,1);
+    font-family: "Verdana", Arial;
+}
+
+.NhapSachIMG{
+	margin: 20px 0px;
+}
+
+.NhapSachIMG #image{
+	display: inline-block;
+    background: lightgray;
+    margin: 10px 0px;
+    max-width: 120px;
+    max-heigh: auto;
+}
+
+.fixLB
+{
+    position: relative;
+    width: 100%;
+}
+
+.fixLB input[type=text]
+{
+    float: right;
+    width: 60%;
+    border-width: 2px;
+    background-color: white;
+    opacity: 0.8;
+    text-align: center;
+    line-height: 25px;
+}
+
+input[type=text]:hover
+{
+    box-shadow: 0px 0px 1px 2px #1A237E;
+}
+
+.figureNhapSach
+{
+	margin: 20px 0px;
+}
+
+.figureNhapSach textarea
+{
+	display: block;
+    position: relative;
+    opacity: 0.8;
+    border-width: 2px;
+    line-height: 25px;
+    width: 100%;
+    height: 200px;
+    word-wrap: break-word;
+}
+
+.figureNhapSach textarea:hover
+{
+    box-shadow: 0px 0px 1px 2px #1A237E;
+}
+
+.aSM a
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: blue;
+    text-align: center;
+}
+
+.aSM a:hover
+{
+    color: red;
+    border-color: #B0BEC5;
+}
+
+.tuade
+{
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+
+.txtThemTin input[type=text]
+{
+	width: 100%;
+    border-width: 2px;
+    background-color: white;
+    opacity: 0.8;
+    text-align: center;
+    line-height: 25px;
+    margin: 5px 0px;
+}
+
+.dropdownSB {
+    float: left;
+    overflow: hidden;
+}
+
+#btnSearch {
+    width: 900px;
+    padding: 8px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+}
+
+.dropbtn {
+    padding: 6px 10px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+#ftSearch {
+    padding: 6px 10px;
+    margin-top: 8px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.dropdownSB-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdownSB-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownSB-content a:hover {
+    background-color: #ddd;
+}
+
+.ochuaQLDH {
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+.ochuaQLDH li {
+    float: left;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.ochuaQLDH li:hover {
+	float: left;
+	margin: 0;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	width: 150px;
+	background-color: #bb9f9f;
+	margin-top: 20px;
+}
+
+.ochuaQLDH li a :hover {
+	position: relative;
+	display: block;
+	padding: 10px 15px;
+	width: 150px;
+	text-align: center;
+	color: black;
+}
+
+.tbHere {
+    background: #B0BEC5;
+    color: #363636;
+    width: 100%;
+}
+
+.ochuaQLDH li a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    width: 150px;
+    text-align: center;
+    color: black;
+}
+
+.QLDH_tbDonHang {
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.QLDH_tbDonHang {
+    margin-right: 50px;
+    margin-left: 50px;
+    text-align: center;
+    margin-bottom: 100px;
 }
 
 @media ( min-width :320px) {
-	.topbar .icon-bar>ul li{
+	.topbar .icon-bar.horizontal>ul li{
     	padding-left: 30px;
+	}
+}
+
+@media (max-width: 499px){
+	#search-textbox{
+		display: none;
+	}
+	#zoom-btn{
+		display: block;
 	}
 }
 
 @media ( max-width :767px) {
 	.book {
-		padding-left: 27%;
+	    text-align: center;
+    	width: 50%;
+    	display: inline-block;
 	}
 	
-	.book> img{
+	.book img{
 		width: 65%;
-    	height: 85%;
+    	height: auto;
     	margin: 20px 0px;
 	}
 	
 	.info-book>.title {
-		display: flex;
-    	justify-content: center;
-    	padding-left: 0px;
-    	padding-right: 30%;
+		display: block;
+    	padding: 0px;
+    	text-align: center;
 	}
 	
 	.info-book>.price {
-		display: flex;
-    	justify-content: center;
-    	padding-left: 0px;
-    	padding-right: 30%;
+		display: block;
+    	padding: 0px;
+    	text-align: center;
 	}
 	
-	.book>.options {
+	.button-arc{
 		display: none;
 	}
 	
 }
 
-@media ( min-width :768px) {
-	.hidden-xs {
-		display: none !important
-	}
-}
-
-@media ( min-width :768px) and (max-width:991px) {
-	.hidden-sm {
-		display: none !important
-	}
-}
 
 @media ( max-width: 991px){
 	.navbar-brand, .nav-left{
@@ -636,6 +932,24 @@ header{
 	
 	.nav-toggle{
 		display: inline-block;
+	}
+}
+
+@media ( min-width :240px) and (max-width: 499px) {
+	.hidden-ms {
+		display: none !important
+	}
+}
+
+@media ( min-width :500px) and (max-width: 767px) {
+	.hidden-xs {
+		display: none !important
+	}
+}
+
+@media ( min-width :768px) and (max-width:991px) {
+	.hidden-sm {
+		display: none !important
 	}
 }
 
@@ -651,250 +965,9 @@ header{
 	}
 }
 
-
-.txtThemTin
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-.btnThemTin
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.tinhethong
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 250px;
-    opacity: 0.6;
-
-}
-.tininfo
-{
-    font-family: 'Montserrat', sans-serif;
-    color: #1A237E;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    height: 250px
-}
-.tininfo.btn
-{
-      padding: 10px 20px;
-      background-color: #333;
-      color: #f1f1f1;
-      border-radius: 0;
-      transition: .2s;
-}
-.tininfo .btn:hover, .btn:focus {
-      border: 1px solid #333;
-      background-color: #1A237E;
-
-      color: white;
-  }
-/*slideshow*/
-#my-carousel 
-{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 100px;
-  margin-right: 100px; 
-}
-.NhapSachIMG
- {
-    border: solid;
-    border-width: 2px;
-    border-color: #1A237E;
-    width: 200px;
-    height: 240px;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-
-}
-.NhapSachIMG [type=file] 
-{
-    cursor: inherit;
-    display: block;
-    font-size: 12px;
-    width: 75px;
-    opacity: 0.6;
-    position:static;
-    margin-left: 60px;
-    margin-bottom: 2px;
-    text-align: center;
-}
-.NhapSach
-{
-    border-radius: 10px;
-    background-color: rgba(255,255,255,1);
-    font-family: "Verdana", Arial;
-
-
-}
-.NhapSachINFO
-{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-
-}
-.fixLB
-{
-    position: relative;
-    width: 600px;
-
-
-}
-.fixLB input[type=text]
-{
-    float: right;
-    width: 440px;
-    border-width: 2px;
-    background-color: white;
-    opacity: 0.8;
-    text-align: center;
-    line-height: 25px;
-
-}
-.fixLB input[type=text]:hover
-{
-    float: right;
-    width: 450px;
-    border: solid;
-    border-color: #1A237E;
-    border-width: 3px;
-    background-color: white;
-    opacity: 1;
-    text-align: center;
-    line-height: 27px;
-
-}
-.figureNhapSach
-{
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-}
-.figureNhapSach textarea
-{
-    margin-left: 100px;
-    opacity: 0.8;
-    box-sizing: 100px;
-    border-width: 2px;
-    line-height: 25px;
-    margin-bottom: 50px;
-}
-.figureNhapSach textarea:hover
-{
-    margin-left: 100px;
-    border: solid;
-    border-color: #1A237E;
-    border-width: 3px;
-    opacity: 1;
-    box-sizing: 100px;
-    line-height: 27px;
-}
-.aSM a
-{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: blue;
-    text-align: center;
+@media ( min-width :1280px) {
+	.menu-collapse> .left{
+		margin-left: -20%;
+	}
 }
 
-.aSM a:hover
-{
-    color: red;
-    border-color: #B0BEC5;
-}
-.tuade
-{
-    text-align: center;
-    font-size: 15px;
-    font-weight: bold;
-
-}
-#aSMHuy a
-{
-    margin-left: 100px;
-
-}
-#aSMAccpt a
-{
-    margin-left: 160px;
-}
-.txtThemTin input[type=text]
-{
-
-    width: 890px;
-    border-width: 2px;
-    background-color: white;
-    opacity: 0.8;
-    text-align: center;
-    line-height: 25px;
-
-}
-.txtThemTin input[type=text]:hover
-{
-
-    width: 900px;
-    border: solid;
-    border-color: #1A237E;
-    border-width: 3px;
-    background-color: white;
-    opacity: 1;
-    text-align: center;
-    line-height: 27px;
-
-}
-#btnhuytt 
-{
-    margin-left: 90px;
-}
-#btnthemtt
-{
-    margin-left: 350px;
-}
-
-
-/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-.row.content {height: 1500px}
-    
-    /* Set gray background color and 100% height */
-.sidenav 
-{
-    background-color: #f1f1f1;
-    height: 100%;
-}
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height: auto;} 
-
-
-
-      
