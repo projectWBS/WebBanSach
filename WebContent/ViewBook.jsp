@@ -49,7 +49,7 @@
 					<article>
 						<div class="row">
 							<div class="board">
-								<!-- <div class="col-lg-1 col-md-1 hidden-sm hidden-xs hidden-ms" style="padding: 0px;">
+								<div class="col-lg-1 col-md-1 hidden-sm hidden-xs hidden-ms" style="padding: 0px;">
 									<div class="mini-image-bar">
 										<div class="mini-image active" 
 											onclick="zoomImage(this, 'zoom-image', 's00001.jpeg')"
@@ -76,7 +76,7 @@
 												<img alt="s00004" src="lib/image/s00004.jpeg">
 										</div>
 									</div>
-								</div> -->
+								</div>
 								<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 									<div class="thumbnail">
 										<%
@@ -94,7 +94,7 @@
 										%>
 									</div>
 								</div>
-								<div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+								<div class="col-lg-7 col-md-5 col-sm-6 col-xs-12">
 									<div id="info">
 									
 										<%
