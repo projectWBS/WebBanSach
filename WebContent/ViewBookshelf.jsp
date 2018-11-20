@@ -21,51 +21,6 @@
 	<%@ include file="/comp/Header.jsp" %>
 	
 	<div class="container-fluid" id="content">
-		<section>
-			<div clas="container-fluid">
-				<div class="row khung">
-					<div class="categories col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<div class="title">
-							<p>Danh mục sách</p>
-						</div>
-						<ul class="detail">
-							<li class="item"><a href="Bookshelf">Sách mới</a></li>
-							<li class="item"><a href="Bookshelf">Sách bán chạy</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-						<div id="my-carousel" class="carousel slide" data-ride="carousel">
-							<ol class="carousel-indicators">
-								<li data-target="#my-carousel" data-slide-to="0" class="active"></li>
-								<li data-target="#my-carousel" data-slide-to="1" class=""></li>
-								<li data-target="#my-carousel" data-slide-to="2" class=""></li>
-							</ol>
-							<div class="carousel-inner">
-								<div class="item active">
-									<img src="image/banner-01.jpg"
-										style="width: 100%; background-repeat: no-repeat;">
-								</div>
-								<div class="item">
-									<img src="image/banner-02.jpg"
-										style="width: 100%; background-repeat: no-repeat;">
-								</div>
-								<div class="item">
-									<img src="image/banner-03.jpg"
-										style="width: 100%; background-repeat: no-repeat;">
-								</div>
-
-								<a class="left carousel-control" href="#my-carousel"
-									data-slide="prev"> <span
-									class="glyphicon glyphicon-chevron-left"></span></a> <a
-									class="right carousel-control" href="#my-carousel"
-									data-slide="next"> <span
-									class="glyphicon glyphicon-chevron-right"></span></a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
 		
 		<article>
 			<div class="row" style="margin:10px 0px;">

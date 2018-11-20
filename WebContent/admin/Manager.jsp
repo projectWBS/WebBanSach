@@ -17,17 +17,17 @@
 	<%@ include file="/comp/Header.jsp"%>
 
 	<div class="container-fluid" id="content">
-		<div class="row">
+		<div class="row"  style="background-color: #eeeeee;">
 			<div class="categories col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
 				</div>
 				<ul class="detail">
-					<li class="item"><a href="Manager/BangTin">Quản lý bảng tin</a></li>
-					<li class="item"><a href="Manager/ThuChi">Quản lý thu chi</a></li>
-					<li class="item"><a href="Manager/DonHang">Quản lý đơn hàng</a></li>
-					<li class="item"><a href="Manager/KhoSach">Quản lý kho sách</a></li>
-					<li class="item"><a href="Manager/KhachHang">Quản lý khách hàng</a></li>
+					<li class="item" onclick='gotoPage("Manager/BangTin")'><a href="Manager/BangTin">Quản lý bảng tin</a></li>
+					<li class="item" onclick='gotoPage("Manager/ThuChi")'><a href="Manager/ThuChi">Quản lý thu chi</a></li>
+					<li class="item" onclick='gotoPage("Manager/DonHang")'><a href="Manager/DonHang">Quản lý đơn hàng</a></li>
+					<li class="item" onclick='gotoPage("Manager/KhoSach")'><a href="Manager/KhoSach">Quản lý kho sách</a></li>
+					<li class="item" onclick='gotoPage("Manager/KhachHang")'><a href="Manager/KhachHang">Quản lý khách hàng</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">

@@ -28,7 +28,7 @@
 					<p>Chức năng quản lý</p>
 				</div>
 				<ul class="detail">
-					<li class="item"><a href="../Manager/BangTin">Quản lý bảng tin</a></li>
+					<li class="item active"><a href="../Manager/BangTin">Quản lý bảng tin</a></li>
 					<li class="item"><a href="../Manager/ThuChi">Quản lý thu chi</a></li>
 					<li class="item"><a href="../Manager/DonHang">Quản lý đơn hàng</a></li>
 					<li class="item"><a href="../Manager/KhoSach">Quản lý kho sách</a></li>

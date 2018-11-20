@@ -16906,7 +16906,7 @@ header nav .nav-item>a:after {
 }
 
 header nav .nav-item:hover>a {
-	background: #FE9705
+	background: #57859C
 }
 
 header nav .nav-item:hover>.mega-content, header nav .nav-item:hover .dropdown-menu
@@ -17456,12 +17456,12 @@ footer .site-footer h3 {
 }
 
 header nav .nav-item.active>a {
-	color: #FE9705 !important
+	color: #57859C !important
 }
 
 @media ( min-width :992px) {
 	header nav .nav-item.active>a {
-		background: #FE9705 !important;
+		background: #57859C !important;
 		color: #FFFFFF !important
 	}
 }
@@ -17479,7 +17479,7 @@ header nav .nav-item:hover>a {
 
 @media ( min-width :992px) {
 	header nav .nav-item:hover>a {
-		background: #FE9705 !important;
+		background: #57859C !important;
 		color: #FFFFFF !important
 	}
 }

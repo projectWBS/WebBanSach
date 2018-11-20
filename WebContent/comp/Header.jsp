@@ -93,10 +93,14 @@
 					<!-- Menu -->
 					<div class="row">
 						<div class="col-lg-12 col-md-12 col-sm-12 col-ms-12">
-							<div class="navbar">
+							<div class="navbar" style="border:none">
 								<ul class="nav nav-left">
-									<li class="nav-item nav-item-lv1"><a class="nav-link"
+									<li class="nav-item nav-item-lv1 active"><a class="nav-link"
 										href="http://localhost:8080/Web_Ban_Sach">Trang chủ</a></li>
+									<li class="nav-item nav-item-lv1"><a class="nav-link"
+										href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách mới</a></li>
+									<li class="nav-item nav-item-lv1"><a class="nav-link"
+										href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách hot</a></li>
 								</ul>
 								<div class="nav nav-toggle">
 									<button id="btn-toggle">
@@ -105,6 +109,10 @@
 									<div class="toggle-content">
 										<span class="toggle-item"><a
 											href="http://localhost:8080/Web_Ban_Sach">Trang chủ</a></span> 
+										<span class="toggle-item"><a
+											href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách mới</a></span> 
+										<span class="toggle-item"><a
+											href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách hot</a></span> 
 									</div>
 								</div>
 							</div>

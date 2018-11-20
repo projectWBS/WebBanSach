@@ -92,7 +92,9 @@ $(document).ready(function(){
 										</div>
 										<input type="submit" value="Đăng nhập" class="btn btn-primary"
 											id="btn-search">
+										<a class="forget-password" href="#form"><i class="fa fa-question-circle" id="QuenMK"></i></a>
 									</form>
+									
 								</div>
 							</div>
 						</div>
@@ -100,8 +102,47 @@ $(document).ready(function(){
 				</div>
 			</div>
 		</section>
+		
+		<div>
+			<div class="forget" id="form">Quên mật khẩu
+				<a class="close" href="#"><i class="fa fa-close" style="color: red; margin-right: 5px;"></i></a>
+				<form class="forget-content" action="#" method="post">
+					<label class="name"> <span>Tên đăng nhập</span> <input
+						id="username" type="text" autocomplete="on" name="username"
+						placeholder="Username..." value="" style="width: 90%;"/>
+					</label>
+					<button class="button submit-button" type="button">Khôi phục</button>
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<%@ include file="/comp/Footer.jsp" %>	
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('a.forget-password').click(function() {
+				//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+				var loginBox = $(this).attr('href');
+
+				//cho hiện hộp đăng nhập trong 300ms
+				$(loginBox).fadeIn(300);
+
+				// thêm phần tử id="over" vào sau body
+				$('body').append('<div id="over">');
+				$('#over').fadeIn(300);
+
+				return false;
+			});
+
+			// khi click đóng hộp thoại
+			$(document).on('click', "a.close, #over, button.submit-button", function() {
+				$('#over, .forget').fadeOut(300, function() {
+					$('#over').remove();
+				});
+				return false;
+			});
+		});
+	</script>
 </body>
 </html>

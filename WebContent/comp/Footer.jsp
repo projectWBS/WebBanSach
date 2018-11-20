@@ -21,6 +21,11 @@
 	
 	<script>
 	
+		//Goto url
+		function gotoPage(url){
+			document.location.href = url;
+		}
+	
 		//Use in ViewBook.jsp
 		function addBookToCart(id, soluong){
 			var count = getCookie("countBook");

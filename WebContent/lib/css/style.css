@@ -5,6 +5,10 @@ i {
 	cursor: pointer;
 }
 
+li.item {
+    cursor: pointer;
+}
+
 header{
     position: fixed !important;
     top: 0px;
@@ -38,6 +42,69 @@ header{
 #zoom-btn i{
 	color: darkslategrey;
     padding: 2px;
+}
+
+#QuenMK{
+	display: inline-block;
+    position: absolute;
+    right: 0 !important;
+    transform: translateX(-200%);
+}
+
+.f-center{
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+.full-width{
+	width: 100% !important;
+}
+
+.clear-margin{
+	margin: 0 !important;
+}
+
+.clear-padding{
+	padding: 0 !important;
+}
+
+.options{
+	display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(100, 100, 100, 0.6);
+    transition: width 0.25s ease 0s;
+}
+
+.options .content{
+	position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.options i{
+	display: block;
+    font-size: 28px !important;
+    color: #fff;
+}
+
+.options span{
+	cursor: default;
+    font-family: serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: black;
+}
+
+header nav .active{
+	background-color: #1E3D5A !important;
 }
 	
 .i-content{
@@ -418,12 +485,18 @@ header{
 	box-shadow: 0px 0px 15px 2px;
 }
 
+.book:hover .options{
+	width: 100%;
+}
+
 .book img{
-    width: 60%;
-    margin: 20px 50px;
+    display: block;
+    width: 70%;
+    margin-top: 20px;
     cursor: pointer;
     max-width: 300px;
     max-height: 300px;
+    transform: translateX(22%);
 }
 
 .info-book> .title{
@@ -465,6 +538,8 @@ header{
     padding: 0px;
     margin: 0px;
     border: 1px solid #E3E3E3;
+    border-radius: 5px;
+    box-shadow: 1px 1px 6px;
 }
 
 .categories .title{
@@ -485,6 +560,10 @@ header{
 .categories .detail .item{
 	padding: 15px 0px 15px 0px;
 	text-align: center;
+}
+
+.categories .detail .active{
+	background-color: rgb(155, 155, 155, 0.5);
 }
 
 .categories .detail a{
@@ -533,6 +612,7 @@ header{
     position: relative;
     background: #1E3D5A;
     padding: 12px 20px;
+    text-align: center;
 }
 
 .nav-toggle .toggle-content .toggle-item:hover{
@@ -561,6 +641,7 @@ header{
     border-radius: 20px;
     line-height: initial;
     transition: all 0.35s ease;
+    z-index: 1;
 }
 
 .button-rect{
@@ -616,15 +697,16 @@ header{
 }
 
 .button-modify .content-right{
-	display: none;
+	display: inline-block;
 	position: absolute;
     border-radius: 10px;
     margin: 8px 0px;
     padding: 4px;
     right: 50px;
-    width: 0px;
+    width: 150px;
+    opacity: 0;
     background: wheat;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .button-modify .content-inner{
@@ -634,8 +716,7 @@ header{
 }
 
 .button-modify:hover .content-right{
-	display: inline-block;
-	width: 150px;
+	opacity: 1.0;
 }
 
 .button-rect:hover{
@@ -679,7 +760,6 @@ header{
 
 .NhapSachIMG #image{
 	display: inline-block;
-    background: lightgray;
     margin: 10px 0px;
     max-width: 120px;
     max-heigh: auto;
@@ -704,7 +784,7 @@ header{
 
 input[type=text]:hover
 {
-    box-shadow: 0px 0px 1px 2px #1A237E;
+    box-shadow: 1px 1px 1px 0px gray;
 }
 
 .figureNhapSach
@@ -944,6 +1024,60 @@ a, a:visited, a:active{
     padding-top: 15px;
     overflow: hidden;
 }
+
+.forget
+{
+	background-color: #1E3D5A;
+    color: white;
+    height: auto;
+    width: 60%;
+    font-size: large;
+    font-family: Book Antiqua;
+    text-align: center;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    display: none;
+    overflow: hidden;
+    position: absolute;
+    z-index: 99999;
+    top: 10%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+ 
+.forget .forget_title
+{
+    color:white;
+    font-size:16px;
+    padding:8px 0 5px 8px;
+    text-align:left;
+}
+ 
+.forget-content label {
+    display: block;
+    padding-bottom: 7px;
+    color: black;
+    font-family: serif;
+    font-size: smaller;
+    text-align: left;
+    padding-left: 5%;
+}
+ 
+.forget-content span {
+    display: block;
+}
+
+.forget-content
+{
+    background-color: white;
+    width: 98%;
+    transform: translate(1%, 0);
+    padding-top: 15px;
+    overflow: hidden;
+}
  
 .img-close {
     float: right;
@@ -991,7 +1125,7 @@ a, a:visited, a:active{
     margin: 15px 0px;
     padding: 0px;
     width: 25%;
-    transform: translate(126%, 0);
+    transform: translate(150%, 0);
 }
 
 @media ( min-width :320px) {

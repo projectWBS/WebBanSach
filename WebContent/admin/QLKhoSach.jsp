@@ -24,7 +24,7 @@
 	<%@ include file="/comp/Header.jsp"%>
 
 	<div class="container-fluid" id="content">
-		<div class="row">
+		<div class="row" style="background-color: #eeeeee;">
 			<div class="categories col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
@@ -33,7 +33,7 @@
 					<li class="item"><a href="../Manager/BangTin">Quản lý bảng tin</a></li>
 					<li class="item"><a href="../Manager/ThuChi">Quản lý thu chi</a></li>
 					<li class="item"><a href="../Manager/DonHang">Quản lý đơn hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho sách</a></li>
+					<li class="item active"><a href="../Manager/KhoSach">Quản lý kho sách</a></li>
 					<li class="item"><a href="../Manager/KhachHang">Quản lý khách hàng</a></li>
 				</ul>
 			</div>
@@ -48,8 +48,10 @@
 						<div class="col-lg-3 col-md-4 col-sm-6">
 							<div class="book" id="them">
 								<a href="../Manager/Sach?action=add"><img alt="them"
-									src="../lib/image/plus.png" style="padding: 30px 0px;"></img></a>
+									src="../lib/image/plus.png"
+									style="margin: 0px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);"></img></a>
 							</div>
+							
 						</div>
 						
 						<%
@@ -64,13 +66,15 @@
 									
 									out.println("<div class=\"col-lg-3 col-md-4 col-sm-6\">");
 									out.println("<div class=\"book\" id=\"" + maSach + "\">");
-									out.println("<a href=\"../Manager/Sach?id=" + maSach + "&action=modify\">");
 									
 									if (pathImage != null)
-										out.println("<img alt=\"" + maSach + "\" style=\"max-width: \" src=\"../lib/image/" + pathImage.getDuongDan() + "\"></a>");
-									out.println("<div class=\"info-book\">");
-									out.println("<div class=\"title\">" + tenSach + "</div>");
-									out.println("<div class=\"price\">Giá: " + giaBan + "đ</div></div></div></div>");
+										out.println("<img class=\"clear-margin f-center full-width\" alt=\"" + maSach + "\" style=\"max-width: \" src=\"../lib/image/" + pathImage.getDuongDan() + "\">");
+									
+									out.println("<div class=\"options\">");
+									out.println("<div class=\"content\">");
+									out.println("<div class=\"col-ms-6\"><a href=\"../Manager/Sach?id=" + maSach + "&action=modify\"><i class=\"fa fa-edit\"></i></a><span>Chỉnh sửa</span></div>");
+									out.println("<div class=\"col-ms-6\"><i class=\"fa fa-trash\"></i><span>Xóa</span></div></div></div>");
+									out.println("</div></div>");
 								}
 							}
 						%>

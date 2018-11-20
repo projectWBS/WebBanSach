@@ -122,7 +122,7 @@
 	<%@ include file="/comp/Header.jsp"%>
 
 	<div class="container-fluid" id="content">
-		<div class="row">
+		<div class="row"  style="background-color: #eeeeee;">
 			<div class="categories col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
@@ -131,7 +131,7 @@
 					<li class="item"><a href="../Manager/BangTin">Quản lý bảng tin</a></li>
 					<li class="item"><a href="../Manager/ThuChi">Quản lý thu chi</a></li>
 					<li class="item"><a href="../Manager/DonHang">Quản lý đơn hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho sách</a></li>
+					<li class="item active"><a href="../Manager/KhoSach">Quản lý kho sách</a></li>
 					<li class="item"><a href="../Manager/KhachHang">Quản lý khách hàng</a></li>
 				</ul>
 			</div>
@@ -183,12 +183,17 @@
 								Book book = null;
 								if ("2".equals(resultBook)) {
 									book = (Book) request.getAttribute("book");
+									
+									out.println("<div class=\"NhapSachIMG\">");
+									out.println("<img id=\"image\" src=\"../lib/image/" + book.getImages().getDuongDan() + "\"></img>");
+									out.println("<input type=\"file\" accept=\"image/* \" style=\"width: 100%;\" id=\"inputImage\"></div>");
 								} else if ("1".equals(resultBook)) {
 									book = new Book();
+									
+									out.println("<div class=\"NhapSachIMG\">");
+									out.println("<img id=\"image\" src=\"../lib/image/none.png\"></img>");
+									out.println("<input type=\"file\" accept=\"image/* \" style=\"width: 100%;\" id=\"inputImage\"></div>");
 								}
-								out.println("<div class=\"NhapSachIMG\">");
-								out.println("<img id=\"image\"></img>");
-								out.println("<input type=\"file\" accept=\"image/* \" style=\"width: 100%;\" id=\"inputImage\"></div>");
 							%>
 						</div>
 						

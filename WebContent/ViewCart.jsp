@@ -115,7 +115,7 @@
 		</article>
 
 		<div>
-			<div class="login" id="confirm-form">Đăng nhập
+			<div class="login" id="confirm-form">Thông tin khách hàng
 				<a class="close" href="#"><i class="fa fa-close" style="color: red; margin-right: 5px;"></i></a>
 				<form class="login-content" action="#" method="post">
 					<label class="name"> <span>Tên người mua</span> <input

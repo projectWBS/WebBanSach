@@ -24,16 +24,7 @@
 		<section>
 			<div clas="container-fluid">
 				<div class="row khung">
-					<div class="categories col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<div class="title">
-							<p>Danh mục sách</p>
-						</div>
-						<ul class="detail">
-							<li class="item"><a href="Bookshelf">Sách mới</a></li>
-							<li class="item"><a href="Bookshelf">Sách bán chạy</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+					<div class="col-xs-12">
 						<div id="my-carousel" class="carousel slide" data-ride="carousel">
 							<ol class="carousel-indicators">
 								<li data-target="#my-carousel" data-slide-to="0" class="active"></li>
@@ -87,7 +78,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00001"><a href="ViewBook?id=s00001"><i class="fa fa-info-circle"></i></a></i></a>
+												<a href="ViewBook?id=s00001"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -96,8 +87,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00001', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -118,7 +109,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00002"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00002"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -127,8 +118,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00002', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -149,7 +140,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00003"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00003"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -158,8 +149,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00003', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -180,7 +171,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00004"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00004"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -189,8 +180,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00004', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -211,7 +202,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00005"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00005"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -220,8 +211,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00005', 1)"></i>
-											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
+											</div>	
 										</div>
 									</li>
 								</ul>
@@ -242,7 +233,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00006"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00006"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -251,8 +242,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus" onclick="addBookToCart('s00006', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -288,7 +279,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00007"><a href="ViewBook?id=s00007"><i class="fa fa-info-circle"></i></a></i></a>
+												<a href="ViewBook?id=s00007"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -297,8 +288,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00007', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -319,7 +310,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00008"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00008"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -328,8 +319,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00008', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -350,7 +341,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00009"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00009"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -359,8 +350,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00009', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -381,7 +372,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00010"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00010"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -390,8 +381,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00010', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -412,7 +403,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00011"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00011"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -421,8 +412,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus"  onclick="addBookToCart('s00011', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
@@ -443,7 +434,7 @@
 									<li>
 										<div class="button-modify">
 											<div class="button-arc forest right">
-												<a href="ViewBook?id=s00012"><i class="fa fa-info-circle"></i></a></i>
+												<a href="ViewBook?id=s00012"><i class="fa fa-info-circle"></i></a>
 												<div class="content content-right"><span>Thông tin chi tiết</span></div>
 											</div>
 										</div>
@@ -452,8 +443,8 @@
 										<div class="button-modify">
 											<div class="button-arc cool right">
 												<i class="fa fa-cart-plus" onclick="addBookToCart('s00012', 1)"></i>
+												<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 											</div>
-											<div class="content content-right"><span>Cho vào giỏ hàng</span></div>
 										</div>
 									</li>
 								</ul>
