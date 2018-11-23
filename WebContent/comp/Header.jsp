@@ -46,7 +46,7 @@
 													if (user == null){
 														out.println("<ul>");
 														out.println("<li><a href=\"login\">Đăng nhập</a>");
-														out.println("<li><a href=\"http://localhost:8080/Web_Ban_Sach/SignUp.jsp\">Đăng ký tài khoản</a>");
+														out.println("<li><a href=\"signup\">Đăng ký tài khoản</a>");
 														out.println("</ul>");
 													}
 													else
@@ -98,9 +98,9 @@
 									<li class="nav-item nav-item-lv1 active"><a class="nav-link"
 										href="http://localhost:8080/Web_Ban_Sach">Trang chủ</a></li>
 									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách mới</a></li>
+										href="Categories">Sách mới</a></li>
 									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách hot</a></li>
+										href="Categories">Sách hot</a></li>
 								</ul>
 								<div class="nav nav-toggle">
 									<button id="btn-toggle">
@@ -110,9 +110,9 @@
 										<span class="toggle-item"><a
 											href="http://localhost:8080/Web_Ban_Sach">Trang chủ</a></span> 
 										<span class="toggle-item"><a
-											href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách mới</a></span> 
+											href="Categories">Sách mới</a></span> 
 										<span class="toggle-item"><a
-											href="http://localhost:8080/Web_Ban_Sach/Bookshelf">Sách hot</a></span> 
+											href="Categories">Sách hot</a></span> 
 									</div>
 								</div>
 							</div>

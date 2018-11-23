@@ -21,7 +21,7 @@
 <body class="common-home">
 
 	<!-- Phần header cho trang Web -->
-	<%@ include file="/comp/Header.jsp"%>
+	<%@ include file="../comp/Header.jsp"%>
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
@@ -86,6 +86,6 @@
 	</div>
 
 	<!-- Phần footer cho trang Web -->
-	<%@ include file="/comp/Footer.jsp"%>
+	<%@ include file="../comp/Footer.jsp"%>
 </body>
 </html>
