@@ -43,6 +43,20 @@ public class CtrBook {
 		return maSach;
 	}
 	
+	public void setRate(String maSach, double rate) {
+		//Cập nhật mức độ đánh giá cho sách
+		connection.connect();
+		
+		try {
+			Vector<Object[]> paramsIn = connection.createParams(new int[] {1, 2}, new Object[] {maSach, rate});
+			connection.executeProcedure("sp_ChinhSuaDanhGiaSach", paramsIn, null, null);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			connection.close();
+		}
+	}
+	
 	public void updateBook(Book book) {
 		//Cập nhật thông tin cho cuốn sách theo mã sách
 		connection.connect();
@@ -67,7 +81,7 @@ public class CtrBook {
 		connection.connect();
 		
 		try {
-			ResultSet resultSet = connection.executeFunction("fc_getAllBook", null);
+			ResultSet resultSet = connection.executeTableFunction("fc_getAllBook", null);
 			while (resultSet.next()) {
 				Book book = new Book();
 				CtrImage ctrImage = new CtrImage();
@@ -80,6 +94,7 @@ public class CtrBook {
 				book.setNXB(resultSet.getString(5));
 				book.setTacGia(resultSet.getString(6));
 				book.setMoTa(resultSet.getString(7));
+				book.setRate(resultSet.getDouble(8));
 				
 				Image[] images = ctrImage.getImageById(null, book.getMaSach());
 				//Xét trường hợp mỗi sách chỉ cần một hình để hiển thị
@@ -105,7 +120,7 @@ public class CtrBook {
 		
 		try {
 			Vector<Object[]> paramsIn = connection.createParams(new int[] {1}, new Object[] {Id});
-			ResultSet resultSet = connection.executeFunction("fc_getBookById", paramsIn);
+			ResultSet resultSet = connection.executeTableFunction("fc_getBookById", paramsIn);
 			while (resultSet.next()) {
 				result = new Book();
 				
@@ -117,6 +132,7 @@ public class CtrBook {
 				result.setNXB(resultSet.getString(5));
 				result.setTacGia(resultSet.getString(6));
 				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
 				
 				Image[] images = ctrImage.getImageById(null, result.getMaSach());
 				//Xét trường hợp mỗi sách chỉ cần một hình để hiển thị

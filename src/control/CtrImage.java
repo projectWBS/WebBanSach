@@ -58,7 +58,7 @@ public class CtrImage {
 		try {
 			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1, 2 }, new Object[] { idImage, idBook });
 			ResultSet resultSet;
-			resultSet = connection.executeFunction("fc_getImageById", paramsIn);
+			resultSet = connection.executeTableFunction("fc_getImageById", paramsIn);
 
 			while (resultSet.next() && result.size() <= 4) {
 				Image image = new Image();
@@ -84,7 +84,7 @@ public class CtrImage {
 		try {
 			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1, 2 }, new Object[] { idImage, idBook });
 			ResultSet resultSet;
-			resultSet = connection.executeFunction("fc_getImageById", paramsIn);
+			resultSet = connection.executeTableFunction("fc_getImageById", paramsIn);
 
 			while (resultSet.next() && result.size() <= 4) {
 				Image image = new Image();

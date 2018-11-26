@@ -64,16 +64,22 @@ public class AdminQLSach extends HttpServlet {
 		if (action != null) {
 			CtrBook control_Book = new CtrBook();
 			String tenSach = request.getParameter("name");
-			int giaSach = Integer.parseInt(request.getParameter("gia"));
+			String sGiaSach = request.getParameter("gia");
 			String theLoai = request.getParameter("theLoai");
 			String NXB = request.getParameter("nxb");
 			String tacGia = request.getParameter("tacGia");
 			String moTa = request.getParameter("moTa");
 			String duongDanAnh = request.getParameter("duongDan");
 			
-			if (action.equals("add")) {
+			if (tenSach.length() == 0 || sGiaSach.length() == 0 || theLoai.length() == 0 || NXB.length() == 0 ||
+					tacGia.length() == 0 || moTa.length() == 0 || duongDanAnh.length() == 0) {
+				doGet(request, response);
+				return;
+			}
+			
+			int giaSach = Integer.parseInt(sGiaSach);
+ 			if (action.equals("add")) {
 				//Thêm sách mới
-				System.out.println("Đã vô đây: " + "Thêm sách mới");
 				
 				control_Book.addBook(tenSach, giaSach, theLoai, NXB, tacGia, moTa, duongDanAnh);
 			} else if (action.equals("modify")) {
@@ -87,13 +93,13 @@ public class AdminQLSach extends HttpServlet {
 					Image image = new Image(maAnh, id, duongDanAnh);
 					
 					//Cập nhật sách theo ảnh vừa tạo
-					control_Book.updateBook(new Book(id, tenSach, giaSach, theLoai, NXB, tacGia, moTa, image));
+					control_Book.updateBook(new Book(id, tenSach, giaSach, theLoai, NXB, tacGia, moTa, 0, image));
 				} else if (imageAction.equals("update")) {
 					
 					//Cập nhật sách đã có hình
 					String maAnh = request.getParameter("maAnh");
 					Image image = new Image(maAnh, id, duongDanAnh);
-					control_Book.updateBook(new Book(id, tenSach, giaSach, theLoai, NXB, tacGia, moTa, image));
+					control_Book.updateBook(new Book(id, tenSach, giaSach, theLoai, NXB, tacGia, moTa, 0, image));
 				}
 			}
 		}

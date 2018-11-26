@@ -25,19 +25,7 @@
 		function gotoPage(url){
 			document.location.href = url;
 		}
-	
-		//Use in ViewBook.jsp
-		function addBookToCart(id, soluong){
-			var count = getCookie("countBook");
-			if (count.length == 0) count = 1;
-			else count++;
 			
-			setCookie("book" + count, "id:" + id + "-count:" + soluong); //Thêm sách đã mua vào cookie
-			setCookie("countBook", count);
-			$(".cart-count").load(document.URL + " #number");
-			$("#countInput").load(document.URL + " #count");
-		}
-		
 		//Use in ViewCart.jsp
 		function removeBookFromCart(index){
 			var cookies = getListCookie(); //Danh sách cookie trong web

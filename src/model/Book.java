@@ -4,6 +4,7 @@ package model;
 public class Book {
 	private String MaSach = "", TenSach = "", TheLoai = "", NXB = "", TacGia = "";
 	private String MoTa = "";
+	private double Rate = 0;
 	private Image images = new Image();
 	private int GiaBan;
 	
@@ -12,7 +13,7 @@ public class Book {
 	}
 	
 	public Book(String maSach, String tenSach, int giaBan, String theLoai, String nXB, String tacGia, String moTa, 
-			Image images) {
+			double rate, Image images) {
 		super();
 		MaSach = maSach;
 		TenSach = tenSach;
@@ -20,6 +21,7 @@ public class Book {
 		NXB = nXB;
 		TacGia = tacGia;
 		MoTa = moTa;
+		Rate = rate;
 		this.images = images;
 		GiaBan = giaBan;
 	}
@@ -77,6 +79,14 @@ public class Book {
 
 	public void setTacGia(String tacGia) {
 		TacGia = tacGia;
+	}
+
+	public int getRate() {
+		return (int)Math.round(Rate);
+	}
+
+	public void setRate(double rate) {
+		Rate = rate;
 	}
 
 	public Image getImages() {

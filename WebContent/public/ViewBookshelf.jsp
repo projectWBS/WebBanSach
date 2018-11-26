@@ -22,7 +22,7 @@
 	
 	<div class="container-fluid" id="content">
 		
-		<article>
+		<article class="container">
 			<div class="row" style="margin:10px 0px;">
 				<div class="col-sm-12">
 					<ul class="breadcrumb" itemtype="http://schema.org/BreadcrumbList">
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 
-			<div class="container bookshelf" style="margin-top:0px;">
+			<div class="bookshelf" style="margin: 1em 1em 0em 0em;">
 				<div class="row descrip">
 					<div class="col-ms-12">
 						<div class="title">Sách mới</div>

@@ -1,3 +1,4 @@
+<%@page import="model.Comment"%>
 <%@page import="model.Image"%>
 <%@page import="model.Book"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -11,10 +12,13 @@
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css" data-minify="1"/>
 <link rel="stylesheet" type="text/css" href="lib/css/styleView.css"/>
-<link rel="stylesheet" type="text/css" href="lib/css/style.css">
+<link rel="stylesheet" type="text/css" href="lib/css/style.css" />
+<link rel="stylesheet" type="text/css" href="lib/css/BEM_Style.css" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
+<script type="text/javascript" src="lib/js/ActionBook.js"></script>
+
 </head>
 <body>
 	<%@ include file="../comp/Header.jsp" %>
@@ -45,7 +49,7 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-md-9 col-sm-8 col-xs-12">
 					<article>
 						<div class="row">
 							<div class="board">
@@ -123,6 +127,28 @@
 												out.println("<div class=\"col-lg-9 col-md-8 col-sm-7 col-xs-9\"><span>" + ((Book)book).getGiaBan() + "</span></div>");
 												out.println("</div>");
 												out.println("</li>");
+												
+												out.println("<li>");
+												out.println("<div class=\"row\">");
+												out.println("<div class=\"col-lg-3 col-md-4 col-sm-5 col-xs-3\"><p><strong>Đánh giá: </strong></p></div>");
+												out.println("<div class=\"col-lg-9 col-md-8 col-sm-7 col-xs-9\"><span id=\"danhGia\" style=\"margin: 5px 0px;\">");
+												
+												//Đánh giá sản phẩm
+												int danhGia = Integer.parseInt(request.getAttribute("rate").toString());
+												int temp = danhGia;
+												for (int i = 0; i<5; i++){
+													if (temp > 0){
+														out.println("<i class=\"fa fa-star\" style=\"display: inline-block; color:gold\" onclick=\"setUserRate(" + (i + 1) + ")\"></i>");
+														temp--;
+													} else {
+														out.println("<i class=\"fa fa-star\" style=\"display: inline-block;\" onclick=\"setUserRate(" + (i + 1) + ")\"></i>");
+													}
+												}
+												out.println("<span>(" + danhGia + "/5 sao)</span>");
+												out.println("<span style=\"margin-left: 4px; cursor: pointer;\" onclick=\"sendUserRate()\">-  Gửi đánh giá</span>");
+												out.println("</span></div>");
+												out.println("</div>");
+												out.println("</li>");
 
 												out.println("</ul>");
 											}
@@ -130,10 +156,10 @@
 									</div>
 
 									<div class="row" style="margin-top: 20px;">
-										<div class="col-lg-1 col-md-3 col-sm-3 col-xs-12" id="countInput">
+										<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12" id="countInput">
 											<input type="number" name="quantity" min="1" max="100" value="1" id="count">
 										</div>
-										<div class="col-lg-11 col-md-5 col-sm-8 col-xs-12">
+										<div class="col-lg-10 col-md-5 col-sm-8 col-xs-12">
 											<div class="button-modify">
 												<%
 													if (book != null){
@@ -162,6 +188,70 @@
 							</div>
 						</div>
 					</article>
+				</div>
+			
+				<div class="col-md-3 col-sm-4 col-xs-12">
+					<div class="board mini-board">
+						<div class="title">Sản phẩm tương tự</div>
+						<ul class="content">
+							<li class="item">
+								<img src="lib/image/s00002.jpeg"></img>
+								<span>Sách số 2</span>
+							</li>
+							<li class="item">
+								<img src="lib/image/s00003.jpeg"></img>
+								<span>Sách số 3</span>
+							</li>
+							<li class="item">
+								<img src="lib/image/s00004.jpeg"></img>
+								<span>Sách số 4</span>
+							</li>
+							<li class="item">
+								<img src="lib/image/s00005.jpeg"></img>
+								<span>Sách số 5</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="board" id="board_comment">
+					<p class="board__title">Đánh giá</p>
+					<%
+						Object comments = request.getAttribute("comment");
+						if (comments != null){
+							Comment[] c = (Comment[])comments;
+							for(int i=0; i<c.length; i++){
+								Comment comment = c[i];
+								
+								out.println("<ul class=\"comment\">");
+								out.println("<li class=\"comment__item\">");
+								out.println("<span class=\"comment__item__icon\"><i class=\"fa fa-user\" style=\"cursor: default;\"></i></span>");
+								out.println("<span class=\"comment__item__name\">" + comment.getTenNguoiDung() + "</span>");
+								out.println("<span class=\"comment__item__time\">" + comment.getThoiGian() + "</span>");
+								out.println("<span class=\"comment__item__content\">" + comment.getNoiDung() + "</span>");
+								out.println("</li>");
+								out.println("</ul>");
+							}
+						}
+					%>
+				</div>
+
+				<div class="board">
+					<p class="board__title">Thêm đánh giá</p>
+					<div class="comment__new">
+						<input type="text" value="" placeholder="Tên của bạn..." class="comment__new__name" id="name"></input>
+						<textarea rows="5" placeholder="Nội dung bình luận..." class="comment__new__content" id="comment"></textarea>
+						<div class="comment__new__button button-modify">
+							<div class="button-rect cool" style="cursor: pointer;" onclick="sendCommentOfUser(null)">
+								<i class="fa fa-send"></i>
+								<span class="content-inner">Gửi đánh giá</span>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

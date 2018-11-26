@@ -17,86 +17,75 @@
 
 <script type="text/javascript">
 
+		
+	function saveBook(){
+		var action = '${action}';
+		if (action == "add" || action == "modify") {
+			//Set up value to save
+			var id, name, gia, theLoai, nxb, tacGia, moTa, duongDan;
 
-	$(document).ready(function() {
-		$("#submit").on("click", function() {
-			var action = '${action}';
-			if (action == "add" || action == "modify") {
-				//Set up value to save
-				var id, name, gia, theLoai, nxb, tacGia, moTa, duongDan;
+			if (action == "modify")
+				id = '${id}';
+			name = $("#name").val();
+			gia = $("#price").val();
+			theLoai = $("#category").val();
+			nxb = $("#NXB").val();
+			tacGia = $("#author").val();
+			moTa = $("#figure").val();
+			duongDan = document.cookie.split("=")[1];
 
-				if (action == "modify")
-					id = '${id}';
-				name = $("#name").val();
-				gia = $("#price").val();
-				theLoai = $("#category").val();
-				nxb = $("#NXB").val();
-				tacGia = $("#author").val();
-				moTa = $("#figure").val();
-				duongDan = document.cookie.split("=")[1];
-
-				if (action == "add") {
-					$.post("../Manager/Sach?action=add", {
+			if (action == "add") {
+				$.post("../Manager/Sach?action=add", {
+					name : name,
+					gia : gia,
+					theLoai : theLoai,
+					nxb : nxb,
+					tacGia : tacGia,
+					moTa : moTa,
+					duongDan : duongDan
+				}, function(data, status) {
+					window.history.back();
+				});
+			} else {
+				var imageAction = '${imageAction}';
+				if (imageAction == "add") {
+					$.post("../Manager/Sach?action=modify", {
+						id : id,
 						name : name,
 						gia : gia,
 						theLoai : theLoai,
 						nxb : nxb,
 						tacGia : tacGia,
 						moTa : moTa,
+						imageAction : imageAction,
 						duongDan : duongDan
 					}, function(data, status) {
-						if (status == "success") {
-							alert("Lưu thành công!");
-							resetInput();
-						} else {
-							alert("Lưu không thành công!");
-						}
+						window.history.back();
 					});
 				} else {
-					var imageAction = '${imageAction}';
-					if (imageAction == "add") {
-						$.post("../Manager/Sach?action=modify", {
-							id : id,
-							name : name,
-							gia : gia,
-							theLoai : theLoai,
-							nxb : nxb,
-							tacGia : tacGia,
-							moTa : moTa,
-							imageAction : imageAction,
-							duongDan : duongDan
-						}, function(data, status) {
-							if (status == "success") {
-								alert("Chỉnh sửa thành công!");
-							} else {
-								alert("Chỉnh sửa không thành công!");
-							}
-						});
-					} else {
-						if (duongDan == null) {
-							duongDan = $("#image").attr("src");
-							duongDan = duongDan.substring("/" + 1, duongDan.length);
-						}
-						
-						$.post("../Manager/Sach?action=modify", {
-							id : id,
-							name : name,
-							gia : gia,
-							theLoai : theLoai,
-							nxb : nxb,
-							tacGia : tacGia,
-							moTa : moTa,
-							imageAction : imageAction,
-							duongDan : duongDan,
-							maAnh : '${maAnh}'
-						}, function(data, status) {
-							window.history.back();
-						});
+					if (duongDan == null) {
+						duongDan = $("#image").attr("src");
+						duongDan = duongDan.substring("/" + 1, duongDan.length);
 					}
+
+					$.post("../Manager/Sach?action=modify", {
+						id : id,
+						name : name,
+						gia : gia,
+						theLoai : theLoai,
+						nxb : nxb,
+						tacGia : tacGia,
+						moTa : moTa,
+						imageAction : imageAction,
+						duongDan : duongDan,
+						maAnh : '${maAnh}'
+					}, function(data, status) {
+						window.history.back();
+					});
 				}
 			}
-		});
-	});
+		}
+	}
 
 	function resetInput() {
 		document.getElementById("name").value = "";
@@ -109,13 +98,18 @@
 		document.getElementById("inputImage").value = "";
 	}
 
-	window.addEventListener("load", function() {
-		document.getElementById("inputImage").onchange = function(event) {
-			var tmppath = URL.createObjectURL(event.target.files[0]);
-			$("#image").attr("src", URL.createObjectURL(event.target.files[0]));
-			setCookie("img", event.target.files[0].name);
-		}
-	});
+	window
+			.addEventListener(
+					"load",
+					function() {
+						document.getElementById("inputImage").onchange = function(event) {
+							var tmppath = URL
+									.createObjectURL(event.target.files[0]);
+							$("#image").attr("src",
+									URL.createObjectURL(event.target.files[0]));
+							setCookie("img", event.target.files[0].name);
+						}
+					});
 </script>
 </head>
 <body class="common-home">
@@ -171,7 +165,7 @@
 						}
 					%>
 					<div class="col-ms-3 aSM" style="text-align: center;">
-						<a href="" id="submit">Chấp nhận</a>
+						<div id="submit" onclick="saveBook()" style="cursor:pointer; color:blue;">Chấp nhận</div>
 					</div>
 				</div>
 

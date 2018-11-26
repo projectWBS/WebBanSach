@@ -58,8 +58,8 @@
 			</div>
 		</section>
 		
-		<article>
-			<div class="container bookshelf">
+		<article class="container">
+			<div class="bookshelf" style="margin: 1em 1em 1em 0em;">
 				<div class="row descrip">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 						<div class="title">Sách mới</div>
@@ -260,7 +260,7 @@
 				</div>
 			</div>
 
-			<div class="container bookshelf">
+			<div class="bookshelf" style="margin: 1em 1em 1em 0em;">
 				<div class="row descrip">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 						<div class="title">Sách bán chạy</div>

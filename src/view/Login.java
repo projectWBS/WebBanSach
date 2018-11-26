@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import control.CtrAccount;
+import model.Account;
+
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,12 +29,18 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map<String, String[]> user = request.getParameterMap();
+		CtrAccount ctrAccount = new CtrAccount();
 		if (user.size() > 0) {
-			if (user.get("nameLogin")[0].equals("user")
-					&& user.get("passLogin")[0].equals("1234")) {//�?ăng nhặp thành công
+			if (ctrAccount.Login(user.get("nameLogin")[0], user.get("passLogin")[0])) {//Đăng nhập thành công
 				HttpSession session = request.getSession();
-				session.setAttribute("User", user.get("nameLogin")[0]);
-				response.sendRedirect(request.getContextPath());
+				Account account = ctrAccount.getInformation(user.get("nameLogin")[0]);
+				session.setAttribute("User", account);
+				
+				if (account.getChucVu().equals("user"))
+					response.sendRedirect(request.getContextPath());
+				else
+					response.sendRedirect(request.getContextPath() + "/Manager");
+				
 			} else {
 				StringBuffer path = new StringBuffer(request.getContextPath() + "/login?err=");
 				if (!user.get("nameLogin")[0].equals("user")) path.append("1");
