@@ -28,6 +28,7 @@ public class CtrComment {
 				comment.setTenNguoiDung(resultSet.getString(1));
 				comment.setNoiDung(resultSet.getString(2));
 				comment.setThoiGian(resultSet.getString(3));
+				comment.setDanhGia(resultSet.getInt(4));
 				comments.addElement(comment);
 			}
 		} catch(Exception e) {
@@ -38,11 +39,11 @@ public class CtrComment {
 		return comments.toArray(new Comment[0]);
 	}
 	
-	public void addCommentToBook(String maTaiKhoan, String tenTaiKhoan, String maSach, String noiDung) {
+	public void addCommentToBook(String maTaiKhoan, String tenTaiKhoan, String maSach, String noiDung, int danhGia) {
 		//Thêm bình luận cho sách
 		connection.connect();
 		 try {
-			Vector<Object[]> paramsIn = connection.createParams(new int[] {1, 2, 3, 4}, new Object[]{maTaiKhoan, tenTaiKhoan, maSach, noiDung});
+			Vector<Object[]> paramsIn = connection.createParams(new int[] {1, 2, 3, 4, 5}, new Object[]{maTaiKhoan, tenTaiKhoan, maSach, noiDung, danhGia});
 			connection.executeProcedure("sp_AddCommentToBook", paramsIn, null, null);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

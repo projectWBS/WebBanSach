@@ -2,16 +2,18 @@ package model.bean;
 
 public class Comment {
 	private String TenNguoiDung, NoiDung, ThoiGian;
+	private int DanhGia;
 
 	public Comment() {
 		super();
 	}
 
-	public Comment(String tenNguoiDung, String noiDung, String thoiGian) {
+	public Comment(String tenNguoiDung, String noiDung, String thoiGian, int danhGia) {
 		super();
 		TenNguoiDung = tenNguoiDung;
 		NoiDung = noiDung;
 		ThoiGian = thoiGian;
+		DanhGia = danhGia;
 	}
 
 	public String getTenNguoiDung() {
@@ -49,5 +51,13 @@ public class Comment {
 
 	public void setThoiGian(String thoiGian) {
 		ThoiGian = thoiGian;
+	}
+
+	public int getDanhGia() {
+		return DanhGia;
+	}
+
+	public void setDanhGia(int danhGia) {
+		DanhGia = danhGia;
 	}
 }

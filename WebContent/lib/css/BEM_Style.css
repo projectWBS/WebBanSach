@@ -31,15 +31,23 @@
     box-shadow: 0 0 2px 0px black;
 }
 
-.comment__item__time{
+.comment__item__rate{
 	display: inline-block;
     position: relative;
-    transform: translateY(-45%);
+    transform: translateY(20%);
+    float: right;
 }
 
 .comment__item__time::before{
 	content: " - ";
 	margin-right: 20px;
+}
+
+.comment__item__time{
+	display: inline-block;
+    position: relative;
+    transform: translateY(-45%);
+    margin-right: 20px;
 }
 
 .comment__item__name{
@@ -67,9 +75,14 @@
 }
 
 .comment__new__name{
-	display: block;
+	display: inline-block;
     width: 25%;
     padding: 5px;
+}
+
+.comment__new__rate{
+	display: inline-block;
+	float: right;
 }
 
 .comment__new__content{
