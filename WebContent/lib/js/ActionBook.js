@@ -57,7 +57,7 @@ function sendCommentOfUser(bool){
 }
 
 function reloadRating(){
-	$("#rating").load(window.location.href + " #star");
+	$("#rating").load(window.location.href + " #star, #txtRate");
 }
 
 function reloadComment(){

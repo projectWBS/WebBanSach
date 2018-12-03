@@ -138,13 +138,13 @@
 												int temp = danhGia;
 												for (int i = 0; i<5; i++){
 													if (temp > 0){
-														out.println("<i class=\"fa fa-star\" style=\"display: inline-block; color:gold; cursor:default;\" id=\"star\"></i>");
+														out.println("<i class=\"fa fa-star\" style=\"display: inline-block; color:gold; cursor:default; margin: 0px 1px\" id=\"star\"></i>");
 														temp--;
 													} else {
-														out.println("<i class=\"fa fa-star\" style=\"display: inline-block; cursor: default;\" id=\"star\"></i>");
+														out.println("<i class=\"fa fa-star\" style=\"display: inline-block; cursor: default; margin: 0px 1px\" id=\"star\"></i>");
 													}
 												}
-												out.println("<span>(" + danhGia + "/5 sao)</span>");
+												out.println("<span id=\"txtRate\">(" + danhGia + "/5 sao)</span>");
 												out.println("</span></div></div></li></ul>");
 											}
 										%>
