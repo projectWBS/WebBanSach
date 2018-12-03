@@ -138,45 +138,67 @@
 	<%@ include file="../comp/Footer.jsp"%>
 
 	<script type="text/javascript">
-			
-		function addCart(){
+	
+		function removeBookFromCart(index) {
+			var cookies = getListCookie(); //Danh sách cookie trong web
+			var countBook = cookies.pop().split("="); //Số lượng lần mua sách
+
+			if (cookies.length > 0) {
+				var book = cookies[index]; //Lấy ra thông tin lần mua sách thứ index
+				deleteCookie(getNameCookie(book)); //Xóa lần mua này
+
+				var soLuong = countBook[1] - 1;//Giảm số lượng lần mua trong biến đếm
+				setCookie(countBook[0], soLuong);
+
+				$(".cart-count").load(document.URL + " #number");
+				$("#bill").load(document.URL + " #label, #price");
+				if (soLuong > 0)
+					$(".table-modify").load(document.URL + " .row-table");
+				else
+					$(".table-modify").load(document.URL + " .error");
+			}
+		}
+
+		function addCart() {
 			var url = window.location.href + '?action=add'
 			var name = $('#username').val();
 			var address = $('#address').val();
 			var phone = $('#phone').val();
-			
+
 			$.post(url, {
-				name: name,
-				address: address,
-				phone: phone
-			}, function(){
+				name : name,
+				address : address,
+				phone : phone
+			}, function() {
 				alert('Đặt hàng thành công');
 			});
 		}
-	
-		$(document).ready(function() {
-			$('a.login-window').click(function() {
-				//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
-				var loginBox = $(this).attr('href');
 
-				//cho hiện hộp đăng nhập trong 300ms
-				$(loginBox).fadeIn(300);
+		$(document).ready(
+				function() {
+					$('a.login-window').click(function() {
+						//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+						var loginBox = $(this).attr('href');
 
-				// thêm phần tử id="over" vào sau body
-				$('body').append('<div id="over">');
-				$('#over').fadeIn(300);
+						//cho hiện hộp đăng nhập trong 300ms
+						$(loginBox).fadeIn(300);
 
-				return false;
-			});
+						// thêm phần tử id="over" vào sau body
+						$('body').append('<div id="over">');
+						$('#over').fadeIn(300);
 
-			// khi click đóng hộp thoại
-			$(document).on('click', "a.close, #over, button.submit-button", function() {
-				$('#over, .login').fadeOut(300, function() {
-					$('#over').remove();
+						return false;
+					});
+
+					// khi click đóng hộp thoại
+					$(document).on('click',
+							"a.close, #over, button.submit-button", function() {
+								$('#over, .login').fadeOut(300, function() {
+									$('#over').remove();
+								});
+								return false;
+							});
 				});
-				return false;
-			});
-		});
 	</script>
 </body>
 </html>

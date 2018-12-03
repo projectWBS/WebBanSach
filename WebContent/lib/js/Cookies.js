@@ -19,7 +19,7 @@ function getCookie(cname) {
 
 //Trả về tên của cookie
 function getNameCookie(cookie){
-	return cookie.split("=")[0];
+	return cookie.split("=")[0].trim();
 }
 
 //Lưu một cookie mới
@@ -38,14 +38,24 @@ function getListCookie(){
 }
 
 //Lấy cookie tại vị trí index trong danh sách cookie
-function getCookieAt(arr, index){
+function getCookieAt(index){
+	var arr = getListCookie();
 	if (arr.length <= index) return null;
-	return arr[index];
+	return getCookie(getNameCookie(arr[index]));
 }
 
 //Xóa cookie
 function deleteCookie(cname) {
 	if(getCookie(cname) != "") {
 		document.cookie = cname + "=;;path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT";
+	}
+}
+
+//Xoá tất cả cookies
+function deleteAllCookie(){
+	var cookies = getListCookie();
+	for(var i=0; i<cookies.length; i++){
+		var name = getNameCookie(cookies[i]);
+		deleteCookie(name);
 	}
 }

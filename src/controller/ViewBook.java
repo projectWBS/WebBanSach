@@ -45,24 +45,26 @@ public class ViewBook extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		String maSach = request.getParameter("id");
-		String sRate = request.getParameter("rate");
 		String user = null;
 		if (request.getSession().getAttribute("User") != null)
 			user = ((Account)(request.getSession().getAttribute("User"))).getTenDangNhap();
 		
 		String name = request.getParameter("userName");
 		String noiDung = request.getParameter("noiDung");
-		if (sRate != null && maSach != null) {
+		String sRate = request.getParameter("rate");
+		if ((name != null && noiDung != null && sRate != null && maSach != null) && name.length() > 0){
+			if (name.length() == 0) name = null;
 			int rate = Integer.parseInt(sRate);
+			
+			//Add comment
+			CtrComment ctrComment = new CtrComment();
+			ctrComment.addCommentToBook(user, name,  maSach, noiDung, rate);
+			
+			//Update rating of book
 			CtrBook ctrBook = new CtrBook();
 			if (rate > 0 && rate < 6) {
 				ctrBook.setRate(maSach, rate);
 			}
-		}
-		else if ((name != null && noiDung != null) && name.length() > 0){
-			if (name.length() == 0) name = null;
-			CtrComment ctrComment = new CtrComment();
-			ctrComment.addCommentToBook(user, name,  maSach, noiDung);
 		}
 	}
 
