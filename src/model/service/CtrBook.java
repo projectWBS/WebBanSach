@@ -6,6 +6,7 @@ import java.sql.Types;
 import java.util.Vector;
 
 import model.bean.Book;
+import model.bean.Comment;
 import model.bean.Image;
 import model.dao.DBConnection;
 
@@ -76,7 +77,7 @@ public class CtrBook {
 	}
 	
 	public Book[] getAllBook() {
-		//Trả v�? danh sách sách có trong bảng
+		//Trả v�? danh sách sách có trong bảng
 		Vector<Book> result = new Vector<>();
 		connection.connect();
 		
@@ -97,7 +98,7 @@ public class CtrBook {
 				book.setRate(resultSet.getDouble(8));
 				
 				Image[] images = ctrImage.getImageById(null, book.getMaSach());
-				//Xét trư�?ng hợp mỗi sách chỉ cần một hình để hiển thị
+				//Xét trư�?ng hợp mỗi sách chỉ cần một hình để hiển thị
 				if (images != null && images.length > 0)
 				book.setImages(images[0]);
 				
@@ -113,7 +114,7 @@ public class CtrBook {
 	}
 	
 	public Book getBookById(String Id) {
-		//Trả v�? sách có id trong bảng
+		//Trả v�? sách có id trong bảng
 		Book result = null;
 		CtrImage ctrImage = new CtrImage();
 		connection.connect();
@@ -135,7 +136,7 @@ public class CtrBook {
 				result.setRate(resultSet.getDouble(8));
 				
 				Image[] images = ctrImage.getImageById(null, result.getMaSach());
-				//Xét trư�?ng hợp mỗi sách chỉ cần một hình để hiển thị
+				//Xét trư�?ng hợp mỗi sách chỉ cần một hình để hiển thị
 				if (images != null && images.length > 0)
 					result.setImages(images[0]);
 				
@@ -147,4 +148,42 @@ public class CtrBook {
 		}
 		return result;
 	}
+	public Book[] getSearchBook(String Search) {
+		//Tìm kiếm sách
+		Vector<Book> Books = new Vector<>();
+		CtrImage ctrImage = new CtrImage();
+		connection.connect();
+		
+		try {
+			Vector<Object[]> paramsIn = connection.createParams(new int[] {1}, new Object[] {Search});
+			ResultSet resultSet = connection.executeTableFunction("fc_getSearchBook", paramsIn);		
+			while(resultSet.next()) {
+				Book result = new Book();
+				result.setMaSach(resultSet.getString(1));
+				result.setTenSach(resultSet.getString(2));
+				result.setGiaBan(resultSet.getInt(3));
+				result.setTheLoai(resultSet.getString(4));
+				result.setNXB(resultSet.getString(5));
+				result.setTacGia(resultSet.getString(6));
+				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
+				Image[] images = ctrImage.getImageById(null, result.getMaSach());
+				//Xét trư�?ng hợp mỗi sách chỉ cần một hình để hiển thị
+				if (images != null && images.length > 0)
+					result.setImages(images[0]);
+				Books.addElement(result);
+			}
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			connection.close();
+		}
+		return Books.toArray(new Book[0]);
+	}
+
+
+
+
+
+
 }

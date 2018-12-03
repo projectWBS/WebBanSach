@@ -93,6 +93,12 @@
 				img.children[0].border = "none";
 			}
 		}
+		//
+		function sendSearch()
+		{
+			var temp=document.getElementById("Search").value;
+			window.location.href="Search?strSearch="+temp;
+		}
 	</script>
 </body>
 </html>

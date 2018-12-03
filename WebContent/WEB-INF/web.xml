@@ -108,4 +108,12 @@
     <servlet-name>QLThuChi</servlet-name>
     <url-pattern>/Manager/ThuChi</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>Search</servlet-name>
+    <servlet-class>controller.ViewSearchBook</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Search</servlet-name>
+    <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
 </web-app>

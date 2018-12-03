@@ -44,7 +44,7 @@
 					moTa : moTa,
 					duongDan : duongDan
 				}, function(data, status) {
-					window.history.back();
+					window.location.reload();
 				});
 			} else {
 				var imageAction = '${imageAction}';
@@ -60,7 +60,7 @@
 						imageAction : imageAction,
 						duongDan : duongDan
 					}, function(data, status) {
-						window.history.back();
+						window.location.reload();
 					});
 				} else {
 					if (duongDan == null) {
@@ -80,7 +80,7 @@
 						duongDan : duongDan,
 						maAnh : '${maAnh}'
 					}, function(data, status) {
-						window.history.back();
+						window.location.reload();
 					});
 				}
 			}

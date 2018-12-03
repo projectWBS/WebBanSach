@@ -28,9 +28,9 @@
 							<span id="logo">Logo</span>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ms-4">
-							<form action="" class="search-bar clearfix" id="search-textbox">
-								<input type="text" id="search" placeholder="Nhập tên sách..."></input>
-								<span><i class="fa fa-search"></i></span>
+							<form action="Search" method="GET" class="search-bar clearfix" id="search-textbox">
+								<input name="strSearch" type="text" id="Search" placeholder="Nhập tên sách..."></input>
+								<span><button type="submit" ><i class="fa fa-search"></i></button></span>
 							</form>
 							<div id="zoom-btn"><i class="fa fa-search"></i></div>
 						</div>

@@ -110,7 +110,6 @@ public class DBConnection {
 
 		// Get result after execute
 		Vector<Object> result = getResultOfProcedure(statement, paramsOut, paramsInOut);
-
 		return result.toArray();
 	}
 
