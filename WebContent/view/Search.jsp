@@ -112,7 +112,7 @@
 											"<a href=\"ViewBook?id="+book.getMaSach()+"\"> <img alt=\""+book.getMaSach()+"\"src=\"lib/image/"+book.getImages().getDuongDan()+"\"></a>");
 									out.println(
 											"<div class=\"info-book\"><div class=\"title\">"+book.getTenSach()+"</div><div class=\"price\">Giá: "+book.getGiaBan()+"</div></div></div></div>");
-									out.println("</div>");
+								
 								}
 							}
 						} else {

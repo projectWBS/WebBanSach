@@ -20,7 +20,8 @@ public class ViewSearchBook extends HttpServlet
         super();
     }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view/Search.jsp");
 	
 		CtrBook book= new CtrBook();
@@ -35,7 +36,8 @@ public class ViewSearchBook extends HttpServlet
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
 		System.out.println(request.getRequestURI());
 		
 	}
