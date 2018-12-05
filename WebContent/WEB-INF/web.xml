@@ -77,6 +77,14 @@
     <url-pattern>/Manager/DonHang</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CTDonHang</servlet-name>
+    <servlet-class>controller.AdminCT_DonHang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CTDonHang</servlet-name>
+    <url-pattern>/Manager/CT-DonHang</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>QLKhachHang</servlet-name>
     <servlet-class>controller.AdminQLKhachHang</servlet-class>
   </servlet>

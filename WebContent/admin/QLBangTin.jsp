@@ -23,7 +23,7 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row">
-			<div class="categories col-lg-3 col-md-3 col-sm-12">
+			<div class="categories col-md-3 col-sm-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
 				</div>
@@ -36,7 +36,7 @@
 				</ul>
 			</div>
 
-			<div class="col-lg-9 col-md-9 col-sm-12">
+			<div class="col-md-9 col-sm-12">
 				<h3>
 					<small>Quản lý bản tin</small>
 				</h3>

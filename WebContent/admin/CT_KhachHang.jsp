@@ -27,7 +27,7 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
-			<div class="categories col-lg-3 col-sm-12">
+			<div class="categories col-md-3 col-sm-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
 				</div>
@@ -45,7 +45,7 @@
 				</ul>
 			</div>
 
-			<div class="col-lg-9 col-sm-12"">
+			<div class="col-md-9 col-sm-12"">
 				<h3 style="text-align: center; border-bottom: 1px groove; padding-bottom: 0.25em">Thông tin chi tiết khách hàng</h3>
 				<%
 					Object object = request.getAttribute("Account");
@@ -54,55 +54,62 @@
 						account = (Account)object;
 					}
 				%>
-				<ul id="Info">
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Tên khách hàng</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getTenTaiKhoan() +"</span>"); 
-						%>
-					</li>
-					
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Giới tính</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getGioiTinh() +"</span>"); 
-						%>
-					</li>
-					
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Ngày sinh</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getNgaySinh() +"</span>"); 
-						%>
-					</li>
-					
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Địa chỉ</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getDiaChi() +"</span>"); 
-						%>
-					</li>
-					
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Liên hệ</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getSdt() +"</span>"); 
-						%>
-					</li>
-					
-					<li class="Info__Item">
-						<span class="Info__Item__Title">Email</span>
-						<% 
-							if (account != null) 
-								out.println("<span class=\"Info__Item__Content\">"+ account.getEmail() +"</span>"); 
-						%>
-					</li>
-				</ul>
+				<div class="row">
+					<div class="col-sm-7 col-xs-12">
+						<ul id="Info">
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Tên khách hàng</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getTenTaiKhoan() +"</span>"); 
+								%>
+							</li>
+						
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Giới tính</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getGioiTinh() +"</span>"); 
+								%>
+							</li>
+						
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Ngày sinh</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getNgaySinh() +"</span>"); 
+								%>
+							</li>
+						</ul>
+					</div>
+					<div class="col-sm-5 col-xs-12">
+						<ul id="Info">
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Địa chỉ</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getDiaChi() +"</span>"); 
+								%>
+							</li>
+							
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Liên hệ</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getSdt() +"</span>"); 
+								%>
+							</li>
+							
+							<li class="Info__Item">
+								<span class="Info__Item__Title">Email</span>
+								<% 
+									if (account != null) 
+										out.println("<span class=\"Info__Item__Content\">"+ account.getEmail() +"</span>"); 
+								%>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

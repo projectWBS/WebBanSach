@@ -26,7 +26,7 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
-			<div class="categories col-lg-3 col-sm-12">
+			<div class="categories col-md-3 col-sm-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
 				</div>
@@ -44,7 +44,7 @@
 				</ul>
 			</div>
 
-			<div class="col-lg-9 col-sm-12">
+			<div class="col-md-9 col-sm-12">
 				<h3>
 					<small>Quản lý đơn hàng</small>
 				</h3>
@@ -64,13 +64,6 @@
 				</div>
 				<hr>
 				<div class="board" style="overflow-x: auto;">
-					<ul class="ochuaQLDH">
-						<li class="tbHere"><a href="#">Tất cả</a></li>
-						<li><a href="#">Chờ duyệt</a></li>
-						<li><a href="#">Đã duyệt</a></li>
-						<li><a href="#">Hoàn thành</a></li>
-
-					</ul>
 
 
 					<div class="QLDH_tbDonHang">
@@ -83,6 +76,7 @@
 									<th>Số điện thoại</th>
 									<th>Tình Trạng</th>
 									<th>Thao tác</th>
+									<th>Xem chi tiết</th>
 								</tr>
 								<%
 									Object result = request.getAttribute("danhsachdonhang");
@@ -116,8 +110,8 @@
 											out.println("<td>" + TenNguoimua + "</td>");
 											out.println("<td>" + SDT + "</td>");
 											out.println("<td>" + TinhTrang + "</td>");
-											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\">" + ThaoTac + "</a></td></tr>");
-										}
+											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
+											out.println("<td><a onclick=\"openNewTab('CT-DonHang?id="+ MaDonHang +"')\" style=\"cursor: pointer;\">Xem chi tiết</a></td></tr>");										}
 									}
 
 									else {
@@ -146,7 +140,8 @@
 											out.println("<td>" + TenNguoimua + "</td>");
 											out.println("<td>" + SDT + "</td>");
 											out.println("<td>" + TinhTrang + "</td>");
-											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\">" + ThaoTac + "</a></td></tr>");
+											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
+											out.println("<td><a onclick=\"openNewTab('CT-DonHang?id='"+ MaDonHang +"')\" style=\"cursor: pointer;\">Xem chi tiết</a></td></tr>");
 										}
 									}
 								%>
@@ -175,6 +170,10 @@
 		{
 			window.location.href=window.location.href
 		} 
+		function openNewTab(url){
+			window.open(url, '_blank');
+		}
+		
 		$('.thaotac').click(function() {
 			   var thaotac=this.id;
 			   var url = window.location.href;

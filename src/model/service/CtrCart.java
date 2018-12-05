@@ -1,8 +1,10 @@
 package model.service;
 
+import java.sql.ResultSet;
 import java.sql.Types;
 import java.util.Vector;
 
+import model.bean.Book;
 import model.bean.Cart;
 import model.dao.DBConnection;
 
@@ -42,5 +44,32 @@ public class CtrCart {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	public Cart[] getCart(String maHoaDon) {
+		connection.connect();
+		CtrBook ctrBook = new CtrBook();
+		Vector<Cart> carts = new Vector<>();
+
+		try {
+			Vector<Object[]> paramsIn = connection.createParams(new int[] {1}, new Object[] {maHoaDon});
+			ResultSet resultSet = connection.executeTableFunction("fc_getCartDetail", paramsIn);
+			while(resultSet.next()) {
+				String maSach = resultSet.getString(1);
+				Book book = ctrBook.getBookById(maSach);
+				
+				Cart cart = new Cart();
+				cart.setBook(book);
+				cart.setCount(resultSet.getInt(2));
+				cart.setGiaBan(resultSet.getInt(3));
+				
+				carts.addElement(cart);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			connection.close();
+		}
+		return carts.toArray(new Cart[0]);
 	}
 }

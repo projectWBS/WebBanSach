@@ -22,7 +22,7 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row"  style="background-color: #eeeeee;">
-			<div class="categories col-lg-3 col-md-3 col-sm-3">
+			<div class="categories col-md-3 col-sm-12">
 				<div class="title">
 					<p>Chức năng quản lý</p>
 				</div>
@@ -35,7 +35,7 @@
 				</ul>
 			</div>
 
-			<div class="col-lg-9 col-md-9 col-sm-9">
+			<div class="col-md-9 col-sm-12">
 				<h3 class="animated bounce">
 					<small>Quản lý thu chi</small>
 				</h3>
