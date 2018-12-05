@@ -85,6 +85,14 @@
     <url-pattern>/Manager/KhachHang</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CT_KhachHang</servlet-name>
+    <servlet-class>controller.AdminCT_KhachHang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CT_KhachHang</servlet-name>
+    <url-pattern>/Manager/CT-KhachHang</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>QLKhoSach</servlet-name>
     <servlet-class>controller.AdminQLKhoSach</servlet-class>
   </servlet>

@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Vector;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 import model.bean.Account;
 import model.bean.Book;
 import model.bean.Image;
@@ -50,6 +52,17 @@ public class CtrAccount {
 			while (resultSet.next()) {
 				result.setTenTaiKhoan(resultSet.getString(1));
 				result.setChucVu(resultSet.getString(2));
+				
+				boolean gioiTinh = resultSet.getBoolean(3);
+				if (gioiTinh == true)
+					result.setGioiTinh("Nữ");
+				else
+					result.setGioiTinh("Nam");
+				
+				result.setNgaySinh(resultSet.getString(4));
+				result.setDiaChi(resultSet.getString(5));
+				result.setSdt(resultSet.getString(6));
+				result.setEmail(resultSet.getString(7));
 				break;
 			}
 		} catch (Exception e) {

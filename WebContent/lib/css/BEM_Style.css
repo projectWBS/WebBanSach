@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+.Info{
+	
+}
+
+.Info__Item{
+	margin-bottom: 0.5em;
+    margin-left: 1em;
+}
+
+.Info__Item__Title{
+	font-family: sans-serif;
+    font-weight: bold;
+    font-size: small;
+    font-style: italic;
+}
+
+.Info__Item__Content{
+	margin: 0em 1em;
+}
+
 .board__title{
 	margin: 0px 0px 30px 0px;
     padding: 0px 0px 10px 0px;

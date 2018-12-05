@@ -90,7 +90,7 @@
 										String TenTaiKhoan = accounts[i].getTenTaiKhoan();
 										out.println("<tr id=\"dongKH\"><td>" + TenDangNhap + "</td>");
 										out.println("<td>" + TenTaiKhoan + "</td>");
-										out.println("<td id=\"" + TenDangNhap + "\">Xem chi tiết</td></tr>");
+										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id="+ TenDangNhap +"')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
 									}
 								}
 								
@@ -102,7 +102,7 @@
 										String TenTaiKhoan = accountsSearch[i].getTenTaiKhoan();
 										out.println("<tr id=\"dongKH\"><td>" + TenDangNhap + "</td>");
 										out.println("<td>" + TenTaiKhoan + "</td>");
-										out.println("<td id=\"" + TenDangNhap + "\">Xem chi tiết</td></tr>");
+										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id="+ TenDangNhap +"')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
 									}
 								}
 							%>
@@ -128,6 +128,10 @@
 			$("#tbKH").load(window.location.href+searchU+" #dongKH" );
 			document.getElementById("btnSearch").value=searchU;
 
+		}
+		
+		function openNewTab(url){
+			window.open(url, '_blank');
 		}
 	</script>
 </body>
