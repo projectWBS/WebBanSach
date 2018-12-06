@@ -29,6 +29,14 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ViewInfo</servlet-name>
+    <servlet-class>controller.ViewInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewInfo</servlet-name>
+    <url-pattern>/ViewInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ViewBook</servlet-name>
     <servlet-class>controller.ViewBook</servlet-class>
   </servlet>

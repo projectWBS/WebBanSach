@@ -4,6 +4,7 @@ encoding//WebContent/admin/QLKhachHang.jsp=UTF-8
 encoding//src/controller/AdminCT_DonHang.java=UTF-8
 encoding//src/controller/AdminCT_KhachHang.java=UTF-8
 encoding//src/controller/AdminManager.java=UTF-8
+encoding//src/controller/AdminQLDonHang.java=UTF-8
 encoding//src/controller/AdminQLSach.java=UTF-8
 encoding//src/controller/Login.java=UTF-8
 encoding//src/controller/ViewBook.java=UTF-8

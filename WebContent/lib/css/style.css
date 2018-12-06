@@ -15,6 +15,10 @@ header{
     z-index: 1000;
 }
 
+.none-border{
+	border: none !important;
+}
+
 #content{
     display: block;
     position: static;
@@ -968,7 +972,7 @@ input[type=text]:hover
 a, a:visited, a:active{
     text-decoration:none;
 }
-.login
+.dialog
 {
 	background-color: #1E3D5A;
     color: white;
@@ -991,7 +995,7 @@ a, a:visited, a:active{
     transform: translate(-50%, -50%);
 }
  
-.login .login_title
+.dialog .dialog_title
 {
     color:white;
     font-size:16px;
@@ -999,7 +1003,7 @@ a, a:visited, a:active{
     text-align:left;
 }
  
-.login-content label {
+.dialog-content label {
     display: block;
     padding-bottom: 7px;
     color: black;
@@ -1008,10 +1012,10 @@ a, a:visited, a:active{
     text-align: left;
 }
  
-.login-content span {
+.dialog-content span {
     display: block;
 }
-.login-content
+.dialog-content
 {
     padding-left: 35px;
     background-color: white;
@@ -1104,7 +1108,7 @@ a, a:visited, a:active{
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
     box-shadow: 0 2px 2px rgba(0,0,0,0.1);
 }
-.login input
+.dialog input
 {
     border: 1px solid #D5D5D5;
     border-radius: 5px;

@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="lib/css/styleView.css">
 <link rel="stylesheet" type="text/css" href="lib/css/style.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 </head>
@@ -116,9 +116,9 @@
 		</article>
 
 		<div>
-			<div class="login" id="confirm-form">Thông tin khách hàng
+			<div class="dialog" id="confirm-form">Thông tin khách hàng
 				<a class="close" href="#"><i class="fa fa-close" style="color: red; margin-right: 5px;"></i></a>
-				<form class="login-content" action="#" method="post">
+				<form class="dialog-content" action="#" method="post">
 					<label class="name"> <span>Tên người mua</span> <input
 						id="username" type="text" autocomplete="on" name="username"
 						placeholder="Name..." value="" />
@@ -193,7 +193,7 @@
 					// khi click đóng hộp thoại
 					$(document).on('click',
 							"a.close, #over, button.submit-button", function() {
-								$('#over, .login').fadeOut(300, function() {
+								$('#over, .dialog').fadeOut(300, function() {
 									$('#over').remove();
 								});
 								return false;

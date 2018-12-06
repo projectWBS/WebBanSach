@@ -12,7 +12,7 @@
 	data-minify="1" />
 <link rel="stylesheet" type="text/css" href="../lib/css/style.css">
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script type="text/javascript" src="../lib/js/jquery-3.3.1.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -67,7 +67,7 @@
 
 
 					<div class="QLDH_tbDonHang">
-						<table >
+						<table id="table">
 							<tbody>
 								<tr>
 									<th>Mã đơn hàng</th>
@@ -93,16 +93,19 @@
 											String SDT = orders[i].getSDT();
 											String TinhTrang = orders[i].getTinhTrang();
 											String ThaoTac = "";
-											if (TinhTrang.equalsIgnoreCase("Chờ Duyệt"))
+											boolean isChangeState = false;
+											if (TinhTrang.equalsIgnoreCase("Chờ Duyệt")){
 												ThaoTac = "Duyệt";
-											else {
-												if (TinhTrang.equalsIgnoreCase("Đã Duyệt"))
+												isChangeState = true;
+											} else {
+												if (TinhTrang.equalsIgnoreCase("Đã Duyệt")){
 													ThaoTac = "Vận chuyển";
-												else {
-													if (TinhTrang.equalsIgnoreCase("Vận Chuyển"))
+													isChangeState = true;
+												} else {
+													if (TinhTrang.equalsIgnoreCase("Vận Chuyển")){
 														ThaoTac = "Hoàn Thành";
-													else
-														ThaoTac = "";
+														isChangeState = false;
+													}
 												}
 											}
 											out.println("<tr><td>" + MaDonHang + "</td>");
@@ -110,7 +113,7 @@
 											out.println("<td>" + TenNguoimua + "</td>");
 											out.println("<td>" + SDT + "</td>");
 											out.println("<td>" + TinhTrang + "</td>");
-											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
+											out.println("<td><a onclick=\"changeStateOrder('"+ MaDonHang +"', "+ isChangeState +")\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
 											out.println("<td><a onclick=\"openNewTab('CT-DonHang?id="+ MaDonHang +"')\" style=\"cursor: pointer;\">Xem chi tiết</a></td></tr>");										}
 									}
 
@@ -123,16 +126,19 @@
 											String SDT = ordersSearch[i].getSDT();
 											String TinhTrang = ordersSearch[i].getTinhTrang();
 											String ThaoTac = "";
-											if (TinhTrang.equalsIgnoreCase("Chờ Duyệt"))
+											boolean isChangeState = false;
+											if (TinhTrang.equalsIgnoreCase("Chờ Duyệt")){
 												ThaoTac = "Duyệt";
-											else {
-												if (TinhTrang.equalsIgnoreCase("Đã Duyệt"))
+												isChangeState = true;
+											} else {
+												if (TinhTrang.equalsIgnoreCase("Đã Duyệt")){
 													ThaoTac = "Vận chuyển";
-												else {
-													if (TinhTrang.equalsIgnoreCase("Vận Chuyển"))
+													isChangeState = true;
+												} else {
+													if (TinhTrang.equalsIgnoreCase("Vận Chuyển")){
 														ThaoTac = "Hoàn Thành";
-													else
-														ThaoTac = "";
+														isChangeState = false;
+													}
 												}
 											}
 											out.println("<tr><td>" + MaDonHang + "</td>");
@@ -140,7 +146,7 @@
 											out.println("<td>" + TenNguoimua + "</td>");
 											out.println("<td>" + SDT + "</td>");
 											out.println("<td>" + TinhTrang + "</td>");
-											out.println("<td><a onclick=\"refreshPage()\" class=\"thaotac\" id=\"" + MaDonHang + "\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
+											out.println("<td><a onclick=\"changeStateOrder('"+ MaDonHang +"', "+ isChangeState +")\" style=\"cursor: pointer;\">" + ThaoTac + "</a></td>");
 											out.println("<td><a onclick=\"openNewTab('CT-DonHang?id='"+ MaDonHang +"')\" style=\"cursor: pointer;\">Xem chi tiết</a></td></tr>");
 										}
 									}
@@ -159,6 +165,14 @@
 	<!-- Phần footer cho trang Web -->
 	<%@ include file="../comp/Footer.jsp"%>
 	<script>
+		function changeStateOrder(maHD, bool){
+			if (bool){
+				var url = window.location.href;
+				$(".QLDH_tbDonHang").load(url + " #table", {
+					maHD: maHD
+				});
+			}
+		}
 		function reloadKH() 
 		{
 			var URL = window.location.href;
@@ -173,12 +187,6 @@
 		function openNewTab(url){
 			window.open(url, '_blank');
 		}
-		
-		$('.thaotac').click(function() {
-			   var thaotac=this.id;
-			   var url = window.location.href;
-				$.post(url, {thaotac: thaotac});
-			});
 	</script>
 </body>
 </html>

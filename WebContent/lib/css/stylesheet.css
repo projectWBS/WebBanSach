@@ -16962,7 +16962,8 @@ footer .list-menu a:hover {
 footer .copyright {
 	background: rgba(0, 0, 0, .2);
 	color: #FFF;
-	border: none
+	border: none;
+	margin-top: 10px;
 }
 
 footer .copyright a {

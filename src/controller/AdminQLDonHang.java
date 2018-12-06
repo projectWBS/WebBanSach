@@ -38,15 +38,13 @@ public class AdminQLDonHang extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String strTT=request.getParameter("thaotac").toString();
+		String maHD=request.getParameter("maHD");
 		CtrOrder Ctr_Ord=new CtrOrder();
-		if(strTT!=null)
+		if(maHD!=null)
 		{
-			Ctr_Ord.duyetDon(strTT);
-			
+			Ctr_Ord.duyetDon(maHD);
 		}
-		
+		doGet(request, response);
 	}
 
 }

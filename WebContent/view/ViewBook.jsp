@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="lib/css/styleView.css"/>
 <link rel="stylesheet" type="text/css" href="lib/css/style.css" />
 <link rel="stylesheet" type="text/css" href="lib/css/BEM_Style.css" />
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 <script type="text/javascript" src="lib/js/ActionBook.js"></script>
