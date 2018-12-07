@@ -7,18 +7,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import model.bean.Cart;
 import model.service.CtrCart;
 
-public class AdminCT_DonHang extends HttpServlet {
+public class UserCT_DonHang extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public AdminCT_DonHang() {
-        super();
-    }
 
+	public UserCT_DonHang() {
+		super();
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("../admin/CT_DonHang.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("view/CT_DonHang.jsp");
 		String maHoaDon = request.getParameter("id");
 		if (maHoaDon != null) {
 			CtrCart ctrCart = new CtrCart();
@@ -33,5 +33,6 @@ public class AdminCT_DonHang extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
+	
 
 }

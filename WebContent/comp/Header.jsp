@@ -53,7 +53,7 @@
 													else
 													{
 														out.println("<ul>");
-														out.println("<li><a href=\"\">Thông tin tài khoản</a>");
+														out.println("<li><a href=\"ViewInfo\">Thông tin tài khoản</a>");
 														out.println("<li><a href=\"logout\">Đăng xuất</a>");
 														out.println("</ul>");
 													}
