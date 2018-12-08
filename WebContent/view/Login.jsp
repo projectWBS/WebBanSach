@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css" data-minify="1"/>
 <link rel="stylesheet" type="text/css" href="lib/css/style.css">
+<link rel="stylesheet" type="text/css" href="lib/css/sheet.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script>
@@ -62,9 +63,8 @@ $(document).ready(function(){
 									</span> <br> <span>Thành viên có thể trải nghiệm và được
 										thông báo một cách sớm nhất những chương trình khuyến mãi cũng
 										như những đầu sách đang hot hiện nay.</span> <br>
-									<br> <a
-										href="http://localhost:8080/Web_Ban_Sach/SignUp.jsp"
-										class="btn btn-primary"> Đăng kí ngay! </a>
+									<br> 
+									<a class="signup-window button" href="#signup-box">Đăng ký ngay!</a>
 								</div>
 							</div>
 							<div class="col-sm-6">

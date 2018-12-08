@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="lib/css/style.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="lib/css/sheet.css">
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 </head>
@@ -54,9 +55,9 @@
 							if (carts == null) {
 								out.println("<p class=\"error\">Giỏ hàng trống</p>");
 							} else if (carts instanceof Vector) {
-								Vector<Cart> v = (Vector<Cart>)carts;
+								Vector<Cart> v = (Vector<Cart>) carts;
 								for (int i = 0; i < v.size(); i++) {
-									Cart cart = (Cart)v.elementAt(i);
+									Cart cart = (Cart) v.elementAt(i);
 									Book book = cart.getBook();
 									int countBook = cart.getCount();
 
@@ -81,7 +82,8 @@
 									out.println("<span><strong>Số lượng </strong></span>");
 									out.println("<input type=\"number\" name=\"quantity\" min=\"1\" max=\"100\" value=\"" + countBook
 											+ "\" id=\"count\">");
-									out.println("</div></div></div><div class=\"deleteBook\" onclick=\"removeBookFromCart(" + i + ")\"><i class=\"fa fa-close\"></i></div></li>");
+									out.println("</div></div></div><div class=\"deleteBook\" onclick=\"removeBookFromCart(" + i
+											+ ")\"><i class=\"fa fa-close\"></i></div></li>");
 								}
 							}
 						%>
@@ -89,13 +91,14 @@
 				</div>
 				<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
 					<div class="board" style="text-align: center;" id="bill">
-						<span id="label" style="left: 0px;">Tổng tiền phải thanh toán: </span>
+						<span id="label" style="left: 0px;">Tổng tiền phải thanh
+							toán: </span>
 						<%
 							int sum = 0;
 							if (carts != null && carts instanceof Vector) {
 								Vector<Cart> books = (Vector<Cart>) carts;
 								for (int i = 0; i < books.size(); i++) {
-									Cart cart = (Cart)books.elementAt(i);
+									Cart cart = (Cart) books.elementAt(i);
 									Book book = cart.getBook();
 									int countBook = cart.getCount();
 									int price = cart.getGiaBan();
@@ -107,8 +110,9 @@
 					</div>
 					<div class="button-modify" style="text-align: center;">
 						<div class="button-rect forest">
-							<a class="login-window" href="#confirm-form"><i class="fa fa-money"></i> <span
-								class="content-inner">Thanh toán</span></a>
+							<a class="login-window" href="#confirm-form"><i
+								class="fa fa-money"></i> <span class="content-inner">Thanh
+									toán</span></a>
 						</div>
 					</div>
 				</div>
@@ -116,8 +120,9 @@
 		</article>
 
 		<div>
-			<div class="login" id="confirm-form">Thông tin khách hàng
-				<a class="close" href="#"><i class="fa fa-close" style="color: red; margin-right: 5px;"></i></a>
+			<div class="login" id="confirm-form">
+				Thông tin khách hàng <a class="close" href="#"><i
+					class="fa fa-close" style="color: red; margin-right: 5px;"></i></a>
 				<form class="login-content" action="#" method="post">
 					<label class="name"> <span>Tên người mua</span> <input
 						id="username" type="text" autocomplete="on" name="username"
@@ -129,7 +134,8 @@
 						id="phone" type="text" name="phone" placeholder="Phone..."
 						value="" />
 					</label>
-					<button class="button submit-button" type="button" onclick="addCart()">Đặt hàng</button>
+					<button class="button submit-button" type="button"
+						onclick="addCart()">Đặt hàng</button>
 				</form>
 			</div>
 		</div>
@@ -138,7 +144,6 @@
 	<%@ include file="../comp/Footer.jsp"%>
 
 	<script type="text/javascript">
-	
 		function removeBookFromCart(index) {
 			var cookies = getListCookie(); //Danh sách cookie trong web
 			var countBook = cookies.pop().split("="); //Số lượng lần mua sách

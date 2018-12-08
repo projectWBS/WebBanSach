@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css" data-minify="1"/>
 <link rel="stylesheet" type="text/css" href="lib/css/style.css">
+<link rel="stylesheet" type="text/css" href="lib/css/sheet.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>

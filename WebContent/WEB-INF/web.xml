@@ -13,14 +13,6 @@
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>SignUp</servlet-name>
-    <servlet-class>controller.SignUp</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>SignUp</servlet-name>
-    <url-pattern>/signup</url-pattern>
-  </servlet-mapping>
-  <servlet>
     <servlet-name>Logout</servlet-name>
     <servlet-class>controller.Logout</servlet-class>
   </servlet>
@@ -115,5 +107,13 @@
   <servlet-mapping>
     <servlet-name>Search</servlet-name>
     <url-pattern>/Search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>SignUp</servlet-name>
+  	<servlet-class>controller.SignUp</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>SignUp</servlet-name>
+  	<url-pattern>/SignUp</url-pattern>
   </servlet-mapping>
 </web-app>
