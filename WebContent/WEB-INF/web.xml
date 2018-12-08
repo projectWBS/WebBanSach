@@ -21,6 +21,14 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>ViewInfo</servlet-name>
+    <servlet-class>controller.ViewInfo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewInfo</servlet-name>
+    <url-pattern>/ViewInfo</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>ViewBook</servlet-name>
     <servlet-class>controller.ViewBook</servlet-class>
   </servlet>
@@ -69,12 +77,28 @@
     <url-pattern>/Manager/DonHang</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CTDonHang</servlet-name>
+    <servlet-class>controller.AdminCT_DonHang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CTDonHang</servlet-name>
+    <url-pattern>/Manager/CT-DonHang</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>QLKhachHang</servlet-name>
     <servlet-class>controller.AdminQLKhachHang</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>QLKhachHang</servlet-name>
     <url-pattern>/Manager/KhachHang</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CT_KhachHang</servlet-name>
+    <servlet-class>controller.AdminCT_KhachHang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CT_KhachHang</servlet-name>
+    <url-pattern>/Manager/CT-KhachHang</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>QLKhoSach</servlet-name>
@@ -109,11 +133,20 @@
     <url-pattern>/Search</url-pattern>
   </servlet-mapping>
   <servlet>
+<<<<<<< HEAD
   	<servlet-name>SignUp</servlet-name>
   	<servlet-class>controller.SignUp</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>SignUp</servlet-name>
   	<url-pattern>/SignUp</url-pattern>
+=======
+    <servlet-name>UserCTDonHang</servlet-name>
+    <servlet-class>controller.UserCT_DonHang</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserCTDonHang</servlet-name>
+    <url-pattern>/UserCT-DonHang</url-pattern>
+>>>>>>> 04250da1a9a86d7febedaf2d31be5157a20ca75c
   </servlet-mapping>
 </web-app>
