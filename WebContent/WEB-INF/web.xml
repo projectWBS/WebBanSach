@@ -133,20 +133,19 @@
     <url-pattern>/Search</url-pattern>
   </servlet-mapping>
   <servlet>
-<<<<<<< HEAD
   	<servlet-name>SignUp</servlet-name>
   	<servlet-class>controller.SignUp</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>SignUp</servlet-name>
   	<url-pattern>/SignUp</url-pattern>
-=======
+  </servlet-mapping>
+  <servlet>
     <servlet-name>UserCTDonHang</servlet-name>
     <servlet-class>controller.UserCT_DonHang</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>UserCTDonHang</servlet-name>
     <url-pattern>/UserCT-DonHang</url-pattern>
->>>>>>> 04250da1a9a86d7febedaf2d31be5157a20ca75c
   </servlet-mapping>
 </web-app>
