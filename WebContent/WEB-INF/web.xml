@@ -18,7 +18,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>SignUp</servlet-name>
-    <url-pattern>/signup</url-pattern>
+    <url-pattern>/SignUp</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>Logout</servlet-name>
