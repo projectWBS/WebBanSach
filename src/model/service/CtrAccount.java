@@ -147,29 +147,4 @@ public class CtrAccount {
 		}
 		return Accounts.toArray(new Account[0]);
 	}
-	public Account UserProfile(String UserName) {
-		Account account = null;
-		connection.connect();
-		try {
-			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1 }, new Object[] { UserName });
-			ResultSet resultSet = connection.executeTableFunction("fc_getUserProfile", paramsIn);
-			while (resultSet.next()) {
-				account = new Account();
-				account.setTenDangNhap(resultSet.getString(1));
-				account.setTenTaiKhoan(resultSet.getString(2));
-				account.setChucVu(resultSet.getString(3));
-				account.setGioiTinh(resultSet.getString(4));
-				account.setNgaySinh(resultSet.getString(5));
-				account.setDiaChi(resultSet.getString(6));
-				account.setSdt(resultSet.getString(7));
-				account.setEmail(resultSet.getString(8));
-			}
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			connection.close();
-		}
-		return account;
-	}
 }

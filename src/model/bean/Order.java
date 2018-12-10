@@ -1,27 +1,20 @@
 package model.bean;
 
 public class Order {
-	private String MaHoaDon, MaTaiKhoan, TenNguoiMua, SDT, TinhTrang,DiaChi, NgayIn;
+	private String MaHoaDon, MaTaiKhoan, TenNguoiMua, SDT, TinhTrang;
 
 	public Order() {
 		super();
 	}
 
-	
-
-	public Order(String maHoaDon, String maTaiKhoan, String tenNguoiMua, String sDT, String tinhTrang, String diaChi,
-			String ngayIn) {
+	public Order(String maHoaDon, String maTaiKhoan, String tenNguoiMua, String sDT, String tinhTrang) {
 		super();
 		MaHoaDon = maHoaDon;
 		MaTaiKhoan = maTaiKhoan;
 		TenNguoiMua = tenNguoiMua;
 		SDT = sDT;
 		TinhTrang = tinhTrang;
-		DiaChi = diaChi;
-		NgayIn = ngayIn;
 	}
-
-
 
 	public String getMaHoaDon() {
 		return MaHoaDon;
@@ -61,30 +54,6 @@ public class Order {
 
 	public void setTinhTrang(String tinhTrang) {
 		TinhTrang = tinhTrang;
-	}
-
-
-
-	public String getDiaChi() {
-		return DiaChi;
-	}
-
-
-
-	public void setDiaChi(String diaChi) {
-		DiaChi = diaChi;
-	}
-
-
-
-	public String getNgayIn() {
-		return NgayIn;
-	}
-
-
-
-	public void setNgayIn(String ngayIn) {
-		NgayIn = ngayIn;
 	}
 	
 	

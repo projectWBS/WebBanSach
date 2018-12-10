@@ -140,12 +140,4 @@
     <servlet-name>Search</servlet-name>
     <url-pattern>/Search</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>UserCTDonHang</servlet-name>
-    <servlet-class>controller.UserCT_DonHang</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UserCTDonHang</servlet-name>
-    <url-pattern>/UserCT-DonHang</url-pattern>
-  </servlet-mapping>
 </web-app>

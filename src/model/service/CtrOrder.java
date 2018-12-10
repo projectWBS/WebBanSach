@@ -76,38 +76,4 @@ public class CtrOrder {
 		}
 
 	}
-	public Order[] getDHById(String MaKH) {
-		Vector<Order> Orders = new Vector<>();
-		connection.connect();
-		try {
-			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1 }, new Object[] { MaKH });
-			ResultSet resultSet = connection.executeTableFunction("fc_getDHbyID", paramsIn);
-			while (resultSet.next()) {
-				Order order = new Order();
-				order.setMaHoaDon(resultSet.getString(1));
-				order.setNgayIn(resultSet.getString(2));
-				order.setTinhTrang(resultSet.getString(3));
-				Orders.addElement(order);
-			}
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			connection.close();
-		}
-		return Orders.toArray(new Order[0]);
-	}
-	public void huyDon(String MaDH) {
-		connection.connect();
-		try {
-			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1 }, new Object[] { MaDH });
-			connection.executeProcedure("sp_HuyDon", paramsIn, null, null);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			connection.close();
-		}
-
-	}
-
 }
