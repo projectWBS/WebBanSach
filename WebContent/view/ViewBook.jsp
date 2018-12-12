@@ -1,3 +1,4 @@
+
 <%@page import="model.bean.Comment"%>
 <%@page import="model.bean.Image"%>
 <%@page import="model.bean.Book"%>
@@ -9,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Thông tin chi tiết</title>
-<link rel="icon" type="image/png" href="image/LOGO.ico"/>
+<link rel="icon" type="image/png" href="image/LOGO.ico" />
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css"
 	data-minify="1" />
@@ -20,7 +21,8 @@
 <link rel="stylesheet" type="text/css" href="lib/css/BEM_Style.css" />
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 <script type="text/javascript" src="lib/js/ActionBook.js"></script>
@@ -168,14 +170,27 @@
 				<div class="board mini-board">
 					<div class="title">Sản phẩm tương tự</div>
 					<ul class="content">
-						<li class="item"><img src="lib/image/s00002.jpeg"></img> <span>Sách
-								số 2</span></li>
+						<%
+							Object bookTT = request.getAttribute("bookTT");
+							if (bookTT != null && bookTT instanceof Book[]) {			
+								Book[] bookTTs = (Book[]) bookTT;
+								for (int i = 0; i < bookTTs.length; i++) {
+									String MaSach = bookTTs[i].getMaSach();
+									String DuongDanAnh = bookTTs[i].getImages().getDuongDan();
+									String TenSach = bookTTs[i].getTenSach();
+									out.println("<a href=\"ViewBook?id="+MaSach+"\"><li class=\"item\"><img src=\"lib/image/"
+											+ DuongDanAnh + "\"></img> <span>" + TenSach + "</span></li></a>");
+								}
+							}
+						%>
+						<!-- <a href="ViewBook?id=s00001"></a><li class="item"><img src="lib/image/s00002.jpeg"></img> <span>Sách
+								số 2</span></li></a>
 						<li class="item"><img src="lib/image/s00003.jpeg"></img> <span>Sách
 								số 3</span></li>
 						<li class="item"><img src="lib/image/s00004.jpeg"></img> <span>Sách
 								số 4</span></li>
 						<li class="item"><img src="lib/image/s00005.jpeg"></img> <span>Sách
-								số 5</span></li>
+								số 5</span></li> -->
 					</ul>
 				</div>
 			</div>
