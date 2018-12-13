@@ -14,17 +14,19 @@
 				<div class="container">
 					<div class="row">
 						<%
-								String url = null, imgSrc = null;
+								String url = null, urlHome = null, imgSrc = null;
 								if (request.getRequestURI().indexOf("Manager") != -1){
 									url = "../Search";
 									imgSrc="../image/logo.jpg";
+									urlHome = "../Home";
 								} else {
 									url = "Search";
 									imgSrc="image/logo.jpg";
+									urlHome = "Home";
 								}
 						%>
 						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-ms-1">
-							<a href=""><img alt="logo" src="<%=imgSrc%>" style="width: 55px; margin-left: -20px;"></img></a>
+							<a href="<%=urlHome %>"><img alt="logo" src="<%=imgSrc%>" style="width: 55px; margin-left: -20px;"></img></a>
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ms-4">
 							<form action="<%=url%>" method="GET" class="search-bar clearfix"
@@ -102,12 +104,12 @@
 							<div class="navbar" style="border: none;">
 								<ul class="nav nav-left">
 									<li class="nav-item nav-item-lv1 active"><a
-										class="nav-link" href="http://localhost:8080/Web_Ban_Sach">Trang
+										class="nav-link" href="Home">Trang
 											chủ</a></li>
 									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="Categories">Sách mới</a></li>
+										href="Categories?danhMuc=yeuthich">Sách yêu thích</a></li>
 									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="Categories">Sách hot</a></li>
+										href="Categories?danhMuc=banchay">Sách bán chạy</a></li>
 								</ul>
 								<div class="nav nav-toggle">
 									<button id="btn-toggle">
@@ -115,13 +117,11 @@
 									</button>
 									<div class="toggle-content">
 										<span class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('href="http://localhost:8080/Web_Ban_Sach')"><a
-											href="http://localhost:8080/Web_Ban_Sach">Trang chủ</a></span> <span
+											onclick="gotoPage('Home')"><a
+											href="Home">Trang chủ</a></span> <span
 											class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('Categories')"><a href="Categories">Sách
-												mới</a></span> <span class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('Categories')"><a href="Categories">Sách
-												hot</a></span>
+											onclick="gotoPage('Categories?danhMuc=yeuthich')"><a href="Categories?danhMuc=yeuthich">Sách yêu thích</a></span> <span class="toggle-item" style="cursor: pointer;"
+											onclick="gotoPage('Categories?danhMuc=banchay')"><a href="Categories?danhMuc=banchay">Sách bán chạy</a></span>
 									</div>
 								</div>
 							</div>
@@ -194,12 +194,20 @@
 	</div>
 	<script type="text/javascript">
 			$(document).ready(function(){
+				
+				var child=$(".nav.nav-left").children();
+				$(child).removeClass("active");
+				var url = location.href;
+				if (url.indexOf("Categories?danhMuc=yeuthich") != -1) child.eq(1).addClass("active");
+				else if (url.indexOf("Categories?danhMuc=banchay") != -1) child.eq(2).addClass("active");
+				else child.eq(0).addClass("active");
+				
 				$("#btn-toggle").click(function(){
 					var height = $("#btn-toggle").next().css("height");
-					if (height == '2px'){
-						$("#btn-toggle").next().css({"height":"40%"});
+					if (height == '0px'){
+						$("#btn-toggle").next().animate({"height":"40%"}, 450);
 					} else {
-						$("#btn-toggle").next().css({"height":"0px"});
+						$("#btn-toggle").next().animate({"height":"0px"}, 450);
 					}
 				});
 			});

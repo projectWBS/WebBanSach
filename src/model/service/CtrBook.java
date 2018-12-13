@@ -6,7 +6,6 @@ import java.sql.Types;
 import java.util.Vector;
 
 import model.bean.Book;
-
 import model.bean.Comment;
 import model.bean.Image;
 import model.dao.DBConnection;
@@ -214,6 +213,137 @@ public class CtrBook {
 		}
 		return Books.toArray(new Book[0]);
 	}
+	
+	public Book[] getTopBanChay() {
+		Vector<Book> books = new Vector<>();
+		CtrImage ctrImage = new CtrImage();
+		connection.connect();
+		
+		try {
+			ResultSet resultSet = connection.executeTableFunction("fc_getTOPBookBan", null);
+			while(resultSet.next()) {
+				Book result = new Book();
+				result.setMaSach(resultSet.getString(1));
+				result.setTenSach(resultSet.getString(2));
+				result.setGiaBan(resultSet.getInt(3));
+				result.setTheLoai(resultSet.getString(4));
+				result.setNXB(resultSet.getString(5));
+				result.setTacGia(resultSet.getString(6));
+				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
+				Image[] images = ctrImage.getImageById(null, result.getMaSach());
+				//XÃ©t trÆ°ï¿½?ng há»£p má»—i sÃ¡ch chá»‰ cáº§n má»™t hÃ¬nh Ä‘á»ƒ hiá»ƒn thá»‹
+				if (images != null && images.length > 0)
+					result.setImages(images[0]);
+				books.addElement(result);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			 connection.close();
+		}
+		
+		return books.toArray(new Book[0]);
+	}
+	
+	public Book[] getTopYeuThich() {
+		Vector<Book> books = new Vector<>();
+		CtrImage ctrImage = new CtrImage();
+		connection.connect();
+		
+		try {
+			ResultSet resultSet = connection.executeTableFunction("fc_getTOPBookDG", null);
+			while(resultSet.next()) {
+				Book result = new Book();
+				result.setMaSach(resultSet.getString(1));
+				result.setTenSach(resultSet.getString(2));
+				result.setGiaBan(resultSet.getInt(3));
+				result.setTheLoai(resultSet.getString(4));
+				result.setNXB(resultSet.getString(5));
+				result.setTacGia(resultSet.getString(6));
+				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
+				Image[] images = ctrImage.getImageById(null, result.getMaSach());
+				//XÃ©t trÆ°ï¿½?ng há»£p má»—i sÃ¡ch chá»‰ cáº§n má»™t hÃ¬nh Ä‘á»ƒ hiá»ƒn thá»‹
+				if (images != null && images.length > 0)
+					result.setImages(images[0]);
+				books.addElement(result);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			 connection.close();
+		}
+		
+		return books.toArray(new Book[0]);
+	}
+	
+	public Book[] getTopBanChay(int top) {
+		Vector<Book> books = new Vector<>();
+		CtrImage ctrImage = new CtrImage();
+		connection.connect();
+		
+		try {
+			ResultSet resultSet = connection.executeTableFunction("fc_getTOPBookBan", null);
+			while(resultSet.next() && top > 0) {
+				Book result = new Book();
+				result.setMaSach(resultSet.getString(1));
+				result.setTenSach(resultSet.getString(2));
+				result.setGiaBan(resultSet.getInt(3));
+				result.setTheLoai(resultSet.getString(4));
+				result.setNXB(resultSet.getString(5));
+				result.setTacGia(resultSet.getString(6));
+				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
+				Image[] images = ctrImage.getImageById(null, result.getMaSach());
+				//XÃ©t trÆ°ï¿½?ng há»£p má»—i sÃ¡ch chá»‰ cáº§n má»™t hÃ¬nh Ä‘á»ƒ hiá»ƒn thá»‹
+				if (images != null && images.length > 0)
+					result.setImages(images[0]);
+				books.addElement(result);
+				top--;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			 connection.close();
+		}
+		
+		return books.toArray(new Book[0]);
+	}
+	
+	public Book[] getTopYeuThich(int top) {
+		Vector<Book> books = new Vector<>();
+		CtrImage ctrImage = new CtrImage();
+		connection.connect();
+		
+		try {
+			ResultSet resultSet = connection.executeTableFunction("fc_getTOPBookDG", null);
+			while(resultSet.next() && top > 0) {
+				Book result = new Book();
+				result.setMaSach(resultSet.getString(1));
+				result.setTenSach(resultSet.getString(2));
+				result.setGiaBan(resultSet.getInt(3));
+				result.setTheLoai(resultSet.getString(4));
+				result.setNXB(resultSet.getString(5));
+				result.setTacGia(resultSet.getString(6));
+				result.setMoTa(resultSet.getString(7));
+				result.setRate(resultSet.getDouble(8));
+				Image[] images = ctrImage.getImageById(null, result.getMaSach());
+				//XÃ©t trÆ°ï¿½?ng há»£p má»—i sÃ¡ch chá»‰ cáº§n má»™t hÃ¬nh Ä‘á»ƒ hiá»ƒn thá»‹
+				if (images != null && images.length > 0)
+					result.setImages(images[0]);
+				books.addElement(result);
+				top--;
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			 connection.close();
+		}
+		
+		return books.toArray(new Book[0]);
+	}
+	
 	public Book[] getBookTT(String MaSach) {
 		//TÃ¬m kiáº¿m sÃ¡ch
 		Vector<Book> Books = new Vector<>();

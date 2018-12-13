@@ -39,7 +39,6 @@ button, select, textarea {
 }
 
 a {
-	color: #337ab7;
 	text-decoration: none
 }
 
@@ -5474,10 +5473,6 @@ button.close {
 	display: none !important
 }
 
-.show {
-	display: block !important
-}
-
 .invisible {
 	visibility: hidden
 }
@@ -5897,7 +5892,6 @@ th, td {
 }
 
 a, .text-link {
-	color: #363636;
 	text-decoration: none;
 	background: transparent
 }
@@ -16856,7 +16850,7 @@ header nav .nav-item>a {
 	font-weight: 400;
 	line-height: normal;
 	font-size: 16px;
-	color: #FFF
+	color: #333;
 }
 
 header nav .nav-item>a:after {

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,7 +14,6 @@ import model.service.CtrBook;
 
 public class ViewFilterCat extends HttpServlet{
 	private static final long serialVersionUID = 1L;
-    
 
 	public ViewFilterCat() {
 		super();
@@ -25,13 +25,13 @@ public class ViewFilterCat extends HttpServlet{
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view/ViewFilterCat.jsp");
 	
 		CtrBook book= new CtrBook();
-		String cate=request.getParameter("cate");
-		if(cate!=null)
-		{
-			Book[] Books=book.getSearchCat(cate);
-			request.setAttribute("FilterCate", Books);	
+		
+		String cate = request.getParameter("cate");
+		String sPage = request.getParameter("page");
+		if (cate != null) {
+			Book[] Books = book.getSearchCat(cate);
+			request.setAttribute("FilterCate", Books);
 		}
-	
 		dispatcher.forward(request, response);
 		
 	}

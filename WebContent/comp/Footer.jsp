@@ -20,7 +20,7 @@
 												</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
 													style="font-size: 13px; float: left;">Số 1, đường Võ
-													Văn Ngân, phường Linh Trung, quận Thủ Đức, Tp.Hcm</div>
+													Văn Ngân, phường Linh Chiểu, quận Thủ Đức, Tp.Hcm</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
 													style="font-size: 13px; padding-top: 2px;">YeuSach.com
 													nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ
@@ -32,17 +32,17 @@
 												<div class="col-sm-12 col-md-12 col-xs-12" align="center"
 													style="font-size: 14.5px; margin-bottom: 20px; margin-top: 10px; padding: 0px;">
 													<a target="_blank"
-														href="https://www.facebook.com/YeuSach.PandaBooks.vn/"
+														href="javascript:void(0)"
 														title="Facebook"> <img alt="Facebook"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images/footer/Facebook-on.png">
 													</a> <a target="_blank"
-														href="https://www.instagram.com/explore/tags/bookstore/"
+														href="javascript:void(0)"
 														title="Instagram"> <img alt="Instagram"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Insta-on.png">
 													</a> <a target="_blank" href="" title="Youtube"> <img
 														alt="Youtube"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Youtube-on.png">
-													</a> <a target="_blank" href="https://twitter.com/Fahasa_com"
+													</a> <a target="_blank" href="javascript:void(0)"
 														title="Twitter"> <img alt="Twitter"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/twitter-on.png">
 													</a>
@@ -53,14 +53,14 @@
 													<div class="col-sm-6 col-md-6 col-xs-6"
 														style="text-align: right;">
 														<a
-															href="https://play.google.com/store/apps/details?id=com.bookstore_mechuter&hl=vi">
+															href="javascript:void(0)">
 															<img alt="Bookstore.COM"
 															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/android.png"
 															style="max-width: 110px;">
 														</a>
 													</div>
 													<div class="col-sm-6 col-md-6 col-xs-6">
-														<a href="https://www.apple.com/vn/ios/app-store/"> <img
+														<a href="javascript:void(0)"> <img
 															alt="Bookstore.COM"
 															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/appstore.png"
 															style="max-width: 110px;">

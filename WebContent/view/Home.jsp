@@ -1,3 +1,4 @@
+<%@page import="model.bean.Book"%>
 <%@page import="model.bean.Banner"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -7,16 +8,18 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yêu Sách Bookstore</title>
-<link rel="icon" type="image/png" href="image/LOGO.ico"/>
+<link rel="icon" type="image/png" href="image/LOGO.ico" />
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css"
 	data-minify="1" />
 <link rel="stylesheet" type="text/css" href="lib/css/style.css">
 <link rel="stylesheet" type="text/css" href="lib/css/sheet.css">
 <link rel="stylesheet" type="text/css" href="lib/css/styleDialog.css">
+<link rel="stylesheet" type="text/css" href="lib/css/styleHome.css">
 <link rel="stylesheet" type="text/css"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 <script
@@ -30,7 +33,8 @@
 
 	<div class="container-fluid" id="content">
 		<section>
-			<div clas="container">
+			<div clas="container"
+				style="width: 80%; transform: translateX(11.5%); margin: 1.5em 0em;">
 				<div class="row khung">
 					<div class="col-xs-12">
 						<div id="my-carousel" class="carousel slide" data-ride="carousel">
@@ -46,14 +50,20 @@
 									if (result != null && result instanceof Banner[]) {
 										out.println("<div class=\"item active\"><a onclick=\"openNewTab('UserCT-BanTin?id="
 												+ banners[0].getMaTin() + "')\"> <img src=\"image/" + banners[0].getAnh()
-												+ "\" style=\"width: 100%; background-repeat: no-repeat;\"> </a></div>");
+												+ "\" style=\"width: 100%; background-repeat: no-repeat; cursor:pointer;\"> </a></div>");
 										for (int i = 1; i < banners.length; i++) {
 											out.println("<div class=\"item\"><a onclick=\"openNewTab('UserCT-BanTin?id=" + banners[0].getMaTin()
 													+ "')\"> <img src=\"image/" + banners[i].getAnh()
-													+ "\" style=\"width: 100%; background-repeat: no-repeat;\"></a></div>");
+													+ "\" style=\"width: 100%; background-repeat: no-repeat; cursor:pointer;\"></a></div>");
 										}
 									}
 								%>
+								<a class="left carousel-control" href="#my-carousel"
+									data-slide="prev"> <span
+									class="glyphicon glyphicon-chevron-left"></span></a> <a
+									class="right carousel-control" href="#my-carousel"
+									data-slide="next"> <span
+									class="glyphicon glyphicon-chevron-right"></span></a>
 							</div>
 						</div>
 					</div>
@@ -64,342 +74,114 @@
 			<div class="bookshelf" style="margin: 1em 1em 1em 0em;">
 				<div class="row descrip">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-						<div class="title">Filter</div>
+						<div class="title">Danh mục</div>
 					</div>
-					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
-						<div class="view-detail">
-							<a href="Categories">Xem chi tiết >></a>
+					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6"></div>
+				</div>
+				<ul class="row content listView">
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00001')">
+							<img src="lib/image/categories/type00001.jpeg"></img>
+							<div class="detail">Kinh Nghiệm Sống</div>
 						</div>
-					</div>
-				</div>
-				<div class="row content">
-				<a a onclick="openNewTab('Filter?cate=type00001')"><img src="lib/image/cate.png"style="width: 100%; background-repeat: no-repeat;"></a>
-				</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00002')">
+							<img src="lib/image/categories/type00002.jpeg"></img>
+							<div class="detail">Sách Văn Học</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00004')">
+							<img src="lib/image/categories/type00004.jpeg"></img>
+							<div class="detail">Sách Kinh Tế</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00005')">
+							<img src="lib/image/categories/type00005.jpeg"></img>
+							<div class="detail">Tiểu Thuyết</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00007')">
+							<img src="lib/image/categories/type00007.jpeg"></img>
+							<div class="detail">Trinh Thám</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00009')">
+							<img src="lib/image/categories/type00009.jpeg"></img>
+							<div class="detail">Văn học nước ngoài</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00010')">
+							<img src="lib/image/categories/type00010.jpeg"></img>
+							<div class="detail">Truyện tranh</div>
+						</div>
+					</li>
+					<li class="col-lg-3 col-md-4 col-sm-6 col-xs-12 listView-item">
+						<div class="thumbnail" onclick="gotoPage('Filter?cate=type00013')">
+							<img src="lib/image/categories/type00013.jpeg"></img>
+							<div class="detail">Khoa Học Viễn Tưởng</div>
+						</div>
+					</li>
+				</ul>
 			</div>
 		</article>
 		<article class="container">
-			<div class="bookshelf">
-				<div class="row descrip">
-					<div class="col-ms-12">
-						<div class="title">Đầu sách</div>
-					</div>
-				</div>
-				<div class="row content">
-					
-				</div>
-			</div>
 			<div class="bookshelf" style="margin: 1em 1em 1em 0em;">
 				<div class="row descrip">
 					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-						<div class="title">Sách mới</div>
+						<div class="title">Sách yêu thích</div>
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 						<div class="view-detail">
-							<a href="Categories">Xem chi tiết >></a>
+							<a href="Categories?danhMuc=yeuthich">Xem chi tiết >></a>
 						</div>
 					</div>
 				</div>
 				<div class="row content">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00001">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00001')">
-												<a href="ViewBook?id=s00001"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00001', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00001', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00001"> <img alt="s00001"
-								src="lib/image/s00001.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 1</div>
-								<div class="price">20.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00002">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00002')">
-												<a href="ViewBook?id=s00002"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00002', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00002', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00002"> <img alt="s00002"
-								src="lib/image/s00002.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 2</div>
-								<div class="price">50.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00003">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00003')">
-												<a href="ViewBook?id=s00003"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00003', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00003', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00003"> <img alt="s00003"
-								src="lib/image/s00003.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 3</div>
-								<div class="price">35.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00004">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00004')">
-												<a href="ViewBook?id=s00004"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00004', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00004', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00004"> <img alt="s00004"
-								src="lib/image/s00004.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 4</div>
-								<div class="price">60.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00005')">
-												<a href="ViewBook?id=s00005"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00005', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00005', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00005"> <img alt="s00005"
-								src="lib/image/s00005.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 5</div>
-								<div class="price">45.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00006">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00006')">
-												<a href="ViewBook?id=s00006"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00006', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00006', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00006"> <img alt="s00006"
-								src="lib/image/s00006.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 6</div>
-								<div class="price">25.000</div>
-							</div>
-						</div>
-					</div>
+					<%
+						Object objYeuThich = request.getAttribute("topYeuThich");
+						Book[] topYeuThich = null;
+						if (objYeuThich != null && objYeuThich instanceof Book[]) {
+							topYeuThich = (Book[]) objYeuThich;
+						}
+						if (topYeuThich != null) {
+							for (int i = 0; i < topYeuThich.length; i++) {
+								Book book = topYeuThich[i];
+								out.println("<div class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12\">");
+								out.println(
+										"<div class=\"book\" id=\"" + book.getMaSach() + "\"><div class=\"icon-bar vertical\">");
+								out.println("<ul><li><div class=\"button-modify\">");
+								out.println("<div class=\"button-arc forest right\" onclick=\"gotoPage('ViewBook?id="
+										+ book.getMaSach() + "')\">");
+								out.println("<i class=\"fa fa-info-circle\" onclick=\"gotoPage('ViewBook?id=" + book.getMaSach()
+										+ "')\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Thông tin chi tiết</span></div></div></div></li>");
+								out.println(
+										"<li><div class=\"button-modify\"><div class=\"button-arc cool right\" style=\"transform: translateY(150%)\">");
+								out.println("<i class=\"fa fa-cart-plus\" onclick=\"addBookToCart('" + book.getMaSach()
+										+ "', 1)\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Cho vào giỏ hàng</span></div></div></div></li>");
+								out.println(
+										"<li><div class=\"button-modify\"><div class=\"button-arc danger right\" style=\"transform: translateY(300%)\">");
+								out.println("<i class=\"fa fa-money\" onclick=\"buyNow('" + book.getMaSach() + "', 1)\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Mua ngay</span></div></div></div></li></ul></div>");
+								out.println("<div class=\"thumbnail\">");
+								out.println("<img onclick=\"gotoPage('ViewBook?id=" + book.getMaSach()
+										+ "')\" style=\"cursor:pointer\" alt=\"s00001\" src=\"lib/image/"
+										+ book.getImages().getDuongDan() + "\"></div>");
+								out.println("<div class=\"info-book\"><div class=\"title\">" + book.getTenSach() + "</div>");
+								out.println("<div class=\"price\">" + book.getGiaBan() + "</div></div></div></div>");
+							}
+						}
+					%>
 				</div>
 			</div>
 
@@ -410,314 +192,51 @@
 					</div>
 					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
 						<div class="view-detail">
-							<a href="Categories">Xem chi tiết >></a>
+							<a href="Categories?danhMuc=banchay">Xem chi tiết >></a>
 						</div>
 					</div>
 				</div>
 				<div class="row content">
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00007">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00007')">
-												<a href="ViewBook?id=s00007"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00007', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00007', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00007"> <img alt="s00007"
-								src="lib/image/s00007.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 1</div>
-								<div class="price">20.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00008">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00008')">
-												<a href="ViewBook?id=s00008"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00008', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00008', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00008"> <img alt="s00008"
-								src="lib/image/s00008.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 2</div>
-								<div class="price">50.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00009">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00009')">
-												<a href="ViewBook?id=s00009"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00009', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00009', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00009"> <img alt="s00009"
-								src="lib/image/s00009.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 3</div>
-								<div class="price">35.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00010">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00010')">
-												<a href="ViewBook?id=s00010"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00010', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00010', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00010"> <img alt="s00010"
-								src="lib/image/s00010.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 4</div>
-								<div class="price">60.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00011')">
-												<a href="ViewBook?id=s00011"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00011', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00011', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00011"> <img alt="s00011"
-								src="lib/image/s00011.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 5</div>
-								<div class="price">45.000</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
-						<div class="book" id="s00012">
-							<div class="icon-bar vertical">
-								<ul>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc forest right"
-												onclick="gotoPage('ViewBook?id=s00012')">
-												<a href="ViewBook?id=s00012"><i
-													class="fa fa-info-circle"></i></a>
-												<div class="content content-right">
-													<span>Thông tin chi tiết</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc cool right"
-												style="transform: translateY(150%)">
-												<i class="fa fa-cart-plus"
-													onclick="addBookToCart('s00012', 1)"></i>
-												<div class="content content-right">
-													<span>Cho vào giỏ hàng</span>
-												</div>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="button-modify">
-											<div class="button-arc danger right"
-												style="transform: translateY(300%)">
-												<i class="fa fa-money" onclick="buyNow('s00012', 1)"></i>
-												<div class="content content-right">
-													<span>Mua ngay</span>
-												</div>
-											</div>
-										</div>
-									</li>
-								</ul>
-							</div>
-							<a href="ViewBook?id=s00012"> <img alt="s00012"
-								src="lib/image/s00012.jpeg">
-							</a>
-							<div class="info-book">
-								<div class="title">Sách số 6</div>
-								<div class="price">25.000</div>
-							</div>
-						</div>
-					</div>
+					<%
+						Object objBanChay = request.getAttribute("topBanChay");
+						Book[] topBanChay = null;
+						if (objBanChay != null && objBanChay instanceof Book[]) {
+							topBanChay = (Book[]) objBanChay;
+						}
+						if (topBanChay != null) {
+							for (int i = 0; i < topBanChay.length; i++) {
+								Book book = topBanChay[i];
+								out.println("<div class=\"col-lg-3 col-md-4 col-sm-6 col-xs-12\">");
+								out.println(
+										"<div class=\"book\" id=\"" + book.getMaSach() + "\"><div class=\"icon-bar vertical\">");
+								out.println("<ul><li><div class=\"button-modify\">");
+								out.println("<div class=\"button-arc forest right\" onclick=\"gotoPage('ViewBook?id="
+										+ book.getMaSach() + "')\">");
+								out.println("<i class=\"fa fa-info-circle\" onclick=\"gotoPage('ViewBook?id=" + book.getMaSach()
+										+ "')\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Thông tin chi tiết</span></div></div></div></li>");
+								out.println(
+										"<li><div class=\"button-modify\"><div class=\"button-arc cool right\" style=\"transform: translateY(150%)\">");
+								out.println("<i class=\"fa fa-cart-plus\" onclick=\"addBookToCart('" + book.getMaSach()
+										+ "', 1)\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Cho vào giỏ hàng</span></div></div></div></li>");
+								out.println(
+										"<li><div class=\"button-modify\"><div class=\"button-arc danger right\" style=\"transform: translateY(300%)\">");
+								out.println("<i class=\"fa fa-money\" onclick=\"buyNow('" + book.getMaSach() + "', 1)\"></i>");
+								out.println(
+										"<div class=\"content content-right\"><span>Mua ngay</span></div></div></div></li></ul></div>");
+								out.println("<div class=\"thumbnail\">");
+								out.println("<img style=\"cursor:pointer\" alt=\"s00001\" src=\"lib/image/"
+										+ book.getImages().getDuongDan() + "\"></div>");
+								out.println("<div class=\"info-book\"><div class=\"title\">" + book.getTenSach() + "</div>");
+								out.println("<div class=\"price\">" + book.getGiaBan() + "</div></div></div></div>");
+							}
+						}
+					%>
 				</div>
 			</div>
-
 		</article>
 	</div>
 
@@ -725,30 +244,30 @@
 		<div class="dialog" id="confirm-form" style="width: 60%;">
 			<div class="header">
 				<div class="title">Thanh toán</div>
-				<a class="f-right close" href="#"><i
-					class="fa fa-close"></i></a>
+				<a class="f-right close" href="#"><i class="fa fa-close"></i></a>
 			</div>
 			<ul class="content">
-				<li class="item" style="height: 100px;">
-					<span class="title">Tên người mua</span>
+				<li class="item" style="height: 100px;"><span class="title">Tên
+						người mua</span>
 					<div class="detail">
-						<input id="username" type="text" autocomplete="on" name="username" placeholder="Name..." value="" />
-					</div>
-				</li>
-				<li class="item" style="height: 100px;">
-					<span class="title">Địa chỉ giao hàng</span>
+						<input id="username" type="text" autocomplete="on" name="username"
+							placeholder="Name..." value="" />
+					</div></li>
+				<li class="item" style="height: 100px;"><span class="title">Địa
+						chỉ giao hàng</span>
 					<div class="detail">
-						<input id="address" type="text" name="address" placeholder="Address..." value="" />
-					</div>
-				</li>
-				<li class="item" style="height: 100px;">
-					<span class="title">Số điện thoại</span>
+						<input id="address" type="text" name="address"
+							placeholder="Address..." value="" />
+					</div></li>
+				<li class="item" style="height: 100px;"><span class="title">Số
+						điện thoại</span>
 					<div class="detail">
-						<input id="phone" type="text" name="phone" placeholder="Phone..." value="" />
-					</div>
-				</li>
+						<input id="phone" type="text" name="phone" placeholder="Phone..."
+							value="" />
+					</div></li>
 				<li class="item">
-					<button class="button submit-button" onclick="addCart()">Đặt hàng</button>
+					<button class="button submit-button" onclick="addCart()">Đặt
+						hàng</button>
 				</li>
 			</ul>
 		</div>
@@ -782,7 +301,7 @@
 				return false;
 			});
 		});
-		
+
 		function openNewTab(url) {
 			window.open(url, '_blank');
 		}

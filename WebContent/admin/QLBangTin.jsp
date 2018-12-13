@@ -140,8 +140,7 @@
 			</div>
 
 			<ul class="content">
-				<li class="item" style="height: 175px;"><span class="title">Nội
-						dung</span>
+				<li class="item" style="height: 175px;">
 					<div class="detail">
 						<input type="text" name="titleBT" placeholder="Title" id="titleBT">
 						<textarea rows="5" placeholder="Nội dung bảng tin..."

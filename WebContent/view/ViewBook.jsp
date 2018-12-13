@@ -1,4 +1,3 @@
-
 <%@page import="model.bean.Comment"%>
 <%@page import="model.bean.Image"%>
 <%@page import="model.bean.Book"%>
@@ -172,25 +171,17 @@
 					<ul class="content">
 						<%
 							Object bookTT = request.getAttribute("bookTT");
-							if (bookTT != null && bookTT instanceof Book[]) {			
+							if (bookTT != null && bookTT instanceof Book[]) {
 								Book[] bookTTs = (Book[]) bookTT;
 								for (int i = 0; i < bookTTs.length; i++) {
 									String MaSach = bookTTs[i].getMaSach();
 									String DuongDanAnh = bookTTs[i].getImages().getDuongDan();
 									String TenSach = bookTTs[i].getTenSach();
-									out.println("<a href=\"ViewBook?id="+MaSach+"\"><li class=\"item\"><img src=\"lib/image/"
+									out.println("<a href=\"ViewBook?id=" + MaSach + "\"><li class=\"item\"><img src=\"lib/image/"
 											+ DuongDanAnh + "\"></img> <span>" + TenSach + "</span></li></a>");
 								}
 							}
 						%>
-						<!-- <a href="ViewBook?id=s00001"></a><li class="item"><img src="lib/image/s00002.jpeg"></img> <span>Sách
-								số 2</span></li></a>
-						<li class="item"><img src="lib/image/s00003.jpeg"></img> <span>Sách
-								số 3</span></li>
-						<li class="item"><img src="lib/image/s00004.jpeg"></img> <span>Sách
-								số 4</span></li>
-						<li class="item"><img src="lib/image/s00005.jpeg"></img> <span>Sách
-								số 5</span></li> -->
 					</ul>
 				</div>
 			</div>

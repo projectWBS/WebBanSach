@@ -54,8 +54,8 @@
 								out.println("<div class=\"col-lg-3 col-md-4 col-sm-6\">");
 								out.println("<div class=\"book\" id=\"them\">");
 								out.println("<a href=\"../Manager/Sach?action=add\">");
-								out.print("<img alt=\"them\" src=\"../lib/image/plus.png\"");
-								out.println("style=\"margin: 0px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);\"></img></a>");
+								out.print("<img alt=\"them\" src=\"../lib/image/plus.jpg\"");
+								out.println("style=\"width:100%; margin: 0px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);\"></img></a>");
 								out.println("</div></div>");
 							}
 							
@@ -72,12 +72,7 @@
 									out.println("<div class=\"book\" id=\"" + maSach + "\">");
 									
 									if (pathImage != null)
-										out.println("<img class=\"clear-margin f-center full-width\" alt=\"" + maSach + "\" style=\"max-width: \" src=\"../lib/image/" + pathImage.getDuongDan() + "\">");
-									
-									out.println("<div class=\"options\">");
-									out.println("<div class=\"content\">");
-									out.println("<div class=\"col-ms-6\"><a href=\"../Manager/Sach?id=" + maSach + "&action=modify\"><i class=\"fa fa-edit\"></i></a><span>Chỉnh sửa</span></div>");
-									out.println("<div class=\"col-ms-6\"><i class=\"fa fa-trash\"></i><span>Xóa</span></div></div></div>");
+										out.println("<img style=\"cursor:pointer;\" onclick=\"gotoPage('../Manager/Sach?id="+ maSach +"&action=modify')\" class=\"clear-margin f-center full-width\" alt=\"" + maSach + "\" style=\"max-width: \" src=\"../lib/image/" + pathImage.getDuongDan() + "\">");
 									out.println("</div></div>");
 								}
 							}

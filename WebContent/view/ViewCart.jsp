@@ -25,28 +25,6 @@
 	<%@ include file="../comp/Header.jsp"%>
 
 	<div class="container-fluid" id="content">
-		<section>
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<ul class="breadcrumb" itemtype="http://schema.org/BreadcrumbList">
-							<li itemprop="itemListElement"
-								itemtype="http://schema.org/ListItem"><a itemprop="item"
-								href="http://localhost:8080/Web_Ban_Sach/"> <span
-									itemprop="name"> <i class="fa fa-home"></i> Trang chủ
-								</span>
-							</a> <span><i class="fa fa-angle-right"></i></span>
-								<meta itemprop="position" content="1"></li>
-							<li itemprop="itemListElement"
-								itemtype="http://schema.org/ListItem"><a itemprop="item"
-								href=""> <strong itemprop="name">Giỏ hàng</strong>
-							</a>
-								<meta itemprop="position" content="3"></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</section>
 		<article>
 			<div class="row">
 				<div class="col-lg-8 col-md-8 col-sm-7 col-xs-12">

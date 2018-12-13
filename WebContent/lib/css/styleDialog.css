@@ -77,7 +77,7 @@
 
 .item .mini-image{
 	width: 100%;
-	max-width: 400px;
+	max-width: 300px;
 }
 
 
@@ -111,6 +111,7 @@
 
 .detail textarea, .detail input{
 	width: 100% !important;
+    margin: 0.25em 0;
 	border: 1px solid rgb(127, 127, 127);
 }
 
