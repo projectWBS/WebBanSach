@@ -10,14 +10,87 @@
 						<div class="inner clearfix">
 							<div class="row">
 								<div class="col-md-12 text-center text-lg-left">
-									<span>&copy; Copyright 2018
+									<div class="col-md-12 text-center text-lg-left">
+										<div class="col-sm-12 col-md-12 col-xs-12 footer-static-title">
+											<div class="col-sm-4 col-md-4" style="padding-right: 10px;">
+												<div class="col-sm-12 col-md-12 col-xs-12 icon-footer"
+													style="margin-bottom: 10px;">
+													<img alt="logo" src="image/logo.jpg"
+														style="width: 75px; margin-left: 8px;">
+												</div>
+												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
+													style="font-size: 13px; float: left;">Số 1, đường Võ
+													Văn Ngân, phường Linh Trung, quận Thủ Đức, Tp.Hcm</div>
+												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
+													style="font-size: 13px; padding-top: 2px;">YeuSach.com
+													nhận đặt hàng trực tuyến và giao hàng tận nơi. KHÔNG hỗ trợ
+													đặt mua và nhận hàng trực tiếp tại văn phòng cũng như tất
+													cả Hệ Thống Yêu sách Bookstore trên toàn quốc.</div>
+											</div>
+											<div class="col-sm-4 col-md-4 col-xs-12"
+												style="padding: 0px;">
+												<div class="col-sm-12 col-md-12 col-xs-12" align="center"
+													style="font-size: 14.5px; margin-bottom: 20px; margin-top: 10px; padding: 0px;">
+													<a target="_blank"
+														href="https://www.facebook.com/YeuSach.PandaBooks.vn/"
+														title="Facebook"> <img alt="Facebook"
+														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images/footer/Facebook-on.png">
+													</a> <a target="_blank"
+														href="https://www.instagram.com/explore/tags/bookstore/"
+														title="Instagram"> <img alt="Instagram"
+														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Insta-on.png">
+													</a> <a target="_blank" href="" title="Youtube"> <img
+														alt="Youtube"
+														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Youtube-on.png">
+													</a> <a target="_blank" href="https://twitter.com/Fahasa_com"
+														title="Twitter"> <img alt="Twitter"
+														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/twitter-on.png">
+													</a>
+
+												</div>
+												<div class="col-sm-12 col-md-12 col-xs-12"
+													style="font-size: 14.5px">
+													<div class="col-sm-6 col-md-6 col-xs-6"
+														style="text-align: right;">
+														<a
+															href="https://play.google.com/store/apps/details?id=com.bookstore_mechuter&hl=vi">
+															<img alt="Bookstore.COM"
+															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/android.png"
+															style="max-width: 110px;">
+														</a>
+													</div>
+													<div class="col-sm-6 col-md-6 col-xs-6">
+														<a href="https://www.apple.com/vn/ios/app-store/"> <img
+															alt="Bookstore.COM"
+															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/appstore.png"
+															style="max-width: 110px;">
+														</a>
+													</div>
+												</div>
+											</div>
+											<div class="col-sm-4 col-md-4 " style="padding: 5px;">
+												<div class="footer-static-title">
+													<h3>Liên hệ</h3>
+												</div>
+												<div class="footer-static-content">
+													<ul>
+														<li class="first"><em class="fa fa-map-marker">&nbsp;</em><span>
+															Địa Chỉ:</span> 01 Võ Văn Ngân, Linh Trung, Thủ Đức, TP. HCM</li>
+														<li><em class="fa fa-envelope">&nbsp;</em><span>
+														Email:</span> Yeusach@YeusachBookstore.com</li>
+														<li class="last"><em class="fa fa-phone">&nbsp;</em><span>
+															Phone:</span> 190055555</li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</footer>
 
 	<script>

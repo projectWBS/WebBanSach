@@ -174,3 +174,30 @@ a:hover.button{
     width: 150px;
     transform:translate(0,0) !important;
 }
+.footer-static-title{
+    display: inline-block;
+    font-family:'Montserrat', sans-serif ;
+    font-size:14px;
+    text-align:left;
+    padding-left: 10px;
+}
+.footer-static-content{
+    display: block;
+    font-family:'Montserrat', sans-serif;
+    font-size:13px;
+    text-align:left;
+}
+f-col-7 .footer-static-content ul li {
+    clear: both;
+    display: inline-block;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+static-content ul li {
+    border-color: rgb(255, 255, 255);
+    color: black;
+}
+.first{
+    box-sizing: border-box;
+}
