@@ -34,7 +34,7 @@ header{
 #content{
     display: block;
     position: static;
-    margin-top: 100px;
+    margin-top: 100px !important;
     background: #fefff4 !important;
 }
 

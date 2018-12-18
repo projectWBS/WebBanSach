@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Yêu Sách Bookstore</title>
+<title>Admin Quản Lý</title>
 <link rel="icon" type="image/png" href="../image/LOGO.ico"/>
 
 <link rel="stylesheet" type="text/css" href="../lib/css/stylesheet.css"
@@ -29,25 +29,8 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
-			<div class="categories col-md-3 col-sm-12">
-				<div class="title">
-					<p>Chức năng quản lý</p>
-				</div>
-				<ul class="detail">
-					<li class="item"><a href="../Manager/BangTin">Quản lý bảng
-							tin</a></li>
-					<li class="item"><a href="../Manager/ThuChi">Quản lý thu
-							chi</a></li>
-					<li class="item"><a href="../Manager/DonHang">Quản lý đơn
-							hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho
-							sách</a></li>
-					<li class="item active"><a href="../Manager/KhachHang">Quản
-							lý khách hàng</a></li>
-				</ul>
-			</div>
 
-			<div class="col-md-9 col-sm-12"">
+			<div class="col-sm-12"">
 				<h3 style="text-align: center; border-bottom: 1px groove; padding-bottom: 0.25em">Thông tin chi tiết khách hàng</h3>
 				<%
 					Object object = request.getAttribute("Account");

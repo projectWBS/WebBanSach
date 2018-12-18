@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Yêu Sách Bookstore</title>
-<link rel="icon" type="image/png" href="../image/LOGO.ico"/>
+<title>Admin Quản Lý</title>
+<link rel="icon" type="image/png" href="../image/LOGO.ico" />
 
 <link rel="stylesheet" type="text/css" href="../lib/css/stylesheet.css"
 	data-minify="1" />
@@ -28,25 +28,7 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
-			<div class="categories col-md-3 col-sm-12">
-				<div class="title">
-					<p>Chức năng quản lý</p>
-				</div>
-				<ul class="detail">
-					<li class="item"><a href="../Manager/BangTin">Quản lý bảng
-							tin</a></li>
-					<li class="item"><a href="../Manager/ThuChi">Quản lý thu
-							chi</a></li>
-					<li class="item"><a href="../Manager/DonHang">Quản lý đơn
-							hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho
-							sách</a></li>
-					<li class="item active"><a href="../Manager/KhachHang">Quản
-							lý khách hàng</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-9 col-sm-12"">
+			<div class="col-sm-12"">
 				<h3>
 					<small>Quản lý khách hàng</small>
 				</h3>
@@ -86,25 +68,26 @@
 								Account[] accounts = (Account[]) result;
 								Account[] accountsSearch = (Account[]) resultSearch;
 								if (result != null && result instanceof Account[]) {
-									
+
 									for (int i = 0; i < accounts.length; i++) {
 										String TenDangNhap = accounts[i].getTenDangNhap();
 										String TenTaiKhoan = accounts[i].getTenTaiKhoan();
 										out.println("<tr id=\"dongKH\"><td>" + TenDangNhap + "</td>");
 										out.println("<td>" + TenTaiKhoan + "</td>");
-										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id="+ TenDangNhap +"')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
+										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id=" + TenDangNhap
+												+ "')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
 									}
 								}
-								
-								
+
 								else {
-									
+
 									for (int i = 0; i < accountsSearch.length; i++) {
 										String TenDangNhap = accountsSearch[i].getTenDangNhap();
 										String TenTaiKhoan = accountsSearch[i].getTenTaiKhoan();
 										out.println("<tr id=\"dongKH\"><td>" + TenDangNhap + "</td>");
 										out.println("<td>" + TenTaiKhoan + "</td>");
-										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id="+ TenDangNhap +"')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
+										out.println("<td><a onclick=\"openNewTab('CT-KhachHang?id=" + TenDangNhap
+												+ "')\" style=\"cursor: pointer\">Xem chi tiết</a></td></tr>");
 									}
 								}
 							%>
@@ -115,7 +98,7 @@
 				<hr>
 
 			</div>
-			<br>
+
 			<hr>
 		</div>
 	</div>
@@ -127,12 +110,12 @@
 		function reloadKH() {
 			var URL = window.location.href;
 			var searchU = document.getElementById("btnSearch").value;
-			$("#tbKH").load(window.location.href+searchU+" #dongKH" );
-			document.getElementById("btnSearch").value=searchU;
+			$("#tbKH").load(window.location.href + searchU + " #dongKH");
+			document.getElementById("btnSearch").value = searchU;
 
 		}
-		
-		function openNewTab(url){
+
+		function openNewTab(url) {
 			window.open(url, '_blank');
 		}
 	</script>

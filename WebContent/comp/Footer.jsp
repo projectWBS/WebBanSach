@@ -15,8 +15,13 @@
 											<div class="col-sm-4 col-md-4" style="padding-right: 10px;">
 												<div class="col-sm-12 col-md-12 col-xs-12 icon-footer"
 													style="margin-bottom: 10px;">
-													<img alt="logo" src="image/logo.jpg"
-														style="width: 75px; margin-left: 8px;">
+													<% 
+														if (request.getRequestURI().indexOf("Manager") == -1)
+															out.println("<img alt=\"logo\" src=\"image/logo.jpg\" style=\"width: 75px; margin-left: 8px;\">");
+														else
+															out.println("<img alt=\"logo\" src=\"../image/logo.jpg\" style=\"width: 75px; margin-left: 8px;\">");
+													%>
+													
 												</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
 													style="font-size: 13px; float: left;">Số 1, đường Võ

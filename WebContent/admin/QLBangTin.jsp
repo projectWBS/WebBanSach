@@ -6,8 +6,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Yêu Sách Bookstore</title>
-<link rel="icon" type="image/png" href="../image/LOGO.ico"/>
+<title>Admin Quản Lý</title>
+<link rel="icon" type="image/png" href="../image/LOGO.ico" />
 
 <link rel="stylesheet" type="text/css" href="../lib/css/stylesheet.css"
 	data-minify="1" />
@@ -27,28 +27,9 @@
 	<!-- Phần header cho trang Web -->
 	<%@ include file="../comp/Header.jsp"%>
 
-	<div class="container-fluid" id="content">
+	<div class="container-fluid" id="content" style="width: 80%; transform: translateX(11.5%); margin: 1.5em 0em; margin-top: 110px !important;">
 		<div class="row">
-			<div class="categories col-md-3 col-sm-12">
-				<div class="title">
-					<p>Chức năng quản lý</p>
-				</div>
-				<ul class="detail">
-					<li class="item active"><a href="../Manager/BangTin">Quản
-							lý bảng tin</a></li>
-					<li class="item"><a href="../Manager/ThuChi">Quản lý thu
-							chi</a></li>
-					<li class="item"><a href="../Manager/DonHang">Quản lý đơn
-							hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho
-							sách</a></li>
-					<li class="item"><a href="../Manager/KhachHang">Quản lý
-							khách hàng</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-9 col-sm-12">
-
+			<div class="col-xs-12">
 				<div id="my-carousel" class="carousel slide" data-ride="carousel">
 					<ol class="carousel-indicators">
 						<li data-target="#my-carousel" data-slide-to="0" class="active"></li>
@@ -60,28 +41,14 @@
 							Object result = request.getAttribute("danhsachbantin");
 							Banner[] banners = (Banner[]) result;
 							if (result != null && result instanceof Banner[]) {
-								out.println("<div class=\"item active\"> <img src=\"../image/" + banners[0].getAnh()
-										+ "\" style=\"width: 100%; background-repeat: no-repeat;\"> </div>");
+								out.println("<div class=\"item active\"><a> <img src=\"../image/" + banners[0].getAnh()
+										+ "\" style=\"width: 100%; background-repeat: no-repeat; cursor:pointer;\"> </a></div>");
 								for (int i = 1; i < banners.length; i++) {
-									out.println("<div class=\"item\"> <img src=\"../image/" + banners[i].getAnh()
-											+ "\" style=\"width: 100%; background-repeat: no-repeat;\"></div>");
+									out.println("<div class=\"item\"><a> <img src=\"../image/" + banners[i].getAnh()
+											+ "\" style=\"width: 100%; background-repeat: no-repeat; cursor:pointer;\"></a></div>");
 								}
 							}
 						%>
-						<!-- <div class="item active">
-							<img src="../image/banner-01.jpg"
-								style="width: 100%; background-repeat: no-repeat;">
-
-						</div>
-						<div class="item">
-							<img src="../image/banner-02.jpg"
-								style="width: 100%; background-repeat: no-repeat;">
-						</div>
-						<div class="item">
-							<img src="../image/banner-03.jpg"
-								style="width: 100%; background-repeat: no-repeat;">
-						</div> -->
-
 						<a class="left carousel-control" href="#my-carousel"
 							data-slide="prev"> <span
 							class="glyphicon glyphicon-chevron-left"></span></a> <a
@@ -91,7 +58,6 @@
 					</div>
 				</div>
 			</div>
-
 			<div class="col-ms-12">
 				<div class="board" style="margin: 1em 0">
 					<span class="title">Quản lý bảng tin</span> <span id="delete"
@@ -145,7 +111,8 @@
 						<input type="text" name="titleBT" placeholder="Title" id="titleBT">
 						<textarea rows="5" placeholder="Nội dung bảng tin..."
 							id="contentBT" name="contentBT"></textarea>
-					</div></li>
+					</div>
+				</li>
 				<li class="item" style="height: 200px;"><span class="title">Ảnh</span>
 					<div class="detail">
 						<input type="file" class="anh" id="inputImage" style="with: 100%;" />
@@ -218,10 +185,10 @@
 			contentBT = $("#contentBT").val();
 			titleBT = $("#titleBT").val();
 			inputImage = document.getElementById("inputImage").files[0].name;
-			if(inputImage==null)
-			{
-				var img=$("#showImage").attr("src");
-				inputImage=img.substring(img.lastIndexOf("/")+1,img.length());
+			if (inputImage == null) {
+				var img = $("#showImage").attr("src");
+				inputImage = img.substring(img.lastIndexOf("/") + 1, img
+						.length());
 			}
 			$.post("../Manager/BangTin?action=update", {
 				id : id,
@@ -232,8 +199,7 @@
 				window.location.reload();
 			});
 		}
-		function delBT()
-		{
+		function delBT() {
 			var id;
 			id = $(this).attr("id");
 			$.post("../Manager/BangTin?action=delete", {

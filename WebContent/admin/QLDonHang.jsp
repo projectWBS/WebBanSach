@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Yêu Sách Bookstore</title>
+<title>Admin Quản Lý</title>
 <link rel="icon" type="image/png" href="../image/LOGO.ico"/>
 
 <link rel="stylesheet" type="text/css" href="../lib/css/stylesheet.css"
@@ -28,29 +28,10 @@
 
 	<div class="container-fluid" id="content">
 		<div class="row" style="background-color: #eeeeee;">
-			<div class="categories col-md-3 col-sm-12">
-				<div class="title">
-					<p>Chức năng quản lý</p>
-				</div>
-				<ul class="detail">
-					<li class="item"><a href="../Manager/BangTin">Quản lý bảng
-							tin</a></li>
-					<li class="item"><a href="../Manager/ThuChi">Quản lý thu
-							chi</a></li>
-					<li class="item active"><a href="../Manager/DonHang">Quản
-							lý đơn hàng</a></li>
-					<li class="item"><a href="../Manager/KhoSach">Quản lý kho
-							sách</a></li>
-					<li class="item"><a href="../Manager/KhachHang">Quản lý
-							khách hàng</a></li>
-				</ul>
-			</div>
-
-			<div class="col-md-9 col-sm-12">
+			<div class="col-sm-12">
 				<h3>
 					<small>Quản lý đơn hàng</small>
 				</h3>
-				<hr>
 				<div class="sbDH">
 					<div class="container">
 						<form action="" method="GET" style="text-align: center;">

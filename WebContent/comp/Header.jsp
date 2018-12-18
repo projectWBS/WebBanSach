@@ -14,30 +14,39 @@
 				<div class="container">
 					<div class="row">
 						<%
-								String url = null, urlHome = null, imgSrc = null;
-								if (request.getRequestURI().indexOf("Manager") != -1){
-									url = "../Search";
-									imgSrc="../image/logo.jpg";
-									urlHome = "../Home";
-								} else {
-									url = "Search";
-									imgSrc="image/logo.jpg";
-									urlHome = "Home";
-								}
+							boolean isAdmin = false;
+							if (request.getRequestURI().indexOf("Manager") != -1)
+								isAdmin = true;
 						%>
 						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 col-ms-1">
-							<a href="<%=urlHome %>"><img alt="logo" src="<%=imgSrc%>" style="width: 55px; margin-left: -20px;"></img></a>
+							<%
+								if (isAdmin)
+									out.println(
+											"<a href=\"../Home\"><img alt=\"logo\" src=\"../image/logo.jpg\" style=\"width: 55px; margin-left: -20px;\"></img></a>");
+								else
+									out.println(
+											"<a href=\"Home\"><img alt=\"logo\" src=\"image/logo.jpg\" style=\"width: 55px; margin-left: -20px;\"></img></a>");
+							%>
+
 						</div>
 						<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ms-4">
-							<form action="<%=url%>" method="GET" class="search-bar clearfix"
-								id="search-textbox">
-								<input name="strSearch" type="text" id="Search"
-									placeholder="Nhập tên sách..."
-									style="border: 1px solid #dcdcdc; border-radius: 0;"></input> <span><button
-										type="submit">
-										<i class="fa fa-search" style="margin-top: 0"></i>
-									</button></span>
-							</form>
+							<%
+								if (isAdmin)
+									out.println(
+											"<form action=\"../Search\" method=\"GET\" class=\"search-bar clearfix\" id=\"search-textbox\">");
+								else
+									out.println(
+											"<form action=\"Search\" method=\"GET\" class=\"search-bar clearfix\" id=\"search-textbox\">");
+							%>
+							<input name="strSearch" type="text" id="Search"
+								placeholder="Nhập tên sách..."
+								style="border: 1px solid #dcdcdc; border-radius: 0;"></input> <span><button
+									type="submit">
+									<i class="fa fa-search" style="margin-top: 0"></i>
+								</button></span>
+							<%
+								out.println("</form>");
+							%>
 							<div id="zoom-btn">
 								<i class="fa fa-search"></i>
 							</div>
@@ -59,6 +68,8 @@
 														out.println("</ul>");
 													} else {
 														out.println("<ul>");
+														if (isAdmin)
+															out.println("<li><a href=\"Manager/BangTin\">Trang quản lý</a>");
 														out.println("<li><a href=\"ViewInfo\">Thông tin tài khoản</a>");
 														out.println("<li><a href=\"logout\">Đăng xuất</a>");
 														out.println("</ul>");
@@ -103,25 +114,55 @@
 						<div class="col-lg-12 col-md-12 col-sm-12 col-ms-12">
 							<div class="navbar" style="border: none;">
 								<ul class="nav nav-left">
-									<li class="nav-item nav-item-lv1 active"><a
-										class="nav-link" href="Home">Trang
-											chủ</a></li>
-									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="Categories?danhMuc=yeuthich">Sách yêu thích</a></li>
-									<li class="nav-item nav-item-lv1"><a class="nav-link"
-										href="Categories?danhMuc=banchay">Sách bán chạy</a></li>
+									
+									<%
+										if (!isAdmin) {
+											out.println("<li class=\"nav-item nav-item-lv1 active\"><a class=\"nav-link\" href=\"Home\">Trang chủ</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"Categories?danhMuc=yeuthich\">Sách yêu thích</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"Categories?danhMuc=banchay\">Sách bán chạy</a></li>");
+										} else {
+											out.println("<li class=\"nav-item nav-item-lv1 active\"><a class=\"nav-link\" href=\"../Home\">Trang chủ</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"BangTin\">Bảng Tin</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"DonHang\">Đơn hàng</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"KhachHang\">Khách hàng</a></li>");
+											out.println(
+													"<li class=\"nav-item nav-item-lv1\"><a class=\"nav-link\" href=\"KhoSach\">Kho sách</a></li>");
+										}
+									%>
 								</ul>
 								<div class="nav nav-toggle">
 									<button id="btn-toggle">
 										<i class="fa fa-align-justify"></i>
 									</button>
 									<div class="toggle-content">
-										<span class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('Home')"><a
-											href="Home">Trang chủ</a></span> <span
-											class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('Categories?danhMuc=yeuthich')"><a href="Categories?danhMuc=yeuthich">Sách yêu thích</a></span> <span class="toggle-item" style="cursor: pointer;"
-											onclick="gotoPage('Categories?danhMuc=banchay')"><a href="Categories?danhMuc=banchay">Sách bán chạy</a></span>
+										<%
+											if (!isAdmin) {
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('Home')\"><a href=\"Home\">Trang chủ</a></span> ");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println(
+														"onclick=\"gotoPage('Categories?danhMuc=yeuthich')\"><a href=\"Categories?danhMuc=yeuthich\">Sách yêu thích</a></span>");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println(
+														"onclick=\"gotoPage('Categories?danhMuc=banchay')\"><a href=\"Categories?danhMuc=banchay\">Sách bán chạy</a></span>");
+											} else {
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('../Home')\"><a href=\"./Home\">Trang chủ</a></span> ");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('BangTin')\"><a href=\"BangTin\">Bảng tin</a></span>");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('DonHang')\"><a href=\"DonHang\">Đơn hàng</a></span>");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('KhachHang')\"><a href=\"KhachHang\">Khách hàng</a></span>");
+												out.print("<span class=\"toggle-item\" style=\"cursor: pointer;\"");
+												out.println("onclick=\"gotoPage('KhoSach')\"><a href=\"KhoSach\">Kho sách</a></span>");
+											}
+										%>
 									</div>
 								</div>
 							</div>
@@ -198,9 +239,18 @@
 				var child=$(".nav.nav-left").children();
 				$(child).removeClass("active");
 				var url = location.href;
-				if (url.indexOf("Categories?danhMuc=yeuthich") != -1) child.eq(1).addClass("active");
-				else if (url.indexOf("Categories?danhMuc=banchay") != -1) child.eq(2).addClass("active");
-				else child.eq(0).addClass("active");
+				
+				if (url.indexOf("Categories") != -1){
+					if (url.indexOf("Categories?danhMuc=yeuthich") != -1) child.eq(1).addClass("active");
+					else if (url.indexOf("Categories?danhMuc=banchay") != -1) child.eq(2).addClass("active");
+				} else if (url.indexOf("Manager") == -1) child.eq(0).addClass("active");
+				if (url.indexOf("Manager") != -1){
+					if (url.indexOf("BangTin") != -1) child.eq(1).addClass("active");
+					else if (url.indexOf("DonHang") != -1) child.eq(2).addClass("active");
+					else if (url.indexOf("KhachHang") != -1) child.eq(3).addClass("active");
+					else if (url.indexOf("KhoSach") != -1 || url.indexOf("Sach") != -1) child.eq(4).addClass("active");
+				} else child.eq(0).addClass("active");
+				
 				
 				$("#btn-toggle").click(function(){
 					var height = $("#btn-toggle").next().css("height");
