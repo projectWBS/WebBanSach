@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Vector;
 
 public class DBConnection {
-	public static String strConn = "jdbc:sqlserver://localhost:1433;databaseName=BANSACH;user=vu;password=12345";
+	public static String strConn = "jdbc:sqlserver://localhost:1433;databaseName=BANSACH;user=admin;password=admin";
 	private Connection connection;
 
 	public DBConnection() {
