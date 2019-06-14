@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Yêu Sách Bookstore</title>
-<link rel="icon" type="image/png" href="image/LOGO.ico"/>
+<link rel="icon" type="image/png" href="image/LOGO.ico" />
 
 <link rel="stylesheet" type="text/css" href="lib/css/stylesheet.css"
 	data-minify="1" />
@@ -16,7 +16,8 @@
 <link rel="stylesheet" type="text/css" href="lib/css/BEM_Style.css">
 <link rel="stylesheet" type="text/css"
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat"
+	rel="stylesheet">
 <script type="text/javascript" src="lib/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="lib/js/Cookies.js"></script>
 <script
@@ -73,37 +74,6 @@
 											+ Email + "</span></li>");
 						}
 					%>
-					<!--
-						<div class="board__header">
-						<i class="fa fa-user-circle" style="font-size: 30px !important;"></i>
-						<span class="title"
-							style="position: relative; bottom: 5px; margin: 0em 1em;">Username</span>
-							
-						</div>
-						
-								<ul class="board__main"> 
-						<li class="board__main__title"><span>Thông tin cá nhân</span></li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Họ tên:</span> <span
-							class="board__main__detail__content">Tên người dùng</span></li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Giới tính:</span> <span
-							class="board__main__detail__content">Giới tính người dùng</span>
-						</li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Ngày sinh:</span> <span
-							class="board__main__detail__content">Ngày sinh người dùng</span>
-						</li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Địa chỉ:</span> <span
-							class="board__main__detail__content">Địa chỉ người dùng</span></li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Liên hệ:</span> <span
-							class="board__main__detail__content">SDT người dùng</span></li>
-						<li class="board__main__detail"><span
-							class="board__main__detail__lable">Email:</span> <span
-							class="board__main__detail__content">Địa chỉ Email người
-								dùng</span></li> -->
 					</ul>
 					<div class="button-modify"
 						style="margin: 1em 0em; text-align: center;">
@@ -211,66 +181,33 @@
 				out.println("<form class=\"signup-content\" action=\"ViewInfo?action=UpdateInfo\" method=\"POST\">");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"UserSignUp\">Tên người dùng</label> ");
-				out.println("<input type=\"text\" name=\"UserSignUp\" value=\""+TenTaiKhoan +"\" placeholder=\"\"  id=\"UserSignUps\" required> </div>");
+				out.println("<input type=\"text\" name=\"UserSignUp\" value=\"" + TenTaiKhoan
+						+ "\" placeholder=\"\"  id=\"UserSignUps\" required> </div>");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"Sex\">Giới tính</label> ");
-				out.println("<select class=\"form-control\" name=\"Sex\" id=\"Sexs\"><option>Nam</option><option>Nữ</option></select></div>");				
+				out.println(
+						"<select class=\"form-control\" name=\"Sex\" id=\"Sexs\"><option>Nam</option><option>Nữ</option></select></div>");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"BirthDate\">Ngày sinh</label> ");
-				out.println("<input id=\"typedates\" type=\"date\" name=\"Date\" value=\""+NgaySinh+"\" id=\"BirthDate\" required></div>");		
+				out.println("<input id=\"typedates\" type=\"date\" name=\"Date\" value=\"" + NgaySinh
+						+ "\" id=\"BirthDate\" required></div>");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"Address\">Địa chỉ</label> ");
-				out.println("<input type=\"text\" name=\"Address\" value=\""+ DiaChi+"\" placeholder=\"\" maxlength=\"255\" id=\"Addresss\" required> </div>");
+				out.println("<input type=\"text\" name=\"Address\" value=\"" + DiaChi
+						+ "\" placeholder=\"\" maxlength=\"255\" id=\"Addresss\" required> </div>");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"Email\">Email</label>");
-				out.println("<input type=\"email\" name=\"Email\" value=\""+Email+"\" placeholder=\"\" maxlength=\"50\" id=\"Emails\" required></div>");
+				out.println("<input type=\"email\" name=\"Email\" value=\"" + Email
+						+ "\" placeholder=\"\" maxlength=\"50\" id=\"Emails\" required></div>");
 				out.println("<div class=\"form-group\">");
 				out.println("<label class=\"control-label\" for=\"PhoneNumber\">Số điệnthoại liên hệ</label>");
-				out.println("<input type=\"text\" name=\"PhoneNumber\" value=\""+ SDT+"\" placeholder=\"\"  id=\"PhoneNumbers\" required></div>");
+				out.println("<input type=\"text\" name=\"PhoneNumber\" value=\"" + SDT
+						+ "\" placeholder=\"\"  id=\"PhoneNumbers\" required></div>");
 				out.println("<div style=\"position: relative; width: 100%; text-align: center\">");
-				out.println("<button class=\"button submit-button\">Xác nhận</button>");
+				out.println("<button class=\"button submit-button\" onclick=\"validateAddress()\">Xác nhận</button>");
 				out.println("</div></br></form></div>");
 			}
 		%>
-<!--
-		<div class="signup-container" id="UpPass-box"> <h1>Thông tin cá nhân</h1>
-			<span class="img-close"><i id="size-icon" class="fa fa-close"></i></span>
-			<form class="signup-content"> <div class="form-group">
-					<label class="control-label" for="NameSignUp">Tên đăng nhập</label>
-					<input type="text" name="NameSignUp" value=""placeholder="User name" maxlength="10" autocomplete="off" id="NameSignUp" required></div>
-						
-				<div class="form-group">
-					<label class="control-label" for="UserSignUp">Tên người
-						dùng</label> <input type="text" name="UserSignUp" value=""
-						placeholder="Your name" maxlength="50" autocomplete="off"
-						id="UserSignUp" required> </div>
-				<div class="form-group">
-					<label class="control-label" for="Sex">Giới tính</label> 
-					<select class="form-control" name="Sex" id="Sex"><option>Nam</option><option>Nữ</option></select></div>
-				<div class="form-group">
-					<label class="control-label" for="BirthDate">Ngày sinh</label> <input
-						id="typedate" type="date" name="Date" value="" id="BirthDate"
-						required>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="Address">Địa chỉ</label> <input
-						type="text" name="Address" value="" placeholder="Address"
-						maxlength="255" id="Address" required>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="Email">Email</label> <input
-						type="email" name="Email" value="" placeholder="Email"
-						maxlength="50" id="Email" required>
-				</div>
-				<div class="form-group">
-					<label class="control-label" for="PhoneNumber">Số điện
-						thoại liên hệ</label> <input type="number" name="PhoneNumber" value=""
-						placeholder=" Your phone number" maxlength="10" id="PhoneNumber"
-						required>
-				</div>
-				<div style="position: relative; width: 100%; text-align: center">
-					<button class="button submit-button" onclick="">Xác nhận</button>
-				</div></br></form></div> -->
 		<div class="signup-container" id="Pass-box">
 			<h1>Đổi mật khẩu</h1>
 			<span class="img-close"><i id="#size-icon" class="fa fa-close"></i></span>
@@ -349,27 +286,50 @@
 				return (Matkhaumoi == Xacnhanmk)
 
 			}
-			function UpdateUserInfo()
-			{
-				var TenNguoiDung,GioiTinh,NgaySinh,DiaChi,Email,SDT;
-				TenNguoiDung=$('#UserSignUps').val();
-				GioiTinh=$('#Sexs').val();
-				NgaySinh=$('#typedates').val(); 
-				DiaChi=$('#Addresss').val();
-				Email=$('#Emails').val();
-				SDT=$('#PhoneNumber').val();
-				$.post("ViewInfo?action=UpdateInfo",{
-							
-							TenNguoiDung:TenNguoiDung,
-							GioiTinh:GioiTinh,
-							NgaySinh:NgaySinh,
-							DiaChi:DiaChi,
-							Email:Email,
-							SDT:SDT,
-						}, function(loadtrang){
-							location.reload();
-						}				
-						);
+			function UpdateUserInfo() {
+				var TenNguoiDung, GioiTinh, NgaySinh, DiaChi, Email, SDT;
+				TenNguoiDung = $('#UserSignUps').val();
+				GioiTinh = $('#Sexs').val();
+				NgaySinh = $('#typedates').val();
+				DiaChi = $('#Addresss').val();
+				Email = $('#Emails').val();
+				SDT = $('#PhoneNumber').val();
+					$.post("ViewInfo?action=UpdateInfo", {
+						TenNguoiDung : TenNguoiDung,
+						GioiTinh : GioiTinh,
+						NgaySinh : NgaySinh,
+						DiaChi : DiaChi,
+						Email : Email,
+						SDT : SDT,
+					}, function(loadtrang) {
+						location.reload();
+					});
+			}
+			function validateAddress() {
+				var address = $('#Addresss').val();
+
+				if (address == "") {
+					alert("Address must be filled out");
+					return false;
+				} 
+				else {
+					if (address.length > 150) {
+						alert("Address cannot be more than 150 characters");
+						return false;
+					} 
+					else {
+						if (/[^a-zA-Z0-9\-\/]/.test(address)) {
+							alert('Address can only contain alphanumeric characters, hyphens(-) and back slashs(\)');
+							return false;
+						}
+						else{
+							return true;
+						}
+					}
+				}
+					
+					
+						
 			}
 		</script>
 </body>
