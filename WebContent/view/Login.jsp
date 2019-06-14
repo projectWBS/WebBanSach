@@ -75,9 +75,9 @@ $(document).ready(function(){
 									<%
 										String err = request.getParameter("err");
 										if ("1".equals(err)) {
-											out.print("<p>Tên đăng nhập không tồn tại!</p>");
+											out.print("<p>Sai tên đăng nhập hoặc mật khẩu!</p>");
 										} else if ("0".equals(err)) {
-											out.print("<p>Sai mật khẩu!</p>");
+											out.print("<p>Đang trong phiên làm việc!</p>");
 										}
 									%>
 									<form action="login" method="POST">
@@ -90,7 +90,7 @@ $(document).ready(function(){
 											<label class="control-label" for="passLogin">Mật khẩu</label>
 											<input type="password" name="passLogin" value=""
 												maxlength="10" placeholder="Password" id="passLogin"
-												class="form-control">
+												class="form-control" autocomplete="off">
 										</div>
 										<input type="submit" value="Đăng nhập" class="btn btn-primary"
 											id="btn-search" style="width: max-content !important">

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
@@ -15,37 +16,48 @@ import model.service.CtrAccount;
 
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public Login() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		request.getSession().removeAttribute("User");
+	public Login() {
+		super();
+	}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+//		request.getSession().removeAttribute("User");
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("view/Login.jsp");
 		dispatcher.forward(request, response);
+
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		Map<String, String[]> user = request.getParameterMap();
 		CtrAccount ctrAccount = new CtrAccount();
+		Account accountsession = (Account) request.getSession().getAttribute("User");
 		if (user.size() > 0) {
-			if (ctrAccount.Login(user.get("nameLogin")[0], user.get("passLogin")[0])) {//�?ăng nhập thành công
+			if (ctrAccount.Login(user.get("nameLogin")[0], user.get("passLogin")[0]) && accountsession == null) {// thành công
 				HttpSession session = request.getSession();
 				Account account = ctrAccount.getInformation(user.get("nameLogin")[0]);
 				session.setAttribute("User", account);
-				
 				if (account.getChucVu().equals("user"))
 					response.sendRedirect(request.getContextPath());
 				else
 					response.sendRedirect(request.getContextPath() + "/Manager/BangTin");
-				
+
 			} else {
-				StringBuffer path = new StringBuffer(request.getContextPath() + "/login?err=");
-				if (!user.get("nameLogin")[0].equals("user")) path.append("1");
-				else if (!user.get("passLogin")[0].equals("1234")) path.append("0");
-				response.sendRedirect(path.toString());
+				if (ctrAccount.Login(user.get("nameLogin")[0], user.get("passLogin")[0])) {
+					StringBuffer path = new StringBuffer(request.getContextPath() + "/login?err=");
+					path.append("0");
+					response.sendRedirect(path.toString());
+				} else {
+					StringBuffer path = new StringBuffer(request.getContextPath() + "/login?err=");
+					if (!user.get("nameLogin")[0].equals("user"))
+						path.append("1");
+					else if (!user.get("passLogin")[0].equals("1234"))
+						path.append("1");
+					response.sendRedirect(path.toString());
+				}
 			}
 		}
 	}

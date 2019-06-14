@@ -39,7 +39,15 @@ public class CtrCart {
 			for (Cart cart : carts) {
 				Vector<Object[]> paramsIn = connection.createParams(new int[] {1, 2, 3, 4}, 
 						new Object[] {cart.getBook().getMaSach(), maHoaDon, cart.getCount(), cart.getGiaBan()});
-				connection.executeProcedure("sp_AddBookToCart", paramsIn, null, null);
+				if(cart.getCount()<50)
+				{
+					connection.executeProcedure("sp_AddBookToCart", paramsIn, null, null);
+			
+				}
+				else
+				{
+					System.out.println("Số lượng sai rồi!!!");;
+				}
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -218,13 +218,13 @@
 			<div class="form-group">
 				<label class="control-label" for="Password">Mật khẩu đăng
 					nhập</label> <input type="password" name="Password" value=""
-					placeholder=" Your password" id="Password" maxlength="50">
+					placeholder=" Your password" id="Password" maxlength="50" autocomplete="off">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="Confirmpassword">Xác nhận
 					mật khẩu</label> <input type="password" name="Confirmassword" value=""
 					placeholder=" Confirm your password" id="Confirmpassword"
-					maxlength="50">
+					maxlength="50" autocomplete="off">
 			</div>
 			<div style="position: relative; width: 100%; text-align: center">
 				<button class="button submit-button" onclick="dangkytk()">Đăng

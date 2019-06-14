@@ -15,13 +15,13 @@
 											<div class="col-sm-4 col-md-4" style="padding-right: 10px;">
 												<div class="col-sm-12 col-md-12 col-xs-12 icon-footer"
 													style="margin-bottom: 10px;">
-													<% 
+													<%
 														if (request.getRequestURI().indexOf("Manager") == -1)
 															out.println("<img alt=\"logo\" src=\"image/logo.jpg\" style=\"width: 75px; margin-left: 8px;\">");
 														else
 															out.println("<img alt=\"logo\" src=\"../image/logo.jpg\" style=\"width: 75px; margin-left: 8px;\">");
 													%>
-													
+
 												</div>
 												<div class="col-sm-12 col-md-12 col-xs-12 address-footer"
 													style="font-size: 13px; float: left;">Số 1, đường Võ
@@ -36,12 +36,10 @@
 												style="padding: 0px;">
 												<div class="col-sm-12 col-md-12 col-xs-12" align="center"
 													style="font-size: 14.5px; margin-bottom: 20px; margin-top: 10px; padding: 0px;">
-													<a target="_blank"
-														href="javascript:void(0)"
+													<a target="_blank" href="javascript:void(0)"
 														title="Facebook"> <img alt="Facebook"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images/footer/Facebook-on.png">
-													</a> <a target="_blank"
-														href="javascript:void(0)"
+													</a> <a target="_blank" href="javascript:void(0)"
 														title="Instagram"> <img alt="Instagram"
 														src="https://www.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Insta-on.png">
 													</a> <a target="_blank" href="" title="Youtube"> <img
@@ -57,16 +55,13 @@
 													style="font-size: 14.5px">
 													<div class="col-sm-6 col-md-6 col-xs-6"
 														style="text-align: right;">
-														<a
-															href="javascript:void(0)">
-															<img alt="Bookstore.COM"
+														<a href="javascript:void(0)"> <img alt="Bookstore.COM"
 															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/android.png"
 															style="max-width: 110px;">
 														</a>
 													</div>
 													<div class="col-sm-6 col-md-6 col-xs-6">
-														<a href="javascript:void(0)"> <img
-															alt="Bookstore.COM"
+														<a href="javascript:void(0)"> <img alt="Bookstore.COM"
 															src="https://www.fahasa.com/media/wysiwyg/Logo-NCC/appstore.png"
 															style="max-width: 110px;">
 														</a>
@@ -80,11 +75,11 @@
 												<div class="footer-static-content">
 													<ul>
 														<li class="first"><em class="fa fa-map-marker">&nbsp;</em><span>
-															Địa Chỉ:</span> 01 Võ Văn Ngân, Linh Trung, Thủ Đức, TP. HCM</li>
+																Địa Chỉ:</span> 01 Võ Văn Ngân, Linh Trung, Thủ Đức, TP. HCM</li>
 														<li><em class="fa fa-envelope">&nbsp;</em><span>
-														Email:</span> Yeusach@YeusachBookstore.com</li>
+																Email:</span> Yeusach@YeusachBookstore.com</li>
 														<li class="last"><em class="fa fa-phone">&nbsp;</em><span>
-															Phone:</span> 190055555</li>
+																Phone:</span> 190055555</li>
 													</ul>
 												</div>
 											</div>
@@ -173,7 +168,13 @@
 		//Use in ViewBook.jsp
 		function getNumberBuy() {
 			var inputNumber = document.getElementById("count");
-			return inputNumber.value;
+			if (inputNumber.value > 50) {
+				alert("Bạn chỉ có thể thêm tối đa 50 sản phẩm");
+
+			} else {
+				return inputNumber.value;
+			}
+
 		}
 
 		//Use in ViewBook.jsp

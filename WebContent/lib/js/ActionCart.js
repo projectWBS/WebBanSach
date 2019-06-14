@@ -5,21 +5,21 @@ function removeBookFromCart(row) {
 	deleteCookie(getNameCookieAt(index));
 	var soLuong = getCookie('countBook') - 1;//Giảm số lượng lần mua trong biến đếm
 	setCookie('countBook', soLuong);
-	
+
 	//Cập nhật lại bảng sách
 	refreshTableBook();
-	
+
 	//Cập nhật lại bảng giá
 	refreshTablePrice();
-	
+
 	//Cập nhật header giỏ hàng
 	refreshHeaderButtonCart(soLuong)
 }
 
-function refreshTableBook(){
+function refreshTableBook() {
 	var rowTables = $('.row-table');
-	if (rowTables.length > 0){
-		for (var i=0; i<rowTables.length; i++){
+	if (rowTables.length > 0) {
+		for (var i = 0; i < rowTables.length; i++) {
 			var deleteBook = $(rowTables[i]).find('.deleteBook');
 			var input = $(rowTables[i]).find('input');
 			$(deleteBook).attr('id', i);
@@ -31,16 +31,16 @@ function refreshTableBook(){
 	}
 }
 
-function refreshTablePrice(){
+function refreshTablePrice() {
 	var totalPrice = getTotalPrice();
 	$('#totalPrice').text(totalPrice + "đ");
-	if (totalPrice == 0){
+	if (totalPrice == 0) {
 		$('#button-confirm').find('a').remove();
 		$('#button-confirm').append('<a><i class=\"fa fa-money\"></i> <span class=\"content-inner\">Thanh toán</span></a>');
 	}
 }
 
-function refreshHeaderButtonCart(count){
+function refreshHeaderButtonCart(count) {
 	var button = $('.cart-count')[0];
 	$(button).find('#number').text(count);
 }
@@ -50,14 +50,14 @@ function updateBookInCart(index, input) {
 	refreshTablePrice();
 }
 
-function getTotalPrice(){
+function getTotalPrice() {
 	var rowTables = $('.row-table');
 	var totalPrice = 0;
-	if (rowTables.length > 0){
-		for (var i=0; i<rowTables.length; i++){
+	if (rowTables.length > 0) {
+		for (var i = 0; i < rowTables.length; i++) {
 			var input = $(rowTables[i]).find('input');
 			var gia = $(rowTables[i]).find('#price');
-			totalPrice = totalPrice + input.val()*gia.text();
+			totalPrice = totalPrice + input.val() * gia.text();
 		}
 	}
 	return totalPrice;
@@ -94,36 +94,42 @@ function setBookInfo(index, info) {
 function setBookCount(index, input) {
 	var maSach = getBookId(index);
 	var soLuong = input.value;
-	var newInfo = "id:" + maSach + "-" + "count:" + soLuong;
+	if (soLuong > 50) {
+		alert("Số lượng không hợp lệ vui lòng nhập lại");
+		refreshTableBook();
+	}
+	else {
+		var newInfo = "id:" + maSach + "-" + "count:" + soLuong;
 
-	var count = getCookie("countBook");
-	deleteCookie("countBook");
-	setBookInfo(index, newInfo);
-	setCookie("countBook", count);
+		var count = getCookie("countBook");
+		deleteCookie("countBook");
+		setBookInfo(index, newInfo);
+		setCookie("countBook", count);
+	}
 }
 
 $(document).ready(
-		function() {
-			$('a.login-window').click(function() {
-				//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
-				var loginBox = $(this).attr('href');
+	function () {
+		$('a.login-window').click(function () {
+			//lấy giá trị thuộc tính href - chính là phần tử "#login-box"
+			var loginBox = $(this).attr('href');
 
-				//cho hiện hộp đăng nhập trong 300ms
-				$(loginBox).fadeIn(300);
+			//cho hiện hộp đăng nhập trong 300ms
+			$(loginBox).fadeIn(300);
 
-				// thêm phần tử id="over" vào sau body
-				$('body').append('<div id="over">');
-				$('#over').fadeIn(300);
+			// thêm phần tử id="over" vào sau body
+			$('body').append('<div id="over">');
+			$('#over').fadeIn(300);
 
+			return false;
+		});
+
+		// khi click đóng hộp thoại
+		$(document).on('click',
+			"a.close, #over, button.submit-button", function () {
+				$('#over, .dialog').fadeOut(300, function () {
+					$('#over').remove();
+				});
 				return false;
 			});
-
-			// khi click đóng hộp thoại
-			$(document).on('click',
-					"a.close, #over, button.submit-button", function() {
-						$('#over, .dialog').fadeOut(300, function() {
-							$('#over').remove();
-						});
-						return false;
-					});
-		});
+	});

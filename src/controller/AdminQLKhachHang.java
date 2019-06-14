@@ -41,6 +41,7 @@ public class AdminQLKhachHang extends HttpServlet {
 				request.setAttribute("danhsachkhachhang", danhsachkhachhang);
 			}
 			dispatcher.forward(request, response);
+			
 		}
 		else
 		{
