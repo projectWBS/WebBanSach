@@ -113,58 +113,48 @@
 				return false;
 			});
 		});
-
 		function addCart() {
 			var url = 'ViewCart?action=add'
 			var name = $('#username').val();
 			var address = $('#address').val();
 			var phone = $('#phone').val();
-
 			$.post(url, {
 				name : name,
 				address : address,
 				phone : phone
 			}, function() {
 				alert('Đặt hàng thành công!');
-
 				var url = location.href;
 				deleteAllCookie();
 				location.href = url.substring(0, url.lastIndexOf('/'));
 			});
 		}
-
 		function buyNow(id, soluong) {
 			addBookToCart(id, soluong);
 			showPayDialog();
 		}
-
 		function showPayDialog() {
 			//cho hiện hộp đăng nhập trong 300ms
 			$('.dialog').fadeIn(300);
-
 			// thêm phần tử id="over" vào sau body
 			$('body').append('<div id="over">');
 			$('#over').fadeIn(300);
 		}
-
 		function addBookToCart(id, soluong) {
 			var count = getCookie("countBook");
 			if (count.length == 0)
 				count = 1;
 			else
 				count++;
-
 			setCookie("book" + count, "id:" + id + "-count:" + soluong); //Thêm sách đã mua vào cookie
 			setCookie("countBook", count);
 			$(".cart-count").load(document.URL + " #number");
 			$("#countInput").load(document.URL + " #count");
 		}
-
 		//Goto url
 		function gotoPage(url) {
 			document.location.href = url;
 		}
-
 		//Use in ViewBook.jsp
 		function getNumberBuy() {
 			var inputNumber = document.getElementById("count");
@@ -173,15 +163,12 @@
 			} else {
 				return inputNumber.value;
 			}
-
 		}
-
 		//Use in ViewBook.jsp
 		function zoomImage(mini_image, zoom_image, name) {
 			var url = "url" + "(lib/image/" + name + ")";
 			var image = document.getElementById(zoom_image);
 			image.style.content = url; //Thay đổi đường dẫn của zoom-image 
-
 			/*Thay đổi active image*/
 			var oldActiveImage = document
 					.getElementsByClassName("mini-image active")[0];
@@ -189,7 +176,6 @@
 			mouseOutImage(oldActiveImage);//Chỉnh sửa thuộc tính cho hình
 			mini_image.className = "mini-image active"; //Kích hoạt trạng thía active mới
 		}
-
 		//Use in ViewBook.jsp
 		function mouseHoverImage(img) {
 			if (img.className == "mini-image") {
@@ -197,7 +183,6 @@
 				img.children[0].border = "1px solid gray";
 			}
 		}
-
 		//Use in ViewBook.jsp
 		function mouseOutImage(img) {
 			if (img.className == "mini-image") {
