@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.Vector;
 
-
 import model.bean.Account;
 import model.bean.Book;
 import model.bean.Image;
@@ -25,10 +24,11 @@ public class CtrAccount {
 		// �?ăng nhập
 
 		connection.connect();
-		String passwordNew= MD5.encode(password);
+		String passwordNew = MD5.encode(password);
 		boolean result = false;
 		try {
-			Vector<Object[]> paramsIn = connection.createParams(new int[] { 2, 3 }, new Object[] { userId, passwordNew });
+			Vector<Object[]> paramsIn = connection.createParams(new int[] { 2, 3 },
+					new Object[] { userId, passwordNew });
 			Vector<Object[]> paramsOut = connection.createParams(new int[] { 1 }, new Object[] { Types.BIT });
 			result = (boolean) connection.executeScalarFunction("fc_Login", paramsIn, paramsOut);
 		} catch (Exception e) {
@@ -53,13 +53,13 @@ public class CtrAccount {
 			while (resultSet.next()) {
 				result.setTenTaiKhoan(resultSet.getString(1));
 				result.setChucVu(resultSet.getString(2));
-				
+
 				boolean gioiTinh = resultSet.getBoolean(3);
 				if (gioiTinh == true)
 					result.setGioiTinh("Nữ");
 				else
 					result.setGioiTinh("Nam");
-				
+
 				result.setNgaySinh(resultSet.getString(4));
 				result.setDiaChi(resultSet.getString(5));
 				result.setSdt(resultSet.getString(6));
@@ -75,14 +75,15 @@ public class CtrAccount {
 		return result;
 	}
 
-	public void SignUp(String TenDangNhap,String MatKhau,String TenNguoiDung,String GioiTinh,String NgaySinh,String DiaChi,String SDT,String Email) {
+	public void SignUp(String TenDangNhap, String MatKhau, String TenNguoiDung, String GioiTinh, String NgaySinh,
+			String DiaChi, String SDT, String Email) {
 		connection.connect();
-		String MatKhauMoi= MD5.encode(MatKhau)  ;
+		String MatKhauMoi = MD5.encode(MatKhau);
 		try {
-			boolean check=CheckTK(TenDangNhap);
-			if(check) {
-				Vector<Object[]> paramsIn=connection.createParams(new int[] {1,2,3,4,5,6,7,8}, 
-						new Object[] {TenDangNhap,MatKhauMoi,TenNguoiDung,GioiTinh,NgaySinh,DiaChi,SDT,Email});
+			boolean check = CheckTK(TenDangNhap);
+			if (check) {
+				Vector<Object[]> paramsIn = connection.createParams(new int[] { 1, 2, 3, 4, 5, 6, 7, 8 },
+						new Object[] { TenDangNhap, MatKhauMoi, TenNguoiDung, GioiTinh, NgaySinh, DiaChi, SDT, Email });
 				connection.executeProcedure("InsertAccount", paramsIn, null, null);
 			}
 		} catch (Exception e) {
@@ -90,50 +91,70 @@ public class CtrAccount {
 		} finally {
 			connection.close();
 		}
-		
+
 	}
-	
+
 	private boolean CheckTK(String NameID) {
 		boolean result = false;
 		try {
-			Vector<Object[]> paramsIn=connection.createParams(new int[] {2}, new Object[] {NameID});
-			Vector<Object[]> paramOut=connection.createParams(new int[] {1}, new Object[] {Types.INTEGER});
-			int temp=(int)connection.executeScalarFunction("CheckID", paramsIn, paramOut);
-			result= (temp==0);
+			Vector<Object[]> paramsIn = connection.createParams(new int[] { 2 }, new Object[] { NameID });
+			Vector<Object[]> paramOut = connection.createParams(new int[] { 1 }, new Object[] { Types.INTEGER });
+			int temp = (int) connection.executeScalarFunction("CheckID", paramsIn, paramOut);
+			result = (temp == 0);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return result;
 	}
-	
-	public void ChangePass(String TenDangNhap,String MatKhaumoi) {
+
+	public void ChangePass(String TenDangNhap, String MatKhaumoi) {
 		connection.connect();
-		String MatKhau= MD5.encode(MatKhaumoi)  ;
+		String MatKhau = MD5.encode(MatKhaumoi);
 		try {
-				Vector<Object[]> paramsIn=connection.createParams(new int[] {1,2}, 
-						new Object[] {TenDangNhap,MatKhau});
-				connection.executeProcedure("ChangPassWord", paramsIn, null, null);
+			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1, 2 },
+					new Object[] { TenDangNhap, MatKhau });
+			connection.executeProcedure("ChangPassWord", paramsIn, null, null);
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			connection.close();
 		}
-		
+
 	}
-	
-	public void UpdateUserInf(String Matk,String TenNguoiDung,String GioiTinh,String NgaySinh,String DiaChi,String Email,String SDT) {
+
+	public boolean isValidString(String chuoi) {
+		String specialCharacters = " !#$%&'()*+,-./:;<=>?@[]^_`{|}~0123456789";
+		String str2[] = chuoi.split("");
+		int count = 0;
+		for (int i = 0; i < str2.length; i++) {
+			if (specialCharacters.contains(str2[i])) {
+				count++;
+			}
+		}
+
+		if (chuoi != null && count == 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void UpdateUserInf(String Matk, String TenNguoiDung, String GioiTinh, String NgaySinh, String DiaChi,
+			String Email, String SDT) {
 		connection.connect();
 		try {
-				Vector<Object[]> paramsIn=connection.createParams(new int[] {1,2,3,4,5,6,7}, 
-						new Object[] {Matk,TenNguoiDung,GioiTinh,NgaySinh,DiaChi,Email,SDT});
+			Vector<Object[]> paramsIn = connection.createParams(new int[] { 1, 2, 3, 4, 5, 6, 7 },
+					new Object[] { Matk, TenNguoiDung, GioiTinh, NgaySinh, DiaChi, Email, SDT });
+			if (isValidString(DiaChi)) {
 				connection.executeProcedure("UpUserInfo", paramsIn, null, null);
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			connection.close();
 		}
-		
+
 	}
 
 	public boolean checkAccount(String userId) {
@@ -196,7 +217,7 @@ public class CtrAccount {
 		}
 		return Accounts.toArray(new Account[0]);
 	}
-	
+
 	public Account UserProfile(String UserName) {
 		Account account = null;
 		connection.connect();

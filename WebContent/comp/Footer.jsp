@@ -170,7 +170,6 @@
 			var inputNumber = document.getElementById("count");
 			if (inputNumber.value > 50) {
 				alert("Bạn chỉ có thể thêm tối đa 50 sản phẩm");
-
 			} else {
 				return inputNumber.value;
 			}
