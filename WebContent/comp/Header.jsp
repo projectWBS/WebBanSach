@@ -218,13 +218,13 @@
 			<div class="form-group">
 				<label class="control-label" for="Password">Mật khẩu đăng
 					nhập</label> <input type="password" name="Password" value=""
-					placeholder=" Your password" id="Password" maxlength="50">
+					placeholder=" Your password" id="Password" maxlength="50" autocomplete="off">
 			</div>
 			<div class="form-group">
 				<label class="control-label" for="Confirmpassword">Xác nhận
 					mật khẩu</label> <input type="password" name="Confirmassword" value=""
 					placeholder=" Confirm your password" id="Confirmpassword"
-					maxlength="50">
+					maxlength="50" autocomplete="off">
 			</div>
 			<div style="position: relative; width: 100%; text-align: center">
 				<button class="button submit-button" onclick="dangkytk()">Đăng
@@ -233,57 +233,6 @@
 			</br>
 		</form>
 	</div>
-	
-	
-	<script type="text/javascript">
-		function checkStrongPass() {
-			var password=$.trim($("#Password").val());
-			var numbercheck = scorePassword(password);
-			if(numbercheck<70){
-				alert("mat khau k manh");
-				return 0;
-			}
-			else{
-				return 1;
-			}
-			
-			
-			
-		}
-		function scorePassword(pass) {
-		    var score = 0;
-		    if (!pass)
-		        return score;
-
-		    // award every unique letter until 5 repetitions
-		    var letters = new Object();
-		    for (var i=0; i<pass.length; i++) {
-		        letters[pass[i]] = (letters[pass[i]] || 0) + 1;
-		        score += 5.0 / letters[pass[i]];
-		    }
-
-		    // bonus points for mixing it up
-		    var variations = {
-		        digits: /\d/.test(pass),
-		        lower: /[a-z]/.test(pass),
-		        upper: /[A-Z]/.test(pass),
-		        nonWords: /\W/.test(pass),
-		    }
-
-		    variationCount = 0;
-		    for (var check in variations) {
-		        variationCount += (variations[check] == true) ? 1 : 0;
-		    }
-		    score += (variationCount - 1) * 10;
-
-		    return parseInt(score);
-		}
-		
-	</script>	
-	
-	
-	
-	
 	<script type="text/javascript">
 			$(document).ready(function(){
 				
@@ -325,37 +274,31 @@
 			});
 			
 			function dangkytk(){
-				if(checkStrongPass()==1)
-				{
-					
-						var TenDangNhap,TenNguoiDung,GioiTinh,NgaySinh,DiaChi,Email,SDT,MatKhau,XNMatKhau;
-						TenDangNhap= $('#NameSignUp').val();
-						MatKhau=$('#Password').val();
-						TenNguoiDung=$('#UserSignUp').val();
-						GioiTinh=$('#Sex').val();
-						NgaySinh=$('#typedate').val(); 
-						DiaChi=$('#Address').val();
-						Email=$('#Email').val();
-						SDT=$('#PhoneNumber').val();
-						XNMatKhau=$('#Confirmpassword').val();
-						if(confirmpass(MatKhau,XNMatKhau)==true)
-							{
-								$.post('SignUp',{
-									TenDangNhap:TenDangNhap,
-									TenNguoiDung:TenNguoiDung,
-									GioiTinh:GioiTinh,
-									NgaySinh:NgaySinh,
-									DiaChi:DiaChi,
-									Email:Email,
-									SDT:SDT,
-									MatKhau:MatKhau
-								}, function(){
-									$('.signup-container').fadeOut(100);	
-								});
-							}
-					alert("thanhcodn");
-				}
-				
+				var TenDangNhap,TenNguoiDung,GioiTinh,NgaySinh,DiaChi,Email,SDT,MatKhau,XNMatKhau;
+				TenDangNhap= $('#NameSignUp').val();
+				MatKhau=$('#Password').val();
+				TenNguoiDung=$('#UserSignUp').val();
+				GioiTinh=$('#Sex').val();
+				NgaySinh=$('#typedate').val(); 
+				DiaChi=$('#Address').val();
+				Email=$('#Email').val();
+				SDT=$('#PhoneNumber').val();
+				XNMatKhau=$('#Confirmpassword').val();
+				if(confirmpass(MatKhau,XNMatKhau)==true)
+					{
+						$.post('SignUp',{
+							TenDangNhap:TenDangNhap,
+							TenNguoiDung:TenNguoiDung,
+							GioiTinh:GioiTinh,
+							NgaySinh:NgaySinh,
+							DiaChi:DiaChi,
+							Email:Email,
+							SDT:SDT,
+							MatKhau:MatKhau
+						}, function(){
+							$('.signup-container').fadeOut(100);	
+						});
+					}
 			}
 			function confirmpass(MatKhau,XNMatKhau)
 			{
